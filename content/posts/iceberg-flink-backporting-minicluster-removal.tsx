@@ -1,0 +1,217 @@
+import type { BlogPost } from "@/lib/types"
+
+export const meta: Omit<BlogPost, "id"> = {
+  title: "📘 Flink 1.19 및 1.20에 MiniClusterWithClientResource 종속성 제거 Backport",
+  excerpt:
+    "Iceberg Flink Catalog v2.0에서 성공한 MiniClusterWithClientResource 종속성 제거 작업을 Flink 1.19와 1.20 버전에 백포팅한 경험을 공유합니다.",
+  author: "전대홍",
+  publishedAt: "2025-01-14",
+  tags: ["OpenSource PR", "Iceberg", "Flink", "Backporting"],
+  category: "오픈소스기여",
+  views: 0,
+  likes: 0,
+  featured: false,
+  thumbnail: "/assets/img/thumbnail/OpenSource_3.png",
+  bookmark: true,
+}
+
+const content = `
+# ✏️ 1. 서론
+
+이전 포스팅에서 소개한 것처럼, Iceberg Flink Catalog v2.0에서 \`MiniClusterWithClientResource\` 종속성 제거에 성공했습니다. 이에 따라 해당 이슈의 연장선이자 메인테이너의 요청에 따라, 동일한 변경 사항을 Flink 1.19와 1.20 버전에도 백포팅하기로 했습니다.
+
+(현재 Iceberg는 1.9.1 버전을 사용 중이며, Flink Catalog는 1.19, 1.20, 그리고 2.0 버전을 지원합니다.)
+
+이번 작업은 이전 포스팅인 **📘 Iceberg Flink Catalog v2.0 MiniClusterWithClientResource 종속성 제거**의 연장선이자, 유사한 내용이 많아, 비교적 짧게 정리해보려 합니다.
+
+<br>
+<br>
+<div align="center">◈</div>
+<br>
+
+# ✏️ 2. 본론
+
+## 💻 2.1. PR: MiniClusterWithClientResource 종속성 제거 Backporting
+
+이번 작업 역시 이전 PR의 연장선에 있기 때문에, 이슈 선정 과정에 대한 자세한 설명은 생략합니다.
+
+아래와 같이, 백포팅에 대한 요청이 있었다는 내용을 남깁니다.
+
+<div className="my-8">
+  <img src="/assets/img/apache-iceberg-backporting.PNG" alt="Apache Iceberg 백포팅 요청" style="border: 2px solid skyblue; border-radius: 4px;" width="100%" />
+</div>
+
+따라서 이번 포스팅에서는 곧바로 PR 과정부터 다루겠습니다.
+
+이슈 선정 배경이나 PR 전체 흐름이 궁금하신 분들은 이전 포스팅인 **📘 Iceberg Flink Catalog v2.0 MiniClusterWithClientResource 종속성 제거**를 참고해주시기 바랍니다.
+
+### 1️⃣ COMMIT : v1.19 Backporting
+
+기존 2.0의 TestIcebergSourceFailover 클래스와는 크게 다른 부분이 없었습니다. 중간에 구현된 코드가 약간은 다르긴 하였지만, 제가 수정해야하는 범위와는 무관한 부분이었기 때문에 넘어갔습니다.
+
+해당 코드의 이전 버전은 아래와 같았습니다. ( v2.0 과 동일 )
+
+**Before:**
+\`\`\`java
+import org.apache.flink.test.util.MiniClusterWithClientResource;
+import org.apache.flink.util.function.ThrowingConsumer;
+
+// ...
+
+@Test
+public void testBoundedWithTaskManagerFailover() throws Exception {
+    runTestWithNewMiniCluster(
+        miniCluster -> testBoundedIcebergSource(FailoverType.TM, miniCluster));
+}
+
+@Test
+public void testBoundedWithJobManagerFailover() throws Exception {
+    runTestWithNewMiniCluster(
+        miniCluster -> testBoundedIcebergSource(FailoverType.JM, miniCluster));
+}
+  
+// ...
+
+@Test
+public void testContinuousWithTaskManagerFailover() throws Exception {
+    runTestWithNewMiniCluster(
+        miniCluster -> testContinuousIcebergSource(FailoverType.TM, miniCluster));
+}
+
+@Test
+public void testContinuousWithJobManagerFailover() throws Exception {
+    runTestWithNewMiniCluster(
+        miniCluster -> testContinuousIcebergSource(FailoverType.JM, miniCluster));
+}
+
+// ...
+
+private static void runTestWithNewMiniCluster(ThrowingConsumer<MiniCluster, Exception> testMethod) throws Exception {
+    MiniClusterWithClientResource miniCluster = null;
+    try {
+        miniCluster = new MiniClusterWithClientResource(MINI_CLUSTER_RESOURCE_CONFIG);
+        miniCluster.before();
+        testMethod.accept(miniCluster.getMiniCluster());
+    } finally {
+        if (miniCluster != null) {
+          miniCluster.after();
+        }
+    }
+}
+\`\`\`
+
+그래서 아래와 같은 코드로 수정을 동일하게 진행하였습니다.
+
+**After:**
+\`\`\`java
+import org.apache.flink.test.junit5.InjectMiniCluster;
+import org.junit.jupiter.api.AfterEach;
+
+// ...
+
+@BeforeEach
+protected void startMiniCluster(@InjectMiniCluster MiniCluster miniCluster) throws Exception {
+    if (!miniCluster.isRunning()) {
+      miniCluster.start();
+    }
+}
+
+@AfterEach
+protected void stopMiniCluster(@InjectMiniCluster MiniCluster miniCluster) throws Exception {
+    miniCluster.close();
+}
+
+// ...
+
+@Test
+public void testBoundedWithTaskManagerFailover(@InjectMiniCluster MiniCluster miniCluster) throws Exception {
+    testBoundedIcebergSource(FailoverType.TM, miniCluster);
+}
+  
+@Test
+public void testBoundedWithJobManagerFailover(@InjectMiniCluster MiniCluster miniCluster) throws Exception {
+    testBoundedIcebergSource(FailoverType.JM, miniCluster);
+}
+  
+// ...
+  
+@Test
+public void testContinuousWithTaskManagerFailover(@InjectMiniCluster MiniCluster miniCluster) throws Exception {
+    testContinuousIcebergSource(FailoverType.TM, miniCluster);
+}
+
+@Test
+public void testContinuousWithJobManagerFailover(@InjectMiniCluster MiniCluster miniCluster) throws Exception {
+    testContinuousIcebergSource(FailoverType.JM, miniCluster);
+}
+\`\`\`
+
+이렇게 코드를 수정하게 된 이유와, Minicluster 의 역할 그리고 InjectMiniCluster 와의 차이에 대해서 역시 이전 포스팅에 작성 되어있습니다.
+
+거듭 말씀드리지만, 이전 포스팅을 꼭 참고하시기 바랍니다. :D
+
+<br>
+
+### 2️⃣ COMMIT : v1.20 Backporting
+
+**v1.20 백포팅 작업은, v1.19 와 완전 동일하게 진행되었습니다.**
+
+**코드 역시 완전 동일하게 수정하였습니다.**
+
+그리하여, 최종적으로는 아래와 같은 PR 을 전송하였고, 성공적으로 Merge 가 되었습니다.
+
+<br>
+
+> 👉 My PR: [Backporting Removal of MiniClusterWithClientResource from Iceberg Flink Catalog v1.19, v1.20](https://github.com/apache/iceberg/pull/13165)
+
+<br>
+
+<div className="my-8">
+  <img src="/assets/img/apache-iceberg2-merge.PNG" alt="Apache Iceberg PR 머지 완료" style="border: 2px solid skyblue; border-radius: 4px;" width="100%" />
+</div>
+
+<br>
+
+### 🍹 중간에 마주한 약간의 이슈
+
+이전 포스팅에서 Local 테스트와, CI 테스트를 성공하기 위하여 필요한 몇 가지 Gradle 명령어를 말씀드렸습니다.
+
+이번에 역시 동일한 과정을 거쳤고, 코드 스타일을 맞추기 위해 \`./gradlew :iceberg-flink:iceberg-flink-1.19:spotlessApply\` 와 \`./gradlew :iceberg-flink:iceberg-flink-1.20:spotlessApply\` 명령어를 사용하였습니다.
+
+그랬더니 아래와 같은 오류가 발생하게 됩니다.
+
+<div className="my-8">
+  <img src="/assets/img/apache-iceberg-error.PNG" alt="Gradle 오류 메시지" style="border: 2px solid skyblue; border-radius: 4px;" width="100%" />
+</div>
+
+에러를 보면, Gradle이 :iceberg-flink:iceberg-flink-1.20:spotlessApply 라는 태스크(혹은 모듈)를 실행하려 했지만, iceberg-flink 프로젝트 아래에 iceberg-flink-1.20 이라는 서브프로젝트가 존재하지 않다는 내용입니다. 존재하는 서브프로젝트 후보는 iceberg-flink-2.0 이 있다고 친절하게 알려주고 있지만, 우리에게 필요한건 1.19 와 1.20 버전입니다.
+
+저는 처음에는 2.0 으로 해도, 자동으로 1.19 와 1.20 코드 스타일도 맞춰질 줄 알았는데 그게 아니었습니다.
+
+그래서 아래와 같이 질문을 하였습니다.
+
+<div className="my-8">
+  <img src="/assets/img/apache-iceberg-q.PNG" alt="질문 스크린샷" style="border: 2px solid skyblue; border-radius: 4px;" width="100%" />
+</div>
+
+그래서 \`./gradlew properties\` 명령어를 통해 찾아보았더니, 역시 ***systemProp.defaultFlinkVersions: 2.0*** 으로, 되어있었습니다.
+
+그래서 vi 로 **gradle.properties** 를 열어주었고, \`enableFlink1.19=true\` 과, \`enableFlink1.20=true\` 을 추가해준 뒤 spotlessApply 명령어를 실행해주었습니다.
+
+**그랬더니 정상적으로 성공하였고, PR 후 Merge 까지 성공하였습니다.**
+
+<br>
+<br>
+<div align="center">◈</div>
+<br>
+
+# ✏️ 3. 결론
+
+이번 작업은 Iceberg Flink Catalog v2.0에서 진행했던 MiniClusterWithClientResource 제거 작업을 Flink 1.19 및 1.20 버전에 성공적으로 백포팅한 사례였습니다.
+
+코드 변경 자체는 이전과 거의 동일했지만, Gradle 설정 및 로컬 테스트 환경 설정에서 발생한 작은 이슈를 해결하면서, Iceberg 프로젝트의 Gradle 구성과 서브모듈 활성화 방식에 대해 더 깊이 이해할 수 있는 계기가 되었습니다.
+
+이번 경험을 바탕으로 앞으로도 오픈소스 프로젝트에 더욱 적극적으로 기여하며, 다양한 문제 상황을 주도적으로 해결해나갈 수 있도록 꾸준히 역량을 키워가겠습니다. 💪
+`
+
+export default content

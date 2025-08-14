@@ -1,0 +1,328 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222 84% 5%;
+    --card: 0 0% 100%;
+    --card-foreground: 222 84% 5%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 84% 5%;
+    --primary: 221 83% 53%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 222 84% 5%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 16% 47%;
+    --accent: 210 40% 96%;
+    --accent-foreground: 222 84% 5%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 221 83% 53%;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 222 84% 5%;
+    --foreground: 210 40% 98%;
+    --card: 222 84% 5%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222 84% 5%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 217 91% 60%;
+    --primary-foreground: 222 84% 5%;
+    --secondary: 217 32% 17%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217 32% 17%;
+    --muted-foreground: 215 20% 65%;
+    --accent: 217 32% 17%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62% 30%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217 32% 17%;
+    --input: 217 32% 17%;
+    --ring: 224 76% 48%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@layer utilities {
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  .line-clamp-1 {
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  /* 긴 단어 줄바꿈 처리 */
+  .prose p,
+  .prose li,
+  .prose blockquote,
+  .prose div {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    word-break: break-word;
+    hyphens: auto;
+  }
+
+  /* 코드 블록 내 긴 텍스트 처리 */
+  .prose code:not(pre code) {
+    background: linear-gradient(135deg, #1e293b 0%, #334155 100%) !important;
+    color: #e2e8f0 !important;
+    padding: 0.25rem 0.5rem !important;
+    border-radius: 6px !important;
+    font-size: 0.875em !important;
+    border: 1px solid #475569 !important;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
+    font-family: "SF Mono", "Monaco", "Inconsolata", "Roboto Mono", "Consolas", "Courier New", monospace !important;
+    font-weight: 500 !important;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    word-break: break-word;
+    white-space: pre-wrap;
+  }
+
+  /* 일반 텍스트 컨테이너 */
+  .container,
+  .max-w-4xl,
+  .prose {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+
+  /* 특별히 긴 기술 용어나 URL 등을 위한 처리 */
+  .break-words {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    word-break: break-word;
+  }
+
+  /* 모바일에서 더 적극적인 단어 분리 */
+  @media (max-width: 640px) {
+    .prose p,
+    .prose li,
+    .prose blockquote,
+    .prose div,
+    .prose code:not(pre code) {
+      word-break: break-all;
+      overflow-wrap: anywhere;
+    }
+
+    /* 컨테이너 오버플로우 방지 */
+    .container,
+    .max-w-4xl {
+      overflow-x: hidden;
+    }
+  }
+}
+
+.prose {
+  @apply text-foreground;
+}
+
+.prose h1,
+.prose h2,
+.prose h3,
+.prose h4,
+.prose h5,
+.prose h6 {
+  @apply text-foreground;
+}
+
+.prose strong {
+  @apply text-foreground;
+}
+
+.prose blockquote {
+  @apply text-foreground border-l-primary;
+}
+
+/* 기본 코드 스타일 - SSR에서도 적용됨 */
+pre[class*="language-"],
+code[class*="language-"] {
+  color: #e2e8f0 !important;
+  background: transparent !important;
+  font-family: "SF Mono", "Monaco", "Inconsolata", "Roboto Mono", "Consolas", "Courier New", monospace !important;
+  font-size: 14px !important;
+  line-height: 1.5 !important;
+  text-shadow: none !important;
+}
+
+/* 기본 토큰 스타일 - 하이드레이션 전에도 적용 */
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+  color: #64748b !important;
+  font-style: italic !important;
+}
+
+.token.punctuation {
+  color: #94a3b8 !important;
+}
+
+.token.property,
+.token.tag,
+.token.constant,
+.token.symbol,
+.token.deleted {
+  color: #f87171 !important;
+}
+
+.token.boolean,
+.token.number {
+  color: #fbbf24 !important;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+  color: #34d399 !important;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string,
+.token.variable {
+  color: #60a5fa !important;
+}
+
+.token.atrule,
+.token.attr-value,
+.token.function,
+.token.class-name {
+  color: #a78bfa !important;
+}
+
+.token.keyword {
+  color: #fb7185 !important;
+  font-weight: 600 !important;
+}
+
+.token.regex,
+.token.important {
+  color: #f97316 !important;
+}
+
+/* 언어별 특화 스타일 */
+.language-javascript .token.keyword,
+.language-typescript .token.keyword,
+.language-jsx .token.keyword,
+.language-tsx .token.keyword {
+  color: #fb7185 !important;
+  font-weight: 600 !important;
+}
+
+.language-javascript .token.function,
+.language-typescript .token.function,
+.language-jsx .token.function,
+.language-tsx .token.function {
+  color: #a78bfa !important;
+}
+
+.language-java .token.keyword {
+  color: #60a5fa !important;
+  font-weight: 600 !important;
+}
+
+.language-java .token.class-name {
+  color: #fbbf24 !important;
+  font-weight: 600 !important;
+}
+
+.language-java .token.function {
+  color: #34d399 !important;
+}
+
+.language-python .token.keyword {
+  color: #60a5fa !important;
+  font-weight: 600 !important;
+}
+
+.language-python .token.function {
+  color: #fbbf24 !important;
+}
+
+.language-sql .token.keyword {
+  color: #fb7185 !important;
+  font-weight: 600 !important;
+  text-transform: uppercase !important;
+}
+
+.language-bash .token.keyword,
+.language-shell .token.keyword {
+  color: #60a5fa !important;
+  font-weight: 600 !important;
+}
+
+.dark .prose code:not(pre code) {
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%) !important;
+  color: #cbd5e1 !important;
+  border-color: #334155 !important;
+}
+
+@media (min-width: 641px) and (max-width: 1024px) {
+  .container {
+    @apply px-6;
+  }
+}
+
+.card-grid {
+  display: grid;
+  grid-template-rows: masonry;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-fade-in,
+  .animate-scale-in,
+  .animate-slide-up {
+    animation: none;
+  }
+
+  .transition-all {
+    transition: none;
+  }
+}
+
+.prose pre {
+  font-family: "SF Mono", "Monaco", "Inconsolata", "Roboto Mono", "Consolas", "Courier New", monospace !important;
+}
