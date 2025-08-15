@@ -3,11 +3,25 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
-import { Mail, Phone, MapPin, Calendar, Award, Briefcase, Code, GraduationCap, Shield, Users, Github, ExternalLink, GitPullRequest } from 'lucide-react'
+import {
+  Mail,
+  Phone,
+  MapPin,
+  Calendar,
+  Award,
+  Briefcase,
+  Code,
+  GraduationCap,
+  Shield,
+  Users,
+  Github,
+  ExternalLink,
+  GitPullRequest,
+} from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 import { useState } from "react"
-import { ChevronDown, ChevronUp } from 'lucide-react'
+import { ChevronDown, ChevronUp } from "lucide-react"
 
 export default function MePage() {
   const coreSkills = [
@@ -57,7 +71,7 @@ export default function MePage() {
     {
       name: "Apache Iceberg",
       role: "Contributor",
-      description: "Flink Catalog의 테스트 의존성을 제거하여 빌드 안정성 및 성능 개선에 기여했습니다.",
+      description: "대규모 데이터를 안정적으로 관리하고, 효율적으로 처리할 수 있는 테이블 포맷에 기여하였습니다.",
       contributions: "2 PRs merged",
       prs: [
         {
@@ -75,9 +89,24 @@ export default function MePage() {
       ],
     },
     {
+      name: "Apache Gravitino",
+      role: "Contributor",
+      description: "다양한 데이터 소스의 메타데이터를 통합적으로 관리하고 거버넌스를 제공하는 시스템에 기여하였습니다.",
+      contributions: "1 PR merged",
+      prs: [
+        {
+          title: "fix: call request.validate() in PartitionOperations.java",
+          description:
+            "PartitionOperations.java의 addPartitions 메서드에 request.validate() 호출을 추가하여 잘못된 요청을 적절히 거부하도록 개선",
+          status: "Merged (2025.08)",
+          link: "https://github.com/apache/gravitino/pull/8098",
+        },
+      ],
+    },
+    {
       name: "Spring Kafka",
       role: "Contributor",
-      description: "RetryTopic의 기본 KafkaTemplate Bean 이름 변경을 통해 명확성을 개선했습니다.",
+      description: "스프링 애플리케이션에서 Kafka 메시징을 쉽게 연동하고 관리할 수 있는 프레임워크에 기여하였습니다.",
       contributions: "1 PR merged",
       prs: [
         {
@@ -295,104 +324,104 @@ export default function MePage() {
   }
 
   function ProjectCard({ project }: { project: any }) {
-  const [isExpanded, setIsExpanded] = useState(false)
+    const [isExpanded, setIsExpanded] = useState(false)
 
-  return (
-    <Card className="border-2 hover:border-primary/20 transition-colors duration-300">
-      <CardHeader>
-        <div className="flex justify-between items-start">
-          <div className="flex-1">
-            <CardTitle className="text-lg mb-2">{project.name}</CardTitle>
-            <div className="flex flex-col sm:flex-row sm:items-center gap-2 mb-2">
-              <Badge variant="outline" className="text-xs w-fit bg-blue-50 border-blue-200 text-blue-700">
-                {project.company}
-              </Badge>
-              <Badge variant="outline" className="text-xs w-fit bg-green-50 border-green-200 text-green-700">
-                {project.period}
-              </Badge>
+    return (
+      <Card className="border-2 hover:border-primary/20 transition-colors duration-300">
+        <CardHeader>
+          <div className="flex justify-between items-start">
+            <div className="flex-1">
+              <CardTitle className="text-lg mb-2">{project.name}</CardTitle>
+              <div className="flex flex-col sm:flex-row sm:items-center gap-2 mb-2">
+                <Badge variant="outline" className="text-xs w-fit bg-blue-50 border-blue-200 text-blue-700">
+                  {project.company}
+                </Badge>
+                <Badge variant="outline" className="text-xs w-fit bg-green-50 border-green-200 text-green-700">
+                  {project.period}
+                </Badge>
+              </div>
+              <p className="text-sm text-muted-foreground mb-2">
+                <span className="font-medium text-purple-600">역할:</span> {project.role}
+              </p>
+              <p className="text-sm text-muted-foreground">
+                <span className="font-medium text-amber-600">환경:</span> {project.environment}
+              </p>
             </div>
-            <p className="text-sm text-muted-foreground mb-2">
-              <span className="font-medium text-purple-600">역할:</span> {project.role}
-            </p>
-            <p className="text-sm text-muted-foreground">
-              <span className="font-medium text-amber-600">환경:</span> {project.environment}
-            </p>
+            <Button variant="ghost" size="sm" onClick={() => setIsExpanded(!isExpanded)} className="ml-4 flex-shrink-0">
+              {isExpanded ? <ChevronUp className="h-4 w-4" /> : <ChevronDown className="h-4 w-4" />}
+            </Button>
           </div>
-          <Button variant="ghost" size="sm" onClick={() => setIsExpanded(!isExpanded)} className="ml-4 flex-shrink-0">
-            {isExpanded ? <ChevronUp className="h-4 w-4" /> : <ChevronDown className="h-4 w-4" />}
-          </Button>
-        </div>
-      </CardHeader>
-      <CardContent>
-        <p className="text-sm text-muted-foreground mb-3">{project.description}</p>
+        </CardHeader>
+        <CardContent>
+          <p className="text-sm text-muted-foreground mb-3">{project.description}</p>
 
-        <div className="mb-4">
-          <p className="text-sm font-medium text-indigo-600 mb-2">기술 스택</p>
-          <div className="flex flex-wrap gap-2">
-            {project.tech.map((tech: string, techIndex: number) => (
-              <Badge 
-                key={techIndex} 
-                variant="secondary" 
-                className="text-xs bg-gradient-to-r from-slate-100 to-slate-200 border border-slate-300 text-slate-700 hover:from-slate-200 hover:to-slate-300 transition-all duration-200"
-              >
-                {tech}
-              </Badge>
-            ))}
-          </div>
-        </div>
-
-        <div className="space-y-1 mb-4">
-          <p className="text-sm font-medium">주요 성과:</p>
-          <ul className="text-sm text-muted-foreground space-y-1">
-            {project.achievements.map((achievement: string, achIndex: number) => (
-              <li key={achIndex} className="flex items-start space-x-2">
-                <div className="w-1.5 h-1.5 bg-primary rounded-full mt-2 flex-shrink-0"></div>
-                <span>{achievement}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        {isExpanded && project.details && (
-          <div className="mt-6 pt-4 border-t space-y-6 animate-fade-in">
-            <div>
-              <h4 className="font-semibold text-sm mb-2">프로젝트 배경 및 목표</h4>
-              <p className="text-sm text-muted-foreground leading-relaxed">{project.details.background}</p>
+          <div className="mb-4">
+            <p className="text-sm font-medium text-indigo-600 mb-2">기술 스택</p>
+            <div className="flex flex-wrap gap-2">
+              {project.tech.map((tech: string, techIndex: number) => (
+                <Badge
+                  key={techIndex}
+                  variant="secondary"
+                  className="text-xs bg-gradient-to-r from-slate-100 to-slate-200 border border-slate-300 text-slate-700 hover:from-slate-200 hover:to-slate-300 transition-all duration-200"
+                >
+                  {tech}
+                </Badge>
+              ))}
             </div>
+          </div>
 
-            <div>
-              <h4 className="font-semibold text-sm mb-3">기술적 도전과 해결</h4>
-              <div className="space-y-4">
-                {project.details.challenges.map((challenge: any, challengeIndex: number) => (
-                  <div key={challengeIndex} className="bg-muted/30 rounded-lg p-4">
-                    <h5 className="font-medium text-sm mb-2 text-primary">{challenge.title}</h5>
+          <div className="space-y-1 mb-4">
+            <p className="text-sm font-medium">주요 성과:</p>
+            <ul className="text-sm text-muted-foreground space-y-1">
+              {project.achievements.map((achievement: string, achIndex: number) => (
+                <li key={achIndex} className="flex items-start space-x-2">
+                  <div className="w-1.5 h-1.5 bg-primary rounded-full mt-2 flex-shrink-0"></div>
+                  <span>{achievement}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
 
-                    <div className="space-y-3 text-xs">
-                      <div>
-                        <span className="font-medium text-red-600">문제:</span>
-                        <p className="mt-1 text-muted-foreground leading-relaxed">{challenge.problem}</p>
-                      </div>
+          {isExpanded && project.details && (
+            <div className="mt-6 pt-4 border-t space-y-6 animate-fade-in">
+              <div>
+                <h4 className="font-semibold text-sm mb-2">프로젝트 배경 및 목표</h4>
+                <p className="text-sm text-muted-foreground leading-relaxed">{project.details.background}</p>
+              </div>
 
-                      <div>
-                        <span className="font-medium text-blue-600">해결:</span>
-                        <p className="mt-1 text-muted-foreground leading-relaxed">{challenge.solution}</p>
-                      </div>
+              <div>
+                <h4 className="font-semibold text-sm mb-3">기술적 도전과 해결</h4>
+                <div className="space-y-4">
+                  {project.details.challenges.map((challenge: any, challengeIndex: number) => (
+                    <div key={challengeIndex} className="bg-muted/30 rounded-lg p-4">
+                      <h5 className="font-medium text-sm mb-2 text-primary">{challenge.title}</h5>
 
-                      <div>
-                        <span className="font-medium text-green-600">결과:</span>
-                        <p className="mt-1 text-muted-foreground leading-relaxed">{challenge.result}</p>
+                      <div className="space-y-3 text-xs">
+                        <div>
+                          <span className="font-medium text-red-600">문제:</span>
+                          <p className="mt-1 text-muted-foreground leading-relaxed">{challenge.problem}</p>
+                        </div>
+
+                        <div>
+                          <span className="font-medium text-blue-600">해결:</span>
+                          <p className="mt-1 text-muted-foreground leading-relaxed">{challenge.solution}</p>
+                        </div>
+
+                        <div>
+                          <span className="font-medium text-green-600">결과:</span>
+                          <p className="mt-1 text-muted-foreground leading-relaxed">{challenge.result}</p>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                ))}
+                  ))}
+                </div>
               </div>
             </div>
-          </div>
-        )}
-      </CardContent>
-    </Card>
-  )
-}
+          )}
+        </CardContent>
+      </Card>
+    )
+  }
 
   return (
     <div className="container mx-auto px-4 py-8 max-w-4xl">
@@ -595,10 +624,10 @@ export default function MePage() {
                   <div className="space-y-3">
                     <p className="text-sm font-medium">기여 내역:</p>
                     {project.prs.map((pr, prIndex) => (
-                      <Link 
-                        key={prIndex} 
-                        href={pr.link} 
-                        target="_blank" 
+                      <Link
+                        key={prIndex}
+                        href={pr.link}
+                        target="_blank"
                         rel="noopener noreferrer"
                         className="block bg-muted/30 rounded-lg p-4 hover:bg-muted/50 transition-all duration-300 hover:scale-[1.02] hover:shadow-md cursor-pointer group"
                       >
@@ -607,13 +636,20 @@ export default function MePage() {
                             <div className="flex flex-col sm:flex-row sm:items-center space-y-1 sm:space-y-0 sm:space-x-2 mb-2">
                               <div className="flex items-center space-x-2">
                                 <GitPullRequest className="h-4 w-4 text-green-600 flex-shrink-0 group-hover:scale-110 transition-transform" />
-                                <span className="font-medium text-sm group-hover:text-primary transition-colors">{pr.title}</span>
+                                <span className="font-medium text-sm group-hover:text-primary transition-colors">
+                                  {pr.title}
+                                </span>
                               </div>
-                              <Badge variant="outline" className="text-xs w-fit group-hover:border-primary transition-colors">
+                              <Badge
+                                variant="outline"
+                                className="text-xs w-fit group-hover:border-primary transition-colors"
+                              >
                                 {pr.status}
                               </Badge>
                             </div>
-                            <p className="text-xs text-muted-foreground group-hover:text-foreground/80 transition-colors">{pr.description}</p>
+                            <p className="text-xs text-muted-foreground group-hover:text-foreground/80 transition-colors">
+                              {pr.description}
+                            </p>
                           </div>
                           <ExternalLink className="h-4 w-4 ml-2 flex-shrink-0 text-muted-foreground group-hover:text-primary transition-colors opacity-0 group-hover:opacity-100" />
                         </div>

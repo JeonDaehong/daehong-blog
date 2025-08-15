@@ -14,7 +14,9 @@ export default function Home() {
               className="text-2xl sm:text-4xl md:text-6xl font-bold text-primary"
             />
             <p className="text-base sm:text-xl text-muted-foreground max-w-2xl mx-auto px-4">
-              개발자의 성장 과정과 기술적 인사이트를 기록하는 공간입니다.
+              하루에 한 걸음씩 꾸준히 성장하는 엔지니어 전대홍입니다.
+              <br />
+              데이터를 통해 세상을 더 좋은 방향으로 이끄는 것을 목표로 합니다.
             </p>
           </div>
 

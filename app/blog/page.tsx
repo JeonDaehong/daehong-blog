@@ -207,10 +207,10 @@ export default function BlogPage() {
         {/* 헤더 */}
         <div className="text-center space-y-4 bg-muted/50 rounded-xl p-6 md:p-10">
           <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent animate-fade-in">
-            개발 블로그
+            Daehong's IT BLOG
           </h1>
           <p className="text-base sm:text-lg md:text-xl text-muted-foreground animate-slide-up">
-            기술과 경험을 공유하는 공간입니다
+            기술과 경험을 공유하기 위한 공간입니다.
           </p>
         </div>
 
