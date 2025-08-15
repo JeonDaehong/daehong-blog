@@ -18,7 +18,7 @@ const itTechnologies = [
       {
         title: "MOR(Merge-on-Read) vs COW(Copy-on-Write) 및 쓰기 모드 설정",
         summary: "Iceberg의 두 가지 주요 테이블 타입과 개별 연산별 설정 방법",
-        date: "2025년 8월 12일",
+        date: "25.08.12",
         detail: `Apache Iceberg에서 테이블의 쓰기 모드(write.update.mode, write.delete.mode, write.merge.mode)는 COW(Copy-On-Write)와 MOR(Merge-On-Read) 중 선택할 수 있으며, 삽입, 수정, 삭제 연산마다 개별적으로 설정 가능합니다.
 
 COW (Copy-On-Write): 데이터를 삽입, 수정, 삭제할 때 기존 파일을 새로 복사하면서 변경 사항을 반영합니다. 즉, 적재 시점에 데이터가 실제 파일에 반영되므로 쓰기 비용이 크지만, 조회 시 최신 파일만 읽기 때문에 읽기 성능이 높습니다.
@@ -47,7 +47,7 @@ TBLPROPERTIES (
       {
         title: "MapReduce Combiner와 결합법칙/교환법칙",
         summary: "맵 단계에서 중간 결과를 미리 합치는 Combiner의 동작 원리와 수학적 조건",
-        date: "2025년 8월 13일",
+        date: "25.08.13",
         detail: `MapReduce의 Combiner는 맵 단계에서 생성된 중간 결과를 리듀서로 보내기 전에 로컬에서 미리 합치는 기능입니다. 예를 들어, 단어 수를 세는 작업에서 각 맵 노드가 처리한 문서에서 나온 단어별 개수를 먼저 합산한 후 리듀서로 보내면, 네트워크를 통해 전송되는 데이터 양을 크게 줄일 수 있습니다.
 
 Combiner는 최적화용으로 사용되며, 항상 사용해도 되는 것은 아니고, 합치기 연산이 결합 법칙(associative)과 교환 법칙(commutative)을 만족할 때만 정확한 결과를 보장합니다.
@@ -63,7 +63,7 @@ Combiner는 최적화용으로 사용되며, 항상 사용해도 되는 것은 �
       {
         title: "MapReduce 동작 조건",
         summary: "MapReduce가 실행되는 조건과 단순 데이터 읽기/쓰기와의 차이점",
-        date: "2025년 8월 15일",
+        date: "25.08.15",
         detail: `HDFS의 put·get 명령이나 Hive의 단순 SELECT 구문은 데이터를 단순히 읽고 쓰는 작업만 수행하므로 MapReduce가 실행되지 않습니다. MapReduce는 GROUP BY나 JOIN처럼 대용량 데이터를 분산 처리하고 집계하는 연산이 필요할 때에만 동작합니다.
 
 최근에는 Hive나 Pig 등에서 MapReduce 대신 Tez나 Spark 같은 DAG 기반 실행 엔진을 사용하여 동일한 분산 연산을 더 빠르고 효율적으로 수행할 수 있습니다. 이러한 엔진도 마찬가지로 단순 데이터 읽기/쓰기에는 동작하지 않고, 연산이 필요한 경우에만 실행됩니다.`,
@@ -78,7 +78,7 @@ Combiner는 최적화용으로 사용되며, 항상 사용해도 되는 것은 �
       {
         title: "CAP 이론의 핵심 개념과 실제 적용 사례",
         summary: "분산 시스템에서 세 가지 속성 중 두 가지만 선택할 수 있다는 원리와 실무 예시",
-        date: "2025년 8월 14일",
+        date: "25.08.14",
         detail: `CAP 이론은 분산 시스템에서 일관성(Consistency), 가용성(Availability), 파티션 허용성(Partition Tolerance) 중 세 가지를 동시에 완벽히 만족할 수 없다는 원리입니다.
 
 P(파티션 허용성)는 네트워크 장애가 불가피하므로 사실상 항상 유지해야 하며, 결국 CP(일관성·파티션 허용) 또는 AP(가용성·파티션 허용) 중 하나를 선택하게 됩니다.
@@ -130,10 +130,8 @@ export default function DictionaryPage() {
   }, [selectedTechnology, modalSearchTerm])
 
   const toggleExpanded = (index: number) => {
-    const newExpanded = new Set(expandedItems)
-    if (newExpanded.has(index)) {
-      newExpanded.delete(index)
-    } else {
+    const newExpanded = new Set<number>()
+    if (!expandedItems.has(index)) {
       newExpanded.add(index)
     }
     setExpandedItems(newExpanded)
@@ -143,6 +141,10 @@ export default function DictionaryPage() {
     setSelectedTechnology(null)
     setModalSearchTerm("")
     setExpandedItems(new Set())
+  }
+
+  const handleTechnologyClick = (tech: (typeof itTechnologies)[0]) => {
+    setSelectedTechnology(tech)
   }
 
   const getCategoryIcon = (categoryName: string) => {
@@ -237,7 +239,7 @@ export default function DictionaryPage() {
                   <Card
                     key={index}
                     className="group hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border-0 shadow-lg bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm cursor-pointer"
-                    onClick={() => setSelectedTechnology(tech)}
+                    onClick={() => handleTechnologyClick(tech)}
                   >
                     <CardHeader className="pb-3">
                       <div className="flex items-center justify-between mb-2">
@@ -320,6 +322,8 @@ export default function DictionaryPage() {
                       placeholder="지식 항목을 검색해보세요..."
                       value={modalSearchTerm}
                       onChange={(e) => setModalSearchTerm(e.target.value)}
+                      autoFocus={false}
+                      tabIndex={-1}
                       className="pl-10 pr-4 py-2 border-2 border-green-200 dark:border-green-800 focus:border-green-500 dark:focus:border-green-400 rounded-lg"
                     />
                   </div>
@@ -356,12 +360,12 @@ export default function DictionaryPage() {
                               </span>
                             </div>
                             <div className="flex-1 min-w-0">
-                              <div className="flex items-center justify-between mb-2">
+                              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-2 gap-1 sm:gap-0">
                                 <h4 className="font-semibold text-gray-900 dark:text-white hover:text-green-600 dark:hover:text-green-400 transition-colors">
                                   {title}
                                 </h4>
                                 {date && (
-                                  <span className="text-xs text-gray-500 dark:text-gray-400 bg-gray-100 dark:bg-gray-700 px-2 py-1 rounded-full">
+                                  <span className="text-xs text-gray-500 dark:text-gray-400 bg-gray-100 dark:bg-gray-700 px-2 py-1 rounded-full flex-shrink-0 w-fit">
                                     {date}
                                   </span>
                                 )}
