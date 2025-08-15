@@ -62,27 +62,33 @@ export function CodeBlock({
     return (
       <div
         className={cn(
-          "relative my-8 rounded-xl overflow-hidden border-2 border-slate-200 dark:border-slate-700 shadow-lg",
+          "relative my-4 sm:my-8 rounded-xl overflow-hidden border-2 border-slate-200 dark:border-slate-700 shadow-lg w-full",
           className,
         )}
       >
-        <div className="flex items-center justify-between bg-slate-100 dark:bg-slate-800 px-4 py-3 border-b border-slate-200 dark:border-slate-700">
-          <div className="flex items-center space-x-3">
+        <div className="flex items-center justify-between bg-slate-100 dark:bg-slate-800 px-2 sm:px-4 py-2 sm:py-3 border-b border-slate-200 dark:border-slate-700">
+          <div className="flex items-center space-x-2 sm:space-x-3 min-w-0">
             <div className="flex space-x-1">
-              <div className="w-3 h-3 rounded-full bg-red-500"></div>
-              <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
-              <div className="w-3 h-3 rounded-full bg-green-500"></div>
+              <div className="w-2 h-2 sm:w-3 sm:h-3 rounded-full bg-red-500"></div>
+              <div className="w-2 h-2 sm:w-3 sm:h-3 rounded-full bg-yellow-500"></div>
+              <div className="w-2 h-2 sm:w-3 sm:h-3 rounded-full bg-green-500"></div>
             </div>
-            {title && <span className="text-sm font-medium text-slate-700 dark:text-slate-300">{title}</span>}
+            {title && (
+              <span className="text-xs sm:text-sm font-medium text-slate-700 dark:text-slate-300 truncate">
+                {title}
+              </span>
+            )}
             {!title && (
               <span className="text-xs text-slate-500 dark:text-slate-400 uppercase font-mono">{language}</span>
             )}
           </div>
-          <div className="h-8 w-8"></div>
+          <div className="h-6 w-6 sm:h-8 sm:w-8"></div>
         </div>
         <div className="relative bg-slate-950 dark:bg-slate-900">
-          <pre className="p-4 overflow-x-auto text-sm">
-            <code className={`language-${language} block font-mono text-slate-100 leading-6 whitespace-pre`}>
+          <pre className="p-2 sm:p-4 overflow-x-auto text-xs sm:text-sm">
+            <code
+              className={`language-${language} block font-mono text-slate-100 leading-5 sm:leading-6 whitespace-pre`}
+            >
               {children.trim()}
             </code>
           </pre>
@@ -96,38 +102,40 @@ export function CodeBlock({
   return (
     <div
       className={cn(
-        "relative my-8 rounded-xl overflow-hidden border-2 border-slate-200 dark:border-slate-700 shadow-lg",
+        "relative my-4 sm:my-8 rounded-xl overflow-hidden border-2 border-slate-200 dark:border-slate-700 shadow-lg w-full",
         className,
       )}
     >
       {/* 헤더 */}
-      <div className="flex items-center justify-between bg-slate-100 dark:bg-slate-800 px-4 py-3 border-b border-slate-200 dark:border-slate-700">
-        <div className="flex items-center space-x-3">
+      <div className="flex items-center justify-between bg-slate-100 dark:bg-slate-800 px-2 sm:px-4 py-2 sm:py-3 border-b border-slate-200 dark:border-slate-700">
+        <div className="flex items-center space-x-2 sm:space-x-3 min-w-0 flex-1">
           <div className="flex space-x-1">
-            <div className="w-3 h-3 rounded-full bg-red-500"></div>
-            <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
-            <div className="w-3 h-3 rounded-full bg-green-500"></div>
+            <div className="w-2 h-2 sm:w-3 sm:h-3 rounded-full bg-red-500"></div>
+            <div className="w-2 h-2 sm:w-3 sm:h-3 rounded-full bg-yellow-500"></div>
+            <div className="w-2 h-2 sm:w-3 sm:h-3 rounded-full bg-green-500"></div>
           </div>
-          {title && <span className="text-sm font-medium text-slate-700 dark:text-slate-300">{title}</span>}
+          {title && (
+            <span className="text-xs sm:text-sm font-medium text-slate-700 dark:text-slate-300 truncate">{title}</span>
+          )}
           {!title && <span className="text-xs text-slate-500 dark:text-slate-400 uppercase font-mono">{language}</span>}
         </div>
         <Button
           variant="ghost"
           size="sm"
           onClick={handleCopy}
-          className="h-8 w-8 p-0 hover:bg-slate-200 dark:hover:bg-slate-700"
+          className="h-6 w-6 sm:h-8 sm:w-8 p-0 hover:bg-slate-200 dark:hover:bg-slate-700 flex-shrink-0"
         >
           {copied ? (
-            <Check className="h-4 w-4 text-green-500" />
+            <Check className="h-3 w-3 sm:h-4 sm:w-4 text-green-500" />
           ) : (
-            <Copy className="h-4 w-4 text-slate-600 dark:text-slate-400" />
+            <Copy className="h-3 w-3 sm:h-4 sm:w-4 text-slate-600 dark:text-slate-400" />
           )}
         </Button>
       </div>
 
       {/* 코드 영역 */}
       <div className="relative bg-slate-950 dark:bg-slate-900">
-        <pre className="p-4 overflow-x-auto text-sm">
+        <pre className="p-2 sm:p-4 overflow-x-auto text-xs sm:text-sm">
           <code ref={codeRef} className={`language-${language} block`}>
             {highlightLines.length > 0 ? (
               // 하이라이트 라인이 있는 경우
@@ -136,8 +144,9 @@ export function CodeBlock({
                   <div
                     key={index}
                     className={cn(
-                      "leading-6 whitespace-pre",
-                      highlightLines.includes(index + 1) && "bg-blue-500/20 -mx-4 px-4 border-l-4 border-blue-500",
+                      "leading-5 sm:leading-6 whitespace-pre",
+                      highlightLines.includes(index + 1) &&
+                        "bg-blue-500/20 -mx-2 sm:-mx-4 px-2 sm:px-4 border-l-2 sm:border-l-4 border-blue-500",
                     )}
                     dangerouslySetInnerHTML={{
                       __html: highlightedCode
@@ -150,7 +159,7 @@ export function CodeBlock({
             ) : (
               // 일반적인 경우
               <div
-                className="font-mono text-slate-100 leading-6 whitespace-pre"
+                className="font-mono text-slate-100 leading-5 sm:leading-6 whitespace-pre"
                 dangerouslySetInnerHTML={{
                   __html: highlightedCode || children.trim(),
                 }}

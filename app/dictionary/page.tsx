@@ -6,6 +6,7 @@ import { Input } from "@/components/ui/input"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog"
+import { CodeBlock } from "@/components/code-block"
 
 // IT Technologies data - including Iceberg, Hadoop, and CAP theorem
 const itTechnologies = [
@@ -273,7 +274,7 @@ export default function DictionaryPage() {
 
       {/* Technology Detail Modal */}
       <Dialog open={!!selectedTechnology} onOpenChange={handleModalClose}>
-        <DialogContent className="max-w-4xl max-h-[80vh] overflow-y-auto">
+        <DialogContent className="max-w-[95vw] sm:max-w-3xl lg:max-w-4xl max-h-[80vh] overflow-y-auto">
           {selectedTechnology && (
             <>
               <DialogHeader>
@@ -343,7 +344,7 @@ export default function DictionaryPage() {
                                 {originalIndex + 1}
                               </span>
                             </div>
-                            <div className="flex-1">
+                            <div className="flex-1 min-w-0">
                               <h4 className="font-semibold text-gray-900 dark:text-white mb-2 hover:text-green-600 dark:hover:text-green-400 transition-colors">
                                 {title}
                               </h4>
@@ -358,9 +359,9 @@ export default function DictionaryPage() {
                                       <h5 className="text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
                                         예시 코드:
                                       </h5>
-                                      <pre className="bg-gray-900 dark:bg-gray-950 text-green-400 p-4 rounded-lg overflow-x-auto text-sm">
-                                        <code>{originalItem.codeExample}</code>
-                                      </pre>
+                                      <CodeBlock language="sql" className="text-xs sm:text-sm">
+                                        {originalItem.codeExample}
+                                      </CodeBlock>
                                     </div>
                                   )}
                                 </div>
