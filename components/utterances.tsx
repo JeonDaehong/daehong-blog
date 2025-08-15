@@ -9,7 +9,7 @@ interface UtterancesProps {
 
 export function Utterances({ repo }: UtterancesProps) {
   const ref = useRef<HTMLDivElement>(null)
-  const { theme, resolvedTheme } = useTheme()
+  const { resolvedTheme } = useTheme()
 
   useEffect(() => {
     if (!ref.current) return
@@ -26,10 +26,7 @@ export function Utterances({ repo }: UtterancesProps) {
     script.setAttribute("repo", repo)
     script.setAttribute("issue-term", "url")
     script.setAttribute("label", "utterances")
-
-    const utterancesTheme = resolvedTheme === "dark" ? "github-dark" : "github-light"
-    script.setAttribute("theme", utterancesTheme)
-
+    script.setAttribute("theme", resolvedTheme === "dark" ? "github-dark" : "github-light")
     script.setAttribute("crossorigin", "anonymous")
     script.async = true
 
@@ -37,11 +34,9 @@ export function Utterances({ repo }: UtterancesProps) {
   }, [repo, resolvedTheme])
 
   return (
-    <div className="w-full mt-12">
-      <div className="border-t border-border pt-8">
-        <h3 className="text-lg font-semibold mb-4">댓글</h3>
-        <div ref={ref} />
-      </div>
+    <div className="w-full">
+      <h3 className="text-xl font-semibold mb-6 text-foreground">댓글</h3>
+      <div ref={ref} />
     </div>
   )
 }

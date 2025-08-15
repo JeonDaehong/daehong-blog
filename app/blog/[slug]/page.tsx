@@ -4,7 +4,6 @@ import { notFound } from "next/navigation"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
-import { Separator } from "@/components/ui/separator"
 import { CodeBlock } from "@/components/code-block"
 import { Utterances } from "@/components/utterances"
 import { posts, blogPosts } from "@/lib/posts"
@@ -342,11 +341,9 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
             </div>
           </div>
 
-          <div className="bg-white/60 dark:bg-slate-900/60 backdrop-blur-sm rounded-2xl border border-slate-200/50 dark:border-slate-700/50 shadow-lg p-6 sm:p-8 md:p-10">
+          <div className="bg-white/60 dark:bg-slate-900/60 backdrop-blur-sm rounded-2xl border border-slate-200/50 dark:border-slate-700/50 shadow-lg p-6 sm:p-8 md:p-10 mt-4">
             <Utterances repo="JeonDaehong/utterances-" />
           </div>
-
-          <Separator className="my-8" />
 
           {/* 작성자 정보 - 디자인 개선 */}
           <Card className="border border-slate-200/60 dark:border-slate-700/60 shadow-lg hover:shadow-xl transition-all duration-300 bg-white/80 dark:bg-slate-900/80 backdrop-blur-sm">
