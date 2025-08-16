@@ -203,7 +203,7 @@ export default function DictionaryPage() {
 
       {/* Technology Detail Modal */}
       <Dialog open={!!selectedTechnology} onOpenChange={handleModalClose}>
-        <DialogContent className="max-w-[95vw] sm:max-w-3xl lg:max-w-4xl max-h-[80vh] overflow-y-auto">
+        <DialogContent className="max-w-[95vw] sm:max-w-3xl lg:max-w-4xl max-h-[80vh] overflow-y-auto overflow-x-hidden">
           {selectedTechnology &&
             (() => {
               const ModalIcon = getCategoryIcon(selectedTechnology.category)
@@ -215,8 +215,8 @@ export default function DictionaryPage() {
                       <div className="flex items-center justify-center w-12 h-12 bg-green-100 dark:bg-green-900 rounded-full">
                         <ModalIcon className="w-6 h-6 text-green-600 dark:text-green-400" />
                       </div>
-                      <div>
-                        <DialogTitle className="text-2xl font-bold text-gray-900 dark:text-white">
+                      <div className="min-w-0 flex-1">
+                        <DialogTitle className="text-2xl font-bold text-gray-900 dark:text-white break-words">
                           {selectedTechnology.name}
                         </DialogTitle>
                         <Badge className={`mt-1 ${getCategoryColor(selectedTechnology.category)}`}>
@@ -226,8 +226,8 @@ export default function DictionaryPage() {
                     </div>
                   </DialogHeader>
 
-                  <div className="mt-6">
-                    <p className="text-lg text-gray-700 dark:text-gray-300 mb-6 leading-relaxed">
+                  <div className="mt-6 overflow-hidden">
+                    <p className="text-lg text-gray-700 dark:text-gray-300 mb-6 leading-relaxed break-words">
                       {selectedTechnology.description}
                     </p>
 
@@ -246,7 +246,7 @@ export default function DictionaryPage() {
                     </div>
 
                     <div className="space-y-4">
-                      <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">
+                      <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4 break-words">
                         얇고 넓은 지식들
                         {modalSearchTerm && (
                           <span className="text-sm font-normal text-gray-500 dark:text-gray-400 ml-2">
@@ -275,9 +275,9 @@ export default function DictionaryPage() {
                                     {originalIndex + 1}
                                   </span>
                                 </div>
-                                <div className="flex-1 min-w-0">
+                                <div className="flex-1 min-w-0 overflow-hidden">
                                   <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-2 gap-1 sm:gap-0">
-                                    <h4 className="font-semibold text-gray-900 dark:text-white hover:text-green-600 dark:hover:text-green-400 transition-colors">
+                                    <h4 className="font-semibold text-gray-900 dark:text-white hover:text-green-600 dark:hover:text-green-400 transition-colors break-words">
                                       {title}
                                     </h4>
                                     {date && (
@@ -286,11 +286,13 @@ export default function DictionaryPage() {
                                       </span>
                                     )}
                                   </div>
-                                  <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-2">{summary}</p>
+                                  <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-2 break-words">
+                                    {summary}
+                                  </p>
                                   {isExpanded && (
                                     <div className="mt-3 pt-3 border-t border-gray-200 dark:border-gray-700">
                                       <div
-                                        className="text-gray-600 dark:text-gray-400 leading-relaxed text-sm"
+                                        className="text-gray-600 dark:text-gray-400 leading-relaxed text-sm break-words overflow-wrap-anywhere"
                                         dangerouslySetInnerHTML={{ __html: formatTextWithBoldSubheadings(detail) }}
                                       />
                                       {originalItem.codeExample && (
@@ -298,9 +300,11 @@ export default function DictionaryPage() {
                                           <h5 className="text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
                                             예시 코드:
                                           </h5>
-                                          <CodeBlock language="sql" className="text-xs sm:text-sm">
-                                            {originalItem.codeExample}
-                                          </CodeBlock>
+                                          <div className="overflow-x-auto">
+                                            <CodeBlock language="sql" className="text-xs sm:text-sm whitespace-pre">
+                                              {originalItem.codeExample}
+                                            </CodeBlock>
+                                          </div>
                                         </div>
                                       )}
                                     </div>
