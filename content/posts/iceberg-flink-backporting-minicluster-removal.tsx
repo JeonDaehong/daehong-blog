@@ -10,7 +10,7 @@ export const meta: Omit<BlogPost, "id"> = {
   category: "오픈소스기여",
   views: 0,
   likes: 0,
-  featured: false,
+  featured: true,
   thumbnail: "/assets/img/thumbnail/OpenSource_3.png",
   bookmark: true,
 }
