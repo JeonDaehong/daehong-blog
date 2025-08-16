@@ -239,8 +239,8 @@ export default function DictionaryPage() {
                           placeholder="지식 항목을 검색해보세요..."
                           value={modalSearchTerm}
                           onChange={(e) => setModalSearchTerm(e.target.value)}
-                          autoFocus={false}
                           className="pl-10 pr-4 py-2 border-2 border-green-200 dark:border-green-800 focus:border-green-500 dark:focus:border-green-400 rounded-lg"
+                          tabIndex={-1}
                         />
                       </div>
                     </div>
