@@ -1,7 +1,7 @@
 import type { BlogPost } from "@/lib/types"
 
 export const meta: Omit<BlogPost, "id"> = {
-  title: "📘 Kafka RetryTopic 관련 기본 Template Bean 이름 변경",
+  title: "📘 오픈소스 기여의 첫 발자국, 실패와 성공의 과정",
   excerpt: "Spring Kafka의 RetryTopic Bean 이름 불일치 문제를 발견하고 해결한 첫 오픈소스 기여 경험을 공유합니다.",
   author: "전대홍",
   publishedAt: "2024-10-09",
@@ -10,14 +10,14 @@ export const meta: Omit<BlogPost, "id"> = {
   views: 520,
   likes: 38,
   featured: true,
-  thumbnail: "/kafka-retrytopic-opensource-thumbnail.png",
+  thumbnail: "/kafka-retrytopic-new-thumbnail.png",
   bookmark: true,
 }
 
 const content = `
 # ✏️ 1. 서론
 
-개발자로서 오픈소스에 기여하는 일은 언젠가 꼭 해보고 싶은 목표 중 하나였습니다. 하지만 막상 시도하려고 하면, **어디서부터 시작해야 할지 막막한 것이 현실**이었습니다.
+개발자로서 오픈소스에 기여하는 일은 언젠가 꼭 해보고 싶은 목표 중 하나였습니다. 하지만 막상 시도하려면, **어디서부터 시작해야 할지 막막한 것이 현실**이었습니다.
 
 그러던 중, 오픈소스 기여 방법을 안내해주는 커뮤니티를 알게 되었고, 그곳에서 멘토링 프로그램에 참여하게 되었습니다. 이슈를 찾고, 기여할 부분을 고민하며, 본격적으로 오픈소스의 세계에 발을 들이게 되었죠.
 

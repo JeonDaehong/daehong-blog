@@ -19,7 +19,12 @@ const comfortaa = Comfortaa({
 export const metadata: Metadata = {
   title: "Daehong's Commit Log",
   description: "개발자 대홍의 기술 블로그",
-    generator: 'v0.app'
+  generator: "v0.app",
+  icons: {
+    icon: "/dh-logo.png",
+    shortcut: "/dh-logo.png",
+    apple: "/dh-logo.png",
+  },
 }
 
 export default function RootLayout({
