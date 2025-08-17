@@ -18,7 +18,7 @@ export const meta: Omit<BlogPost, "id"> = {
 const content = `
 # ✏️ 1. 서론
 ---
-작년 10월경, 첫 오픈 소스 멘토링 프로그램에 참여하면서 **Spring Kafka 프로젝트의 Contributor** 가 되는 소중한 경험을 했습니다. 당시에는 오픈 소스 생태계가 처음이었기 때문에, 다소 낯설고 어렵게 느껴졌지만, 운 좋게도 입문자들을 위한 비교적 단순한 이슈를 통해 기여를 시작할 수 있었습니다. 그 이슈는 **문서(Docs)의 정정과 일부 간단한 코드 수정** 정도였지만, 저에게는 오픈 소스에 첫 발을 내딛는 데 매우 의미 있는 기회였습니다.
+작년 10월경, 첫 오픈 소스 멘토링 프로그램에 참여하면서 **Spring Kafka 프로젝트의 Contributor** 가 되는 소중한 경험을 했습니다. 당시에는 오픈 소스 생태계가 처음이었기 때문에, 다소 낯설고 어렵게 느껴졌지만, 운 좋게도 입자들을 위한 비교적 단순한 이슈를 통해 기여를 시작할 수 있었습니다. 그 이슈는 **문서(Docs)의 정정과 일부 간단한 코드 수정** 정도였지만, 저에게는 오픈 소스에 첫 발을 내딛는 데 매우 의미 있는 기회였습니다.
 
 그리고 올해, 다시 한 번 같은 멘토링 시스템에 참여하게 되었습니다. 하지만 이번에는 멘토링을 받는 입장이 아니라, **멘토링을 지원하고 운영하는 입장**으로 참여하게 되었습니다. 멘티들의 이슈 선정과 PR 과정에 조언을 주면서, 자연스럽게 저도 다시 한 번 오픈 소스 기여를 도전해보고 싶은 의욕이 생겼습니다. ( 이번 포스팅은 ICeberg 기여 포스팅이기 때문에, 멘토링에서 운영진으로서 활동한 내용은 최소화 하였습니다. 결론에만 살짝 포스팅하겠습니다. :D )
 
@@ -63,8 +63,8 @@ const content = `
 ## 📚 2.2. 이슈: Iceberg Flink Catalog 의 Junit4 의존성 제거
 ---
 
-[Exclude JUnit4 dependency from classpath](https://github.com/apache/iceberg/issues/13049) 와,
-[Remove JUnit4 dependency from Flink](https://github.com/apache/iceberg/issues/12937) 이슈 를 보면,
+<a href="https://github.com/apache/iceberg/issues/13049" target="_blank" rel="noopener noreferrer" className="text-primary hover:text-primary/80 underline underline-offset-2 font-medium transition-colors decoration-2">#13049</a> 와,
+<a href="https://github.com/apache/iceberg/issues/12937" target="_blank" rel="noopener noreferrer" className="text-primary hover:text-primary/80 underline underline-offset-2 font-medium transition-colors decoration-2">#12937</a> 이슈 를 보면,
 Apache Iceberg의 Maintainer는 전체 코드베이스, 특히 Flink 관련 모듈에서 JUnit4 의존성을 완전히 제거하려는 명확한 의지를 드러내고 있었습니다.
 
 두 이슈 모두 공통적으로, 테스트 코드가 JUnit5 기반으로 통일되길 원하며, 오래된 테스트 유틸이나 라이브러리에 묶여 있는 잔존 JUnit4 종속성을 제거하는 데 목적이 있었습니다.
@@ -79,7 +79,7 @@ Apache Iceberg의 Maintainer는 전체 코드베이스, 특히 Flink 관련 모�
 이러한 배경에서, 저는 해당 이슈를 기반으로 구체적인 기여 방향을 정하고 작업을 시작하게 되었습니다. 단순한 문서 수정이나 설정 변경을 넘어서, 직접 테스트 코드의 구조를 개선하고, Gradle 의존성을 다루며, 라이브러리 호환성 문제까지 고민해야 하는 도전적인 과제였기에 더욱 의미가 컸습니다.
 
 <br>
-> 👉 해당 이슈는 위에서 설명한, Apache Iceberg 의 [#13049](https://github.com/apache/iceberg/issues/13049) 와, [#12937](https://github.com/apache/iceberg/issues/12937) 이슈 에 있는 내용입니다.
+> 👉 해당 이슈는 위에서 설명한, Apache Iceberg 의 <a href="https://github.com/apache/iceberg/issues/13049" target="_blank" rel="noopener noreferrer" className="text-primary hover:text-primary/80 underline underline-offset-2 font-medium transition-colors decoration-2">#13049</a> 와, <a href="https://github.com/apache/iceberg/issues/12937" target="_blank" rel="noopener noreferrer" className="text-primary hover:text-primary/80 underline underline-offset-2 font-medium transition-colors decoration-2">#12937</a> 이슈 에 있는 내용입니다.
 
 ## 💬 2.3. Maintainer 와의 소통 과정을 통한, PR 방향성 확립
 ---
@@ -356,7 +356,7 @@ protected void stopMiniCluster(@InjectMiniCluster MiniCluster miniCluster) throw
 그리고 그 결과, 최종적으로는 Iceberg 에 PR Merge 를 성공하여, Apache 재단의 Iceberg 프로젝트에 기여할 수 있었고, Contributor 가 될 수 있었습니다.
 
 <br>
-> 👉 My PR: [Iceberg Flink Catalog v2.0 Remove the MiniClusterWithClientResource dependency](https://github.com/apache/iceberg/pull/13021#issuecomment-2903837698)
+> 👉 My PR: <a href="https://github.com/apache/iceberg/pull/13021#issuecomment-2903837698" target="_blank" rel="noopener noreferrer" className="text-primary hover:text-primary/80 underline underline-offset-2 font-medium transition-colors decoration-2">Iceberg Flink Catalog v2.0 Remove the MiniClusterWithClientResource dependency</a>
 
 <br>
 <div className="my-8 space-y-6">

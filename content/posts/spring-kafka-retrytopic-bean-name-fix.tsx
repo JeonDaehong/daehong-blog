@@ -45,7 +45,7 @@ Kafka를 공부하던 어느 날, 문득 Spring Kafka의 내부 구현이 궁금
 
 처음에는 Apache Jackrabbit Oak 프로젝트에서 기여할 만한 이슈를 찾을 수 있었습니다. 자세한 내용은 뒤에서 설명하겠지만, 결과적으로 해당 PR은 머지되지 못했고, 다시 새로운 이슈를 찾아 나섰습니다.
 
-그러던 중, Spring-Kafka에서 [KafkaTemplate Bean 이름 불일치 이슈](https://github.com/spring-projects/spring-kafka/issues/3514)를 발견하게 되었고, 그 내용을 바탕으로 기여하게 되었습니다.
+그러던 중, Spring-Kafka에서 <a href="https://github.com/spring-projects/spring-kafka/issues/3514" target="_blank" rel="noopener noreferrer" className="text-primary hover:text-primary/80 underline underline-offset-2 font-medium transition-colors decoration-2">KafkaTemplate Bean 이름 불일치 이슈</a>를 발견하게 되었고, 그 내용을 바탕으로 기여하게 되었습니다.
 
 <br>
 
@@ -94,7 +94,7 @@ public final class RetryTopicBeanNames {
 
 실제 구현에서는 \`defaultRetryTopicKafkaTemplate\`를 사용하고 있었어요. 그런데 JavaDoc과 일부 테스트 코드에서는 \`retryTopicDefaultKafkaTemplate\`를 언급하고 있었던 거죠.
 
-이런 불일치는 개발자들에게 혼란을 줄 수 있고, 특히 Spring Kafka를 처음 사용하는 사람들에게는 더욱 문제가 될 수 있다고 생각했습니다. 그래서 이 문제를 해결해보기로 결심했습니다.
+이런 불일치는 개발자들에게 혼란을 줄 수 있고, 특히 Spring Kafka를 처음 사용하는 사람들에게는 더욱 문제가 될 수 있고 생각했습니다. 그래서 이 문제를 해결해보기로 결심했습니다.
 
 <br>
 
@@ -243,7 +243,7 @@ PR을 올리고 나서 며칠 후, Spring Kafka의 메인테이너 중 한 분�
 
 GitHub 프로필에 Spring Kafka 기여 내역이 표시되는 걸 보면서, "아, 내가 정말 오픈소스에 기여했구나"라는 실감이 났어요. 작은 변경이었지만, 전 세계 수많은 개발자들이 사용하는 라이브러리에 내 코드가 포함되었다는 게 정말 뿌듯했습니다.
 
-해당 PR 내용을 확인하고 싶다면, [Spring Kafka PR #3543](https://github.com/spring-projects/spring-kafka/pull/3543)에서 자세한 내용을 볼 수 있어요.
+해당 PR 내용을 확인하고 싶다면, <a href="https://github.com/spring-projects/spring-kafka/pull/3543" target="_blank" rel="noopener noreferrer" className="text-primary hover:text-primary/80 underline underline-offset-2 font-medium transition-colors decoration-2">Spring Kafka PR #3543</a>에서 자세한 내용을 볼 수 있어요.
 
 <br>
 

@@ -162,7 +162,7 @@ public void testContinuousWithJobManagerFailover(@InjectMiniCluster MiniCluster 
 
 <br>
 
-> 👉 My PR: [Backporting Removal of MiniClusterWithClientResource from Iceberg Flink Catalog v1.19, v1.20](https://github.com/apache/iceberg/pull/13165)
+👉 My PR: <a href="https://github.com/apache/iceberg/pull/13165" target="_blank" rel="noopener noreferrer" className="text-primary hover:text-primary/80 underline underline-offset-2 font-medium transition-colors decoration-2">Backporting Removal of MiniClusterWithClientResource from Iceberg Flink Catalog v1.19, v1.20</a>
 
 <br>
 
