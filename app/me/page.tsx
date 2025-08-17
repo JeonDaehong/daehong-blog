@@ -41,7 +41,7 @@ export default function MePage() {
       team: "데이터솔루션팀",
       position: "선임(대리)",
       role: "소프트웨어개발자 / 데이터엔지니어",
-      period: "2025.03 - 현재",
+      period: "2024.03 - 현재",
       location: "서울시 구로구",
       description: "AI · Big Data · Cloud 매니지먼트 전문기업. 금융 도메인 빅데이터 솔루션 사업.",
       achievements: [
