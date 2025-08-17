@@ -14,6 +14,7 @@ export default function Home() {
                 text="Daehong's Commit Log !"
                 className="text-2xl sm:text-4xl md:text-6xl font-bold text-primary"
               />
+              <br />
               <p className="text-base sm:text-xl text-muted-foreground max-w-2xl mx-auto px-4">
                 하루에 한 걸음씩 꾸준히 성장하는 엔지니어 전대홍입니다.
                 <br />
