@@ -1,17 +1,17 @@
 import type { BlogPost } from "@/lib/types"
 
 export const meta: Omit<BlogPost, "id"> = {
-  title: "📘 Flink 1.19 및 1.20에 MiniClusterWithClientResource 종속성 제거 Backport",
+  title: "📘 Apache Iceberg Flink Catalog Backport 기여 회고",
   excerpt:
     "Iceberg Flink Catalog v2.0에서 성공한 MiniClusterWithClientResource 종속성 제거 작업을 Flink 1.19와 1.20 버전에 백포팅한 경험을 공유합니다.",
   author: "전대홍",
-  publishedAt: "2025-01-14",
+  publishedAt: "2025-05-28",
   tags: ["OpenSource PR", "Iceberg", "Flink", "Backporting"],
   category: "오픈소스기여",
   views: 0,
   likes: 0,
   featured: true,
-  thumbnail: "/assets/img/thumbnail/OpenSource_3.png",
+  thumbnail: "/apache-iceberg-backport-thumbnail.png",
   bookmark: true,
 }
 
@@ -38,7 +38,7 @@ const content = `
 아래와 같이, 백포팅에 대한 요청이 있었다는 내용을 남깁니다.
 
 <div className="my-8">
-  <img src="/assets/img/apache-iceberg-backporting.PNG" alt="Apache Iceberg 백포팅 요청" style="border: 2px solid skyblue; border-radius: 4px;" width="100%" />
+  <img src="/apache-iceberg-backporting.png" alt="Apache Iceberg 백포팅 요청" style="border: 2px solid skyblue; border-radius: 4px;" width="100%" />
 </div>
 
 따라서 이번 포스팅에서는 곧바로 PR 과정부터 다루겠습니다.
@@ -167,7 +167,7 @@ public void testContinuousWithJobManagerFailover(@InjectMiniCluster MiniCluster 
 <br>
 
 <div className="my-8">
-  <img src="/assets/img/apache-iceberg2-merge.PNG" alt="Apache Iceberg PR 머지 완료" style="border: 2px solid skyblue; border-radius: 4px;" width="100%" />
+  <img src="/apache-iceberg2-merge.png" alt="Apache Iceberg PR 머지 완료" style="border: 2px solid skyblue; border-radius: 4px;" width="100%" />
 </div>
 
 <br>
@@ -181,17 +181,17 @@ public void testContinuousWithJobManagerFailover(@InjectMiniCluster MiniCluster 
 그랬더니 아래와 같은 오류가 발생하게 됩니다.
 
 <div className="my-8">
-  <img src="/assets/img/apache-iceberg-error.PNG" alt="Gradle 오류 메시지" style="border: 2px solid skyblue; border-radius: 4px;" width="100%" />
+  <img src="/apache-iceberg-error.png" alt="Gradle 오류 메시지" style="border: 2px solid skyblue; border-radius: 4px;" width="100%" />
 </div>
 
-에러를 보면, Gradle이 :iceberg-flink:iceberg-flink-1.20:spotlessApply 라는 태스크(혹은 모듈)를 실행하려 했지만, iceberg-flink 프로젝트 아래에 iceberg-flink-1.20 이라는 서브프로젝트가 존재하지 않다는 내용입니다. 존재하는 서브프로젝트 후보는 iceberg-flink-2.0 이 있다고 친절하게 알려주고 있지만, 우리에게 필요한건 1.19 와 1.20 버전입니다.
+에러를 보면, Gradle이 :iceberg-flink:iceberg-flink-1.20:spotlessApply 라는 태스크(혹은 모듈)를 실행하려 했지만, iceberg-flink 프로젝트 아래에 iceberg-flink-1.20 이라는 서브프로젝트가 존재하지 않다는 내용입니다. 존재하는 서브프로젝트 후보는 iceberg-flink-2.0 이라고 친절하게 알려주고 있지만, 우리에게 필요한건 1.19 와 1.20 버전입니다.
 
 저는 처음에는 2.0 으로 해도, 자동으로 1.19 와 1.20 코드 스타일도 맞춰질 줄 알았는데 그게 아니었습니다.
 
 그래서 아래와 같이 질문을 하였습니다.
 
 <div className="my-8">
-  <img src="/assets/img/apache-iceberg-q.PNG" alt="질문 스크린샷" style="border: 2px solid skyblue; border-radius: 4px;" width="100%" />
+  <img src="/apache-iceberg-q.png" alt="질문 스크린샷" style="border: 2px solid skyblue; border-radius: 4px;" width="100%" />
 </div>
 
 그래서 \`./gradlew properties\` 명령어를 통해 찾아보았더니, 역시 ***systemProp.defaultFlinkVersions: 2.0*** 으로, 되어있었습니다.

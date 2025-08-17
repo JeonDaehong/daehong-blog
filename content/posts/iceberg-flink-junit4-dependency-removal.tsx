@@ -1,7 +1,7 @@
 import type { BlogPost } from "@/lib/types"
 
 export const meta: Omit<BlogPost, "id"> = {
-  title: "📘 Iceberg Flink Catalog v2.0 MiniClusterWithClientResource 종속성 제거",
+  title: "📘 Apache Iceberg Flink Catalog 오픈소스 기여 회고",
   excerpt:
     "Apache Iceberg 프로젝트에서 JUnit4 의존성을 제거하고 MiniClusterWithClientResource 종속성을 해결한 오픈소스 기여 경험을 공유합니다.",
   author: "전대홍",
@@ -11,7 +11,7 @@ export const meta: Omit<BlogPost, "id"> = {
   views: 0,
   likes: 0,
   featured: true,
-  thumbnail: "/assets/img/thumbnail/OpenSource_2.png",
+  thumbnail: "/apache-iceberg-opensource-thumbnail-v2.png",
   bookmark: true,
 }
 
@@ -45,17 +45,17 @@ const content = `
 이처럼 이번에는 수작업으로만 탐색했던 과거와 달리, AI 도구를 병행하여 시간을 절약하면서도 효율적으로 기여 대상 이슈를 선정할 수 있었습니다.
 
 <div className="my-8 p-4 bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl border-4 border-blue-200 shadow-lg">
-  <img src="/assets/img/apache-iceberg-issue1.PNG" alt="Apache Iceberg Issue 1" style="border: 2px solid skyblue; border-radius: 4px;" width="100%" />
+  <img src="/apache-iceberg-issue1.png" alt="Apache Iceberg Issue 1" style="border: 2px solid skyblue; border-radius: 4px;" width="100%" />
 </div>
 
 <div className="my-8 p-4 bg-gradient-to-br from-green-50 to-emerald-50 rounded-xl border-4 border-green-200 shadow-lg">
-  <img src="/assets/img/apache-iceberg-issue3.PNG" alt="Apache Iceberg Issue 3" style="border: 2px solid skyblue; border-radius: 4px;" width="100%" />
+  <img src="/apache-iceberg-issue3.png" alt="Apache Iceberg Issue 3" style="border: 2px solid skyblue; border-radius: 4px;" width="100%" />
 </div>
 
 이렇게 이슈를 선택한 저는, 이슈를 올린 Maintainer 와의 소통을 통하여 해당 이슈를 맡겠다고 요청하였습니다.
 
 <div className="my-8 p-4 bg-gradient-to-br from-purple-50 to-pink-50 rounded-xl border-4 border-purple-200 shadow-lg">
-  <img src="/assets/img/apache-iceberg-issue2.PNG" alt="Apache Iceberg Issue 2" style="border: 2px solid skyblue; border-radius: 4px;" width="100%" />
+  <img src="/apache-iceberg-issue2.png" alt="Apache Iceberg Issue 2" style="border: 2px solid skyblue; border-radius: 4px;" width="100%" />
 </div>
 
 이러한 과정을 통하여 [Exclude JUnit4 dependency from classpath](https://github.com/apache/iceberg/issues/13049) 에서 [Remove JUnit4 dependency from Flink](https://github.com/apache/iceberg/issues/12937) 까지 이어지는 해당 이슈에 기여를 하기로 확정하였고, 회사에서도 관심을 가지고, 저 또한 최근 공부를 하고 있던 Apache Iceberg 에 기여할 수 있는 기회를 잡게 되었습니다.
@@ -302,7 +302,7 @@ ExternalResource 기반 (JUnit4 Rule) 방식에서 ParameterResolver 또는 Exte
 그리고, 다른 컨트리뷰터들 역시, 괜찮다는 리뷰를 달아주었습니다.
 
 <div className="my-8 p-4 bg-gradient-to-br from-green-50 to-emerald-50 rounded-xl border-4 border-green-200 shadow-lg">
-  <img src="/assets/img/apache-iceberg-issue_review4.PNG" alt="Apache Iceberg Review 4" style="border: 2px solid skyblue; border-radius: 4px;" width="100%" />
+  <img src="/apache-iceberg-issue_review4.png" alt="Apache Iceberg Review 4" style="border: 2px solid skyblue; border-radius: 4px;" width="100%" />
 </div>
 
 <br>
@@ -312,15 +312,15 @@ ExternalResource 기반 (JUnit4 Rule) 방식에서 ParameterResolver 또는 Exte
 
 <div className="my-8 space-y-6">
   <div className="p-4 bg-gradient-to-br from-red-50 to-pink-50 rounded-xl border-4 border-red-200 shadow-lg">
-    <img src="/assets/img/apache-iceberg-issue_review1.PNG" alt="Apache Iceberg Review 1" style="border: 2px solid skyblue; border-radius: 4px;" width="100%" />
+    <img src="/apache-iceberg-issue_review1.png" alt="Apache Iceberg Review 1" style="border: 2px solid skyblue; border-radius: 4px;" width="100%" />
   </div>
   
   <div className="p-4 bg-gradient-to-br from-orange-50 to-yellow-50 rounded-xl border-4 border-orange-200 shadow-lg">
-    <img src="/assets/img/apache-iceberg-issue_review2.PNG" alt="Apache Iceberg Review 2" style="border: 2px solid skyblue; border-radius: 4px;" width="100%" />
+    <img src="/apache-iceberg-issue_review2.png" alt="Apache Iceberg Review 2" style="border: 2px solid skyblue; border-radius: 4px;" width="100%" />
   </div>
   
   <div className="p-4 bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl border-4 border-blue-200 shadow-lg">
-    <img src="/assets/img/apache-iceberg-issue_review3.PNG" alt="Apache Iceberg Review 3" style="border: 2px solid skyblue; border-radius: 4px;" width="100%" />
+    <img src="/apache-iceberg-issue_review3.png" alt="Apache Iceberg Review 3" style="border: 2px solid skyblue; border-radius: 4px;" width="100%" />
   </div>
 </div>
 
@@ -361,11 +361,11 @@ protected void stopMiniCluster(@InjectMiniCluster MiniCluster miniCluster) throw
 <br>
 <div className="my-8 space-y-6">
   <div className="p-4 bg-gradient-to-br from-green-50 to-emerald-50 rounded-xl border-4 border-green-200 shadow-lg">
-    <img src="/assets/img/apache-iceberg-contributor.PNG" alt="Apache Iceberg Contributor" style="border: 2px solid skyblue; border-radius: 4px;" width="100%" />
+    <img src="/apache-iceberg-contributor.png" alt="Apache Iceberg Contributor" style="border: 2px solid skyblue; border-radius: 4px;" width="100%" />
   </div>
   
   <div className="p-4 bg-gradient-to-br from-purple-50 to-pink-50 rounded-xl border-4 border-purple-200 shadow-lg">
-    <img src="/assets/img/apache-iceberg-contributor2.PNG" alt="Apache Iceberg Contributor 2" style="border: 2px solid skyblue; border-radius: 4px;" width="100%" />
+    <img src="/apache-iceberg-contributor2.png" alt="Apache Iceberg Contributor 2" style="border: 2px solid skyblue; border-radius: 4px;" width="100%" />
   </div>
 </div>
 
