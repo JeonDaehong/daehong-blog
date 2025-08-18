@@ -18,7 +18,7 @@ export const meta: Omit<BlogPost, "id"> = {
 const content = `
 # ✏️ 1. 서론
 ---
-작년 10월경, 첫 오픈 소스 멘토링 프로그램에 참여하면서 **Spring Kafka 프로젝트의 Contributor** ��� 되는 소중한 경험을 했습니다. 당시에는 오픈 소스 생태계가 처음이었기 때문에, 다소 낯설고 어렵게 느껴졌지만, 운 좋게도 입자들을 위한 비교적 단순한 이슈를 통해 기여를 시작할 수 있었습니다. 그 이슈는 **문서(Docs)의 정정과 일부 간단한 코드 수정** 정도였지만, 저에게는 오픈 소스에 첫 발을 내딛는 데 매우 의미 있는 기회였습니다.
+작년 10월경, 첫 오픈 소스 멘토링 프로그램에 참여하면서 **Spring Kafka 프로젝트의 Contributor** 가 되는 소중한 경험을 했습니다. 당시에는 오픈 소스 생태계가 처음이었기 때문에, 다소 낯설고 어렵게 느껴졌지만, 운 좋게도 입자들을 위한 비교적 단순한 이슈를 통해 기여를 시작할 수 있었습니다. 그 이슈는 **문서(Docs)의 정정과 일부 간단한 코드 수정** 정도였지만, 저에게는 오픈 소스에 첫 발을 내딛는 데 매우 의미 있는 기회였습니다.
 
 그리고 올해, 다시 한 번 같은 멘토링 시스템에 참여하게 되었습니다. 하지만 이번에는 멘토링을 받는 입장이 아니라, **멘토링을 지원하고 운영하는 입장**으로 참여하게 되었습니다. 멘티들의 이슈 선정과 PR 과정에 조언을 주면서, 자연스럽게 저도 다시 한 번 오픈 소스 기여를 도전해보고 싶은 의욕이 생겼습니다. ( 이번 포스팅은 ICeberg 기여 포스팅이기 때문에, 멘토링에서 운영진으로서 활동한 내용은 최소화 하였습니다. 결론에만 살짝 포스팅하겠습니다. :D )
 
@@ -58,7 +58,11 @@ const content = `
   <img src="/apache-iceberg-issue2.png" alt="Apache Iceberg Issue 2" style="border: 2px solid skyblue; border-radius: 4px;" width="100%" />
 </div>
 
-이러한 과정을 통하여 [Exclude JUnit4 dependency from classpath](https://github.com/apache/iceberg/issues/13049) 에서 [Remove JUnit4 dependency from Flink](https://github.com/apache/iceberg/issues/12937) 까지 이어지는 해당 이슈에 기여를 하기로 확정하였고, 회사에서도 관심을 가지고, 저 또한 최근 공부를 하고 있던 Apache Iceberg 에 기여할 수 있는 기회를 잡게 되었습니다.
+<p>
+이러한 과정을 통하여 <a href="https://github.com/apache/iceberg/issues/13049">Exclude JUnit4 dependency from classpath</a> 에서 <a href="https://github.com/apache/iceberg/issues/12937">Remove JUnit4 dependency from Flink</a> 까지 이어지는 해당 이슈에 기여를 하기로 확정하였고, 회사에서도 관심을 가지고, 저 또한 최근 공부를 하고 있던 Apache Iceberg 에 기여할 수 있는 기회를 잡게 되었습니다.
+</p>
+
+<br>
 
 ## 📚 2.2. 이슈: Iceberg Flink Catalog 의 Junit4 의존성 제거
 ---
@@ -81,6 +85,7 @@ Apache Iceberg의 Maintainer는 전체 코드베이스, 특히 Flink 관련 모�
 <br>
 > 👉 해당 이슈는 위에서 설명한, Apache Iceberg 의 <a href="https://github.com/apache/iceberg/issues/13049" target="_blank" rel="noopener noreferrer" className="text-primary hover:text-primary/80 underline underline-offset-2 font-medium transition-colors decoration-2">#13049</a> 와, <a href="https://github.com/apache/iceberg/issues/12937" target="_blank" rel="noopener noreferrer" className="text-primary hover:text-primary/80 underline underline-offset-2 font-medium transition-colors decoration-2">#12937</a> 이슈 에 있는 내용입니다.
 
+<br>
 ## 💬 2.3. Maintainer 와의 소통 과정을 통한, PR 방향성 확립
 ---
 
@@ -104,12 +109,13 @@ Maintainer님도 이 계획이 적절하다며, 우선 Flink 2.0 모듈에서 �
 
 이와 같은 소통 과정을 통해, 단순한 코드 수정뿐만 아니라 프로젝트 내부 상황과 제약을 이해하며 협력하는 경험을 쌓을 수 있었습니다.
 
+<br>
 ## ‍💻 2.4. PR: JUnit4 의존성 최소화 및 MiniClusterWithClientResource 종속성 제거
 ---
 
 해당 소스를 수정하기 전, 저는 Iceberg에 대해서는 사내 컨퍼런스를 진행할 만큼 충분히 공부한 상태였지만, 카탈로그 엔진과 관련해서는 Spark와 JDBC 기반의 몇 가지에 대해서만 주로 알고 있었습니다.
 반면, Flink에 대해서는 상대적으로 익숙하지 않았습니다. Flink는 주로 실시간 데이터 스트리밍 처리를 위해 사용되는 분산 처리 엔진으로, Iceberg에서는 Flink 커넥터를 통해 대용량 데이터를 효율적으로 처리하는 데 활용되고 있다 정도로만 알고 있었습니다.
-( 저희 회사는 Flink 를 쓰고 있지는 않지만, Iceberg 를 공부할 때 참고하였던 Kakao 기술 블로그의 **louis 님** 글 덕분에 Flink 에 대하여 공부가 되었습니다. [Apache Iceberg와 Flink CDC 심층 탐구](https://tech.kakao.com/posts/656), [아파치 플링크와 CDC의 만남. 플링크 CDC 맛보기](https://tech.kakao.com/posts/632) )
+( 저희 회사는 Flink 를 쓰고 있지는 않지만, Iceberg 를 공부할 때 참고하였던 Kakao 기술 블로그의 <strong>louis 님</strong> 글 덕분에 Flink 에 대하여 공부가 되었습니다. <a href="https://tech.kakao.com/posts/656">Apache Iceberg와 Flink CDC 심층 탐구</a>, <a href="https://tech.kakao.com/posts/632">아파치 플링크와 CDC의 만남. 플링크 CDC 맛보기</a> )
 
 하지만 Flink 내부에서 테스트를 위해 사용되는 'MiniCluster'라는 개념에 대해서는 전혀 알지 못했습니다.
 이에 Flink 공식 문서와 커뮤니티 자료, 그리고 GitHub 저장소 등을 참고하여 'MiniCluster'가 무엇인지 공부하기 시작했습니다.
@@ -124,6 +130,7 @@ MiniCluster는 Flink 클러스터를 로컬 환경에서 가볍게 실행할 수
 
 이후에는, TestIcebergSourceFailover 클래스에서 Junit4 를 의존하고 있는 부분이 어디인지를 찾고, 그 부분을 Junit5 형태로 변환하는 작업을 진행하였습니다.
 
+<br>
 ### 1️⃣ COMMIT : GenericAppenderHelper 의 생성자 @Deprecated 제거
 
 첫 번째로, \`GenericAppenderHelper.java\` 코드에서, 생성자가 @Deprecated 되어있었습니다. 과거에 JUnit에서 흔히 쓰던 TemporaryFolder 객체를 인자로 받습니다. TemporaryFolder는 테스트 중 임시 파일/디렉토리를 자동 생성하고 정리해주는 도구입니다. 아마, Junit4 의존성을 완전히 걷어내기 위한 과정에서 @Deprecated 를 해둔 거 같습니다.
@@ -146,6 +153,7 @@ public GenericAppenderHelper(Table table, FileFormat fileFormat, TemporaryFolder
 }
 \`\`\`
 
+<br>
 **After:**
 \`\`\`java
 public GenericAppenderHelper(Table table, FileFormat fileFormat, TemporaryFolder tmp, Configuration conf) {
