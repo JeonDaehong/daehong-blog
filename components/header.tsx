@@ -13,6 +13,7 @@ export function Header() {
     { href: "/me", label: "Me" },
     { href: "/blog", label: "Blog" },
     { href: "/dictionary", label: "IT Dictionary" },
+    { href: "/books", label: "Books" }, // Added Books navigation item
   ]
 
   return (

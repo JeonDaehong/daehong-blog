@@ -300,6 +300,30 @@ code[class*="language-"] {
   border-color: #334155 !important;
 }
 
+.prose pre {
+  font-family: "SF Mono", "Monaco", "Inconsolata", "Roboto Mono", "Consolas", "Courier New", monospace !important;
+}
+
+/* Added 3D transform utilities for book hover effects */
+.rotate-y-12 {
+  transform: perspective(1000px) rotateY(12deg);
+}
+
+.-rotate-x-6 {
+  transform: perspective(1000px) rotateX(-6deg);
+}
+
+.group:hover .rotate-y-12.-rotate-x-6 {
+  transform: perspective(1000px) rotateY(12deg) rotateX(-6deg) scale(1.05) translateY(-8px) translateX(2px);
+}
+
+/* Enhanced 3D book effect */
+@media (min-width: 768px) {
+  .group:hover .relative.aspect-\[2\/3\] {
+    transform: perspective(1000px) rotateY(12deg) rotateX(-6deg) scale(1.05) translateY(-8px) translateX(8px);
+  }
+}
+
 @media (min-width: 641px) and (max-width: 1024px) {
   .container {
     @apply px-6;
@@ -321,8 +345,4 @@ code[class*="language-"] {
   .transition-all {
     transition: none;
   }
-}
-
-.prose pre {
-  font-family: "SF Mono", "Monaco", "Inconsolata", "Roboto Mono", "Consolas", "Courier New", monospace !important;
 }

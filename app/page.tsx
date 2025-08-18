@@ -49,6 +49,17 @@ export default function Home() {
               </Link>
             </Button>
 
+            <Button
+              size="lg"
+              asChild
+              className="w-full sm:w-auto max-w-xs bg-orange-600 hover:bg-orange-700 text-white"
+            >
+              <Link href="/books" className="flex items-center justify-center space-x-2">
+                <span>📚</span>
+                <span>IT Books</span>
+              </Link>
+            </Button>
+
             <Button size="lg" asChild className="w-full sm:w-auto max-w-xs bg-gray-800 hover:bg-gray-900 text-white">
               <Link
                 href="https://github.com/Jeondaehong"
