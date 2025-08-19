@@ -299,16 +299,15 @@ export default function BookReviewPage({ params }: { params: { id: string } }) {
               <h3 className="text-xl font-semibold text-foreground mb-4">1. 데이터 엔지니어링 수명 주기</h3>
               <p className="text-muted-foreground leading-relaxed mb-4">
                 데이터 엔지니어링 수명 주기는 원시 데이터의 요소를 분석가, 데이터 과학자, ML 엔지니어 등이 사용할 수
-                있는 유용한 최종 제품으로 전환하는 단계로 구성됩니다. 또한 이 책에서 좋은 점은 각 수명 주기에 대해서
-                주요 엔지니어링 고려 사항을 알려주고 있어서 많은 도움이 되었습니다.
+                있는 유용한 최종 제품으로 전환하는 단계로 구성됨.
               </p>
 
               <p className="text-muted-foreground leading-relaxed mb-6">
                 데이터 엔지니어링의 핵심 목적은 수명 주기 전체에 걸쳐 데이터를 운반하고, 최종 사용자의 요구에 따라 이를
-                제공하고 견고하고 신뢰성 높은 시스템 설계하는 것입니다.
+                제공하고 견고하고 신뢰성 높은 시스템 설계하는 것.
               </p>
 
-              <br/>
+              <br />
 
               <h3 className="text-xl font-semibold text-foreground mb-4">2. 데이터 엔지니어링의 발전 과정</h3>
 
@@ -360,6 +359,143 @@ export default function BookReviewPage({ params }: { params: { id: string } }) {
                     데이터옵스, 아키텍처, 오케스트레이션으로 확장. CCPA, GDPR 등 데이터 프라이버시 및 규정 준수에 대한
                     중요성 증가.
                   </p>
+                </div>
+              </div>
+
+              <br />
+
+              <h3 className="text-xl font-semibold text-foreground mb-4">3. 데이터 엔지니어링이란?</h3>
+
+              <div className="space-y-6">
+                <div>
+                  <h4 className="text-lg font-medium text-foreground mb-3">데이터 엔지니어링의 정의</h4>
+                  <p className="text-muted-foreground leading-relaxed mb-4">
+                    데이터 엔지니어링은 데이터 과학자, 데이터 분석가, 비즈니스 인텔리전스 개발자, 그리고 조직 내의 다른
+                    전문가가 데이터를 사용할 수 있도록 만드는 일련의 작업입니다. 원시 데이터(raw data)를 가져와 분석 및
+                    머신러닝과 같은 다운스트림 사용 사례를 지원하는, 고품질의 일관된 정보를 시스템과 프로세스의 개발,
+                    구현 및 유지 관리라고 할 수 있습니다.
+                  </p>
+                  <p className="text-muted-foreground leading-relaxed">
+                    데이터 엔지니어링은 보안, 데이터 관리, 데이터 운영, 데이터 아키텍처, 오케스트레이션, 소프트웨어
+                    엔지니어링의 교차점에 위치합니다.
+                  </p>
+                </div>
+
+                <div>
+                  <h4 className="text-lg font-medium text-foreground mb-3">데이터 엔지니어링 수명 주기</h4>
+                  <div className="bg-muted/30 rounded-lg p-4 mb-4">
+                    <div className="grid grid-cols-1 md:grid-cols-5 gap-2 text-center">
+                      <div className="bg-primary/10 rounded px-3 py-2 text-sm font-medium">데이터 생성</div>
+                      <div className="bg-primary/10 rounded px-3 py-2 text-sm font-medium">데이터 저장</div>
+                      <div className="bg-primary/10 rounded px-3 py-2 text-sm font-medium">데이터 수집</div>
+                      <div className="bg-primary/10 rounded px-3 py-2 text-sm font-medium">데이터 변환</div>
+                      <div className="bg-primary/10 rounded px-3 py-2 text-sm font-medium">데이터 서빙</div>
+                    </div>
+                  </div>
+                  <p className="text-muted-foreground leading-relaxed">
+                    데이터 엔지니어링 수명 주기는 전체 수명 주기에 걸쳐 중요한 아이디어인 드러나지 않는
+                    요소(undercurrent)라는 개념을 포함합니다. 여기에는 보안, 데이터 관리, 데이터옵스, 데이터 아키텍처,
+                    오케스트레이션, 소프트웨어 엔지니어링이 포함됩니다.
+                  </p>
+                </div>
+
+                <div>
+                  <h4 className="text-lg font-medium text-foreground mb-3">데이터 성숙도와 데이터 엔지니어</h4>
+                  <p className="text-muted-foreground leading-relaxed mb-4">
+                    데이터 성숙도(data maturity)는 조직 전체에 걸쳐 더 높은 데이터 활용률, 기능, 통합을 향해 나아가는
+                    과정입니다.
+                  </p>
+
+                  <div className="space-y-4">
+                    <div className="border-l-4 border-primary pl-4">
+                      <h5 className="font-medium text-foreground mb-2">1단계: 데이터로 시작하기</h5>
+                      <p className="text-sm text-muted-foreground">
+                        적절한 데이터 아키텍처 정의, 기업의 목표를 지원하는 데이터 아키텍처 설계 및 구축
+                      </p>
+                    </div>
+                    <div className="border-l-4 border-primary pl-4">
+                      <h5 className="font-medium text-foreground mb-2">2단계: 데이터로 확장하기</h5>
+                      <p className="text-sm text-muted-foreground">
+                        공식적인 데이터 관행 수립, 확장성 있고 견고한 데이터 아키텍처 구축, 데브옵스 및 데이터옵스 관행
+                        채택
+                      </p>
+                    </div>
+                    <div className="border-l-4 border-primary pl-4">
+                      <h5 className="font-medium text-foreground mb-2">3단계: 데이터로 선도하기</h5>
+                      <p className="text-sm text-muted-foreground">
+                        자동화 구축, 경쟁 우위로서 데이터 활용, 데이터 관리 및 데이터옵스에 집중, 조직 전체 협업 환경
+                        구축
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div>
+                  <h4 className="text-lg font-medium text-foreground mb-3">데이터 엔지니어의 유형</h4>
+                  <div className="grid md:grid-cols-2 gap-4">
+                    <div className="bg-muted/30 rounded-lg p-4">
+                      <h5 className="font-medium text-foreground mb-2">A형 데이터 엔지니어 (추상화)</h5>
+                      <p className="text-sm text-muted-foreground">
+                        시판되는 기성 제품, 관리형 서비스와 도구들을 사용해 데이터 엔지니어링 수명 주기를 관리.
+                        차별화되지 않은 과중한 작업을 피하고 단순하게 유지.
+                      </p>
+                    </div>
+                    <div className="bg-muted/30 rounded-lg p-4">
+                      <h5 className="font-medium text-foreground mb-2">B형 데이터 엔지니어 (구축)</h5>
+                      <p className="text-sm text-muted-foreground">
+                        기업의 핵심 역량과 경쟁 우위를 확장하고 활용할 데이터 도구와 시스템을 구축. 맞춤형 데이터 도구
+                        개발에 집중.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div>
+                  <h4 className="text-lg font-medium text-foreground mb-3">주요 기술 스택</h4>
+                  <div className="space-y-3">
+                    <div>
+                      <h5 className="font-medium text-foreground mb-1">핵심 언어</h5>
+                      <p className="text-sm text-muted-foreground">SQL (가장 중요), Python, Java, Scala, Bash</p>
+                    </div>
+                    <div>
+                      <h5 className="font-medium text-foreground mb-1">플랫폼 및 도구</h5>
+                      <p className="text-sm text-muted-foreground">
+                        Apache Spark, Hadoop, Kafka, Airflow, 클라우드 서비스 (AWS, GCP, Azure)
+                      </p>
+                    </div>
+                    <div>
+                      <h5 className="font-medium text-foreground mb-1">데이터베이스</h5>
+                      <p className="text-sm text-muted-foreground">
+                        관계형 DB, NoSQL, 데이터 웨어하우스, 데이터 레이크
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div>
+                  <h4 className="text-lg font-medium text-foreground mb-3">조직 내 역할과 협업</h4>
+                  <p className="text-muted-foreground leading-relaxed mb-3">
+                    데이터 엔지니어는 데이터 생산자(소프트웨어 엔지니어, 데이터 아키텍트, DevOps 엔지니어)와 데이터
+                    소비자(데이터 분석가, 데이터 과학자, ML 엔지니어) 사이에서 허브 역할을 수행합니다.
+                  </p>
+                  <div className="grid md:grid-cols-2 gap-4">
+                    <div>
+                      <h5 className="font-medium text-foreground mb-2">업스트림 협업</h5>
+                      <ul className="text-sm text-muted-foreground space-y-1">
+                        <li>• 데이터 아키텍트: 전체 데이터 전략 수립</li>
+                        <li>• 소프트웨어 엔지니어: 내부 데이터 생성</li>
+                        <li>• DevOps/SRE: 운영 모니터링</li>
+                      </ul>
+                    </div>
+                    <div>
+                      <h5 className="font-medium text-foreground mb-2">다운스트림 지원</h5>
+                      <ul className="text-sm text-muted-foreground space-y-1">
+                        <li>• 데이터 과학자: ML 모델 개발 지원</li>
+                        <li>• 데이터 분석가: BI 및 리포팅 지원</li>
+                        <li>• ML 엔지니어: 모델 운영 인프라 제공</li>
+                      </ul>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>

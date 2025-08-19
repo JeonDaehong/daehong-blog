@@ -58,7 +58,7 @@ export default function MePage() {
       role: "소프트웨어개발자",
       period: "2022.04 - 2023.08",
       location: "경기도 용인시",
-      description: "AI 기반 스마트 팩토리 솔루션 전문기업. 여러 도메인에 대한 SI 사업.",
+      description: "AI 기반 스마트 팩토리 솔루��� 전문기업. 여러 도메인에 대한 SI 사업.",
       achievements: [
         "이커머스 B2C 플랫폼 개발 (DB 최적화, 상품 검색 성능 향상에 기여)",
         "AI 솔루션 유지보수 및 성능 최적화",

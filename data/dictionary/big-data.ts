@@ -87,6 +87,98 @@ spark.sql.autoBroadcastJoinThreshold 설정을 조정하여 브로드캐스트 �
 작은 테이블을 쪼개서 브로드캐스트하거나, 필요 시 일반 Shuffle Join으로 전환합니다.
 메모리 확보를 위해 spark.executor.memory를 늘리거나, 불필요한 캐시를 해제합니다.`,
       },
+      {
+        title: "💡 Data Skew",
+        summary:
+          "특정 key에 데이터가 편중되어 집중되는 현상으로, 일부 Task/Executor만 과도하게 큰 데이터를 처리하게 되어 Job 전체 지연과 OOM을 발생시킬 수 있습니다.",
+        date: "25.08.18",
+        detail: `**1. Skew란?**
+특정 key에 데이터가 편중되어 집중되는 현상
+
+**결과**:
+일부 Task/Executor만 과도하게 큰 데이터를 처리 → Job 전체 지연, OOM 발생 가능
+
+**왜 특정 key에 몰리는가?**
+실제 데이터 분포가 균등하지 않음
+
+**예시**:
+인기 있는 사용자(user_id), 특정 상품(product_id), 특정 날짜(date) 등
+이런 key가 Join, Group By, Aggregate 연산에서 중심 key가 되면 특정 Partition/Executor에만 데이터가 몰림
+
+<br/>
+
+**2. Skew가 발생하는 연산**
+
+**Join**:
+두 테이블을 key 기준으로 합칠 때 skew key가 한쪽 테이블에 많으면, Join 결과가 집중
+
+**Group By / Aggregate**:
+key별 집계 수행 시, 특정 key에 레코드가 몰리면, 해당 key를 처리하는 Task가 과도하게 커짐
+
+**Shuffle 연산**:
+repartition, reduceByKey 등 key 기반 연산
+
+
+<br/>
+
+**3. Spark 3.0 이전 해결 방법**
+
+**Salting**:
+skew key에 무작위 접미사 붙여 분산 → join/aggregate 후 다시 합치기
+
+**Broadcast Join**:
+작은 테이블을 브로드캐스트하여 shuffle 없이 join
+
+**Repartition / Custom Partitioning**:
+skew key를 여러 Partition으로 분산
+
+
+<br/>
+
+**4. Spark 3.0 이후 (AQE)**
+**Adaptive Query Execution(AQE)**로 자동 처리
+
+- spark.sql.adaptive.enabled = true
+- spark.sql.adaptive.skewJoin.enabled = true
+
+AQE가 skew key를 감지 → 자동으로 분할 & 병합
+
+특정 Executor에 과도한 부하가 몰리는 현상을 완화
+
+<br/>
+<br/>`,
+        codeExample: `-- Spark 3.0+ AQE 설정으로 Data Skew 자동 처리
+SET spark.sql.adaptive.enabled = true;
+SET spark.sql.adaptive.skewJoin.enabled = true;
+SET spark.sql.adaptive.skewJoin.skewedPartitionThresholdInBytes = 256MB;
+
+-- Spark 2.x에서 Salting을 통한 수동 Skew 처리 예시
+-- 1. Skew key에 salt 추가
+SELECT 
+  CONCAT(user_id, '_', FLOOR(RAND() * 10)) as salted_key,
+  user_id,
+  order_amount
+FROM orders;
+
+-- 2. Salt key로 join 후 다시 집계
+WITH salted_orders AS (
+  SELECT 
+    CONCAT(user_id, '_', FLOOR(RAND() * 10)) as salted_key,
+    user_id, order_amount
+  FROM orders
+),
+salted_users AS (
+  SELECT 
+    CONCAT(user_id, '_', salt_num) as salted_key,
+    user_id, user_name
+  FROM users 
+  CROSS JOIN (SELECT explode(sequence(0, 9)) as salt_num)
+)
+SELECT user_id, user_name, SUM(order_amount)
+FROM salted_orders o
+JOIN salted_users u ON o.salted_key = u.salted_key
+GROUP BY user_id, user_name;`,
+      },
     ],
   },
   {
@@ -104,7 +196,7 @@ spark.sql.autoBroadcastJoinThreshold 설정을 조정하여 브로드캐스트 �
 LSM Tree(Log-Structured Merge Tree)는 대규모 데이터를 쓰기 효율적으로 처리하기 위해 설계된 자료구조입니다. 특히 디스크 기반 Key-Value Store인 LevelDB, RocksDB, Apache Paimon, HBase, Cassandra 등에서 많이 사용됩니다.
 
 **핵심 아이디어**
-LSM Tree의 핵심 아이디어는 쓰기 시 랜덤 I/O를 피하고 순차 I/O를 활용한다는 것입니다. 디스크에 바로 랜덤하게 쓰지 않고 메모리에 먼저 모아두다가 디스크에 배치(batch) 단위로 정렬된 파일로 내려쓰는 구조입��다.
+LSM Tree의 핵심 아이디어는 쓰기 시 랜덤 I/O를 피하고 순차 I/O를 활용한다는 것입니다. 디스크에 바로 랜덤하게 쓰지 않고 메모리에 먼저 모아두다가 디스크에 배치(batch) 단위로 정렬된 파일로 내려쓰는 구조입다.
 
 **LSM Tree의 구성 요소**
 
