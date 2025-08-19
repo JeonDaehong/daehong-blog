@@ -122,7 +122,7 @@ export default function MePage() {
 
   const projects = [
     {
-      name: "NH 금융 빅데이터 개인신용정보 파기 프로세스 성능 개선",
+      name: "하둡 에코시스템 기반, 데이터 파이프라인 성능 최적화 및 운영",
       company: "디딤365",
       description: "하둡 에코시스템 기반 대용량 데이터 파기 시스템 성능 개선 및 자동화",
       tech: ["Java", "Scala", "Spring", "Spark", "Hadoop", "Yarn", "Hive", "Zookeeper", "MySQL"],
@@ -132,7 +132,8 @@ export default function MePage() {
       achievements: [
         "Spark·Hive 기반 파이프라인 최적화로 처리 성능 3배 이상 개선",
         "집계 자동화로 작업 시간 1시간 → 5분 미만으로 단축",
-        "YARN·TCP·OOM 등 운영 이슈 해결로 시스템 안정성 확보",
+        "TCP·OOM 등 운영 이슈 해결로 시스템 안정성 확보",
+        "Spark Skew 및 Broadcast Join OOM 문제 해결",
         "재실행 및 복구 기능 추가로 운영 편의성과 대응력 향상",
         "프로젝트 성공으로 고객 신뢰 확보 및 후속 계약 유치",
       ],
@@ -159,19 +160,19 @@ export default function MePage() {
               "집계 업무 자동화를 통한 운영 시간 절감, 기존 1시간 이상 소요되던 집계 작업을 5분 미만으로 단축, 반복 작업에서 발생하던 수동 오류 방지 및 운영 효율 증가",
           },
           {
-            title: "Spark Data Skew로 인한 OOM 문제 해결",
+            title: "Spark Data Skew와 Broadcast Join OOM 문제 해결",
             problem:
-              "기존 로직에서는 성능 향상을 위해 Broadcast Join이 무분별하게 사용되었으며, 특히 Skew가 있는 키에 대해 특정 Task에 메모리 부담이 집중되어 OOM 문제가 빈번히 발생함",
+              "기존 시스템에서 조인 성능 최적화를 위해 Broadcast Join을 광범위하게 적용중. Data Skew 상황에서 Broadcast Join 사용 시, 특정 파티션에 데이터가 집중되면서 해당 Task의 메모리 사용량이 급증.",
             solution:
-              "Broadcast Join을 제거하고, 테이블 크기와 분산 특성에 따라 Shuffle 기반 Sort-Merge Join 또는 Repartition Join으로 변경",
+              "BroadcastJoin Threshold를 축소하여 큰 테이블의 broadcast 방지. Spark 2.4.7 환경에서 AQE의 skew join 최적화가 지원되지 않으므로, 수동으로 salt key를 추가하여 skew 데이터 분산 처리",
             result:
-              "OOM 오류 제거, 작업 성공률 99% 달성, Skew Key 처리에 따른 Task 실행 시간 균등화 및 전체 Job 처리 시간 안정화",
+              "OOM 오류 제거, 작업 성공률 99% 달성. Skew Key 처리에 따른 Task 실행 시간 균등화 및 전체 Job 처리 시간 안정화",
           },
         ],
       },
     },
     {
-      name: "Didim-DP Batch Cloud 개발",
+      name: "클라우드 기반, 데이터 파이프라인 설계 및 개발",
       company: "디딤365",
       description: "클라우드 기반 데이터 파이프라인 설계 및 개발, DAG 기반 유연한 데이터 처리 솔루션",
       tech: [
@@ -225,7 +226,7 @@ export default function MePage() {
       },
     },
     {
-      name: "K-V 이커머스 물류 통합 플랫폼 서비스 개발",
+      name: "글로벌 DB 동기화 및 백엔드 서비스 API 설계·개발",
       company: "디세이코리아",
       description: "국내-베트남 간 이커머스 물류 연동 통합 플랫폼, QR 기반 물류 추적 및 통합관리",
       tech: ["Java", "Spring", "Mybatis", "MySQL"],
@@ -240,7 +241,7 @@ export default function MePage() {
       ],
       details: {
         background:
-          "국내 브랜드 상품을 베트남 매장에서 판매하기 위한 이커머스 물류 연동 통합 플랫폼 개발. 상품 등록부터 선적, 현지 매장 판매���지 QR 기반 물류 추적 및 통합관리 기능 구현",
+          "국내 브랜드 상품을 베트남 매장에서 판매하기 위한 이커머스 물류 연동 통합 플랫폼 개발. 상품 등록부터 선적, 현지 매장 판매까지 QR 기반 물류 추적 및 통합관리 기능 구현",
         challenges: [
           {
             title: "SQL 튜닝과 인덱스를 활용한 상품 조회 성능 향상",
@@ -270,20 +271,14 @@ export default function MePage() {
 
   const activities = [
     {
-      name: "오픈소스 기여 멘토링",
+      name: "오픈소스 한국 커뮤니티",
       role: "운영진",
       period: "2025.05 - 진행중",
       description: [
-        "김인제 멘토의 오픈소스 멘토링 8기부터 꾸준히 운영진으로 활동.",
+        "오픈소스 한국 커뮤니티 8기부터 꾸준히 운영진으로 활동.",
         "현재까지 약 500명 이상의 멘티들에 대하여, 오픈소스 기여 가이드 제공 및 서포트.",
-        "Apache Iceberg, Spring Kafka 등 여러 오픈소스에 적극 기여.",
+        "Apache Iceberg, Apache Gravitino, Spring Kafka 등 여러 오픈소스에 적극 기여.",
       ],
-    },
-    {
-      name: "IT 자격증 취득 단기 스터디",
-      role: "운영진",
-      period: "2024.12 - 2025.01",
-      description: ["IT 자격증 취득을 위한 스터디를 운영 (10명 참여).", "활동 기간중, 리눅스 마스터 2급 자격증 취득."],
     },
     {
       name: "ROTC 57기 총동기회",
@@ -469,61 +464,59 @@ export default function MePage() {
 
                 <div className="text-sm text-muted-foreground space-y-4 leading-relaxed text-left">
                   <p>
-                    소프트웨어 엔지니어이자, 데이터 엔지니어입니다. 금융, 이커머스 도메인에서 근무한 경험이 있으며,
-                    Hadoop부터 클라우드 환경까지 폭넓은 경험을 가진 엔지니어로, Spark와 Iceberg 기반의 대규모 배치
-                    파이프라인 설계 및 운영에 강점을 가지고 있습니다.
+                    금융 도메인에서 데이터 엔지니어로 근무하며, Hadoop 기반의 레거시 환경부터 Spark·Iceberg 기반의
+                    클라우드 아키텍처 설계, 개발 및 운영이 가능합니다.
+                    <br />
+                    수십~수백 TB 규모의 대규모 데이터 처리 환경에서 Spark·Iceberg를 활용한 데이터 플랫폼 애플리케이션을
+                    설계·개발하고 운영하며 성능 최적화에 강점을 가지고 있습니다.
                   </p>
 
                   <div>
-                    <h4 className="font-semibold text-foreground mb-2">주요 업무 경험</h4>
+                    <h4 className="font-semibold text-foreground mb-2">대규모 데이터 플랫폼 설계·개발 경험</h4>
                     <ul className="list-disc list-inside space-y-1">
-                      <li>수십 ~ 수백 TB 이상의 데이터 처리 환경 구축 / 운영 경험 보유</li>
-                      <li>Spark · 클라우드 기반의 ETL 배치 솔루션 설계 및 개발</li>
-                      <li>Hadoop 기반의 레거시 솔루션 유지보수 및 성능 최적화</li>
-                      <li>서비스 이중화, Failover 관리 및 Lock 을 통한 동시성 제어</li>
+                      <li>Spark·Iceberg 기반의 데이터 플랫폼 애플리케이션을 설계·개발 주도</li>
+                      <li>
+                        30대 이상의 Hadoop 클러스터 환경에서 Spark·Hive 기반 배치 시스템을 최적화하여, 수십~수백 TB
+                        데이터 처리 성능을 3배 이상 향상시키고, 집계 시간을 1시간에서 5분 이내로 단축
+                      </li>
+                      <li>
+                        Failover·Lock 기반 동시성 제어 및 재실행 체계 구축으로 솔루션 운영의 안정성 확보하고, 일 평균
+                        25억 이상의 신규데이터 서빙에도 안정적으로 운영 경험
+                      </li>
+                      <li>
+                        Broadcast Join 제한 및 salt key 기반 Repartition/Sort-Merge Join 적용으로 Spark Data Skew 및 OOM
+                        문제 해결, 작업 안정성 확보
+                      </li>
                     </ul>
                   </div>
 
-                  <p>
-                    최신 기술 트렌드에 꾸준한 관심을 가지고 있으며, 오픈소스 기여와 사내 기술 확산 활동에도 적극적으로
-                    참여하고 있습니다. Apache Iceberg, Spring Kafka 등 다양한 오픈소스 프로젝트에 주기적으로 기여하고
-                    있으며, 특히 Apache Iceberg의 기술 트렌드를 빠르게 파악하고 학습하여, 사내 기술 세션을 주도하였으며,
-                    신규 데이터 솔루션에 Iceberg 도입을 직접 기획하고 설득하여 실제 도입까지 이끌어낸 경험이 있습니다.
-                  </p>
-
                   <div>
-                    <h4 className="font-semibold text-foreground mb-2">서비스 및 성능 개선 경험</h4>
-                    <div className="space-y-2">
-                      <div>
-                        <h5 className="font-medium text-foreground/90">대용량 데이터 처리 최적화</h5>
-                        <ul className="list-disc list-inside pl-4 space-y-1">
-                          <li>Spark · Hive 를 통한 데이터 처리 성능 3배 이상 향상</li>
-                          <li>프로세스 개선을 통한, 집계 작업 처리 속도 개선</li>
-                          <li>Iceberg 도입을 통한, 서비스 안정성 향상</li>
-                          <li>DuckDB 도입을 통한 데이터 조회 성능 향상</li>
-                        </ul>
-                      </div>
-                      <div>
-                        <h5 className="font-medium text-foreground/90">SQL 성능 최적화</h5>
-                        <ul className="list-disc list-inside pl-4 space-y-1">
-                          <li>인덱스와 쿼리 튜닝을 통한, 사용자의 상품 검색 조회 성능 향상</li>
-                          <li>데이터 스키마 정규화 및 불필요한 컬럼 제거를 통한 쿼리 처리 경량화</li>
-                        </ul>
-                      </div>
-                    </div>
+                    <h4 className="font-semibold text-foreground mb-2">성능 최적화와 아키텍처 혁신 주도</h4>
+                    <ul className="list-disc list-inside space-y-1">
+                      <li>
+                        기존 솔루션의 Hadoop 의존성을 제거하고 클라우드 & Spark·Iceberg 기반 클라우드 아키텍처 전환을
+                        주도 하였으며, 확장성과 경량화를 달성하고, 사내 수익 증대에 기여함.
+                      </li>
+                      <li>
+                        Apache Iceberg, DuckDB 도입 및 운영 체계 구축: Expired Snapshot·Orphan File 관리 체계를
+                        설계·적용하여 데이터 플랫폼 운영 효율과 안정성 극대화
+                      </li>
+                    </ul>
                   </div>
 
                   <div>
-                    <h4 className="font-semibold text-foreground mb-2">엔지니어로서의 목표</h4>
-                    <ul className="list-decimal list-inside space-y-1">
+                    <h4 className="font-semibold text-foreground mb-2">글로벌 오픈소스 기여 & 기술 리더십</h4>
+                    <ul className="list-disc list-inside space-y-1">
                       <li>
-                        오픈소스 기여와 최신 기술 트렌드에 대한 지속적인 관심을 바탕으로, 조직 내 기술 공유와 함께
-                        성장하는 문화를 형성하고, 회사의 실질적인 기술 경쟁력과 비즈니스 가치로 연결할 수 있는
-                        엔지니어가 되는 것을 목표로 합니다.
+                        Apache Iceberg, Apache Gravitino, Spring Kafka 등 글로벌 오픈소스 프로젝트에 지속적으로 기여
                       </li>
                       <li>
-                        대용량 데이터와 높은 트래픽 환경에서도 안정적으로 서비스할 수 있는 아키텍처를 설계하고 개발하는
-                        엔지니어가 되는 것을 목표로 합니다.
+                        신규 데이터 솔루션 도입을 직접 기획하고 실행, 사내 기술 아키텍처를 개선하며 레퍼런스 발표로 팀
+                        전체의 기술 역량 향상
+                      </li>
+                      <li>
+                        오픈소스 멘토링 운영진으로 활동하며 400명+ 멘티 지원, 최신 기술 트렌드 확산과, 국내의 좋은
+                        오픈소스 기여 문화 정착에 기여
                       </li>
                     </ul>
                   </div>

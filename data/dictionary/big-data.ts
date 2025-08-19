@@ -104,7 +104,7 @@ spark.sql.autoBroadcastJoinThreshold 설정을 조정하여 브로드캐스트 �
 LSM Tree(Log-Structured Merge Tree)는 대규모 데이터를 쓰기 효율적으로 처리하기 위해 설계된 자료구조입니다. 특히 디스크 기반 Key-Value Store인 LevelDB, RocksDB, Apache Paimon, HBase, Cassandra 등에서 많이 사용됩니다.
 
 **핵심 아이디어**
-LSM Tree의 핵심 아이디어는 쓰기 시 랜덤 I/O를 피하고 순차 I/O를 활용한다는 것입니다. 디스크에 바로 랜덤하게 쓰지 않고 메모리에 먼저 모아두다가 디스크에 배치(batch) 단위로 정렬된 파일로 내려쓰는 구조입니다.
+LSM Tree의 핵심 아이디어는 쓰기 시 랜덤 I/O를 피하고 순차 I/O를 활용한다는 것입니다. 디스크에 바로 랜덤하게 쓰지 않고 메모리에 먼저 모아두다가 디스크에 배치(batch) 단위로 정렬된 파일로 내려쓰는 구조입��다.
 
 **LSM Tree의 구성 요소**
 
