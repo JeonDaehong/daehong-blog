@@ -92,8 +92,15 @@ export default function MePage() {
       name: "Apache Gravitino",
       role: "Contributor",
       description: "다양한 데이터 소스의 메타데이터를 통합적으로 관리하고 거버넌스를 제공하는 시스템에 기여하였습니다.",
-      contributions: "1 PR merged",
+      contributions: "2 PRs merged",
       prs: [
+        {
+          title: "fix: null-safe handling of 'managed' property in CreateFileset.java",
+          description:
+            "CreateFileset.java의 handle() 메서드에서 `managed` 프로퍼티 누락 시 발생할 수 있는 NullPointerException을 방지하도록 null-safe 처리 로직을 추가하고, 기본값을 EXTERNAL 모드로 설정. 관련 단위 테스트 작성으로 안정성 강화",
+          status: "Merged (2025.08)",
+          link: "https://github.com/apache/gravitino/pull/8144",
+        },
         {
           title: "fix: call request.validate() in PartitionOperations.java",
           description:
