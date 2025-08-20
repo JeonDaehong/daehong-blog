@@ -209,7 +209,7 @@ public void testContinuousWithJobManagerFailover(@InjectMiniCluster MiniCluster 
 
 이번 작업은 Iceberg Flink Catalog v2.0에서 진행했던 MiniClusterWithClientResource 제거 작업을 Flink 1.19 및 1.20 버전에 성공적으로 백포팅한 사례였습니다.
 
-코드 변경 자체는 이전과 거의 동일했지만, Gradle 설정 및 로��� 테스트 환경 설정에서 발생한 작은 이슈를 해결하면서, Iceberg 프로젝트의 Gradle 구성과 서브모듈 활성화 방식에 대해 더 깊이 이해할 수 있는 계기가 되었습니다.
+코드 변경 자체는 이전과 거의 동일했지만, Gradle 설정 및 로직 테스트 환경 설정에서 발생한 작은 이슈를 해결하면서, Iceberg 프로젝트의 Gradle 구성과 서브모듈 활성화 방식에 대해 더 깊이 이해할 수 있는 계기가 되었습니다.
 
 이번 경험을 바탕으로 앞으로도 오픈소스 프로젝트에 더욱 적극적으로 기여하며, 다양한 문제 상황을 주도적으로 해결해나갈 수 있도록 꾸준히 역량을 키워가겠습니다. 💪
 `

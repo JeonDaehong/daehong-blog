@@ -69,7 +69,7 @@ const content = `
 
 <a href="https://github.com/apache/iceberg/issues/13049" target="_blank" rel="noopener noreferrer" className="text-primary hover:text-primary/80 underline underline-offset-2 font-medium transition-colors decoration-2">#13049</a> 와,
 <a href="https://github.com/apache/iceberg/issues/12937" target="_blank" rel="noopener noreferrer" className="text-primary hover:text-primary/80 underline underline-offset-2 font-medium transition-colors decoration-2">#12937</a> 이슈 를 보면,
-Apache Iceberg의 Maintainer는 전체 코드베이스, 특히 Flink 관련 모듈에서 JUnit4 의존성을 완전히 제거하려는 명확한 의지를 드러내고 ���었습니다.
+Apache Iceberg의 Maintainer는 전체 코드베이스, 특히 Flink 관련 모듈에서 JUnit4 의존성을 완전히 제거하려는 명확한 의지를 드러내고 있었습니다.
 
 두 이슈 모두 공통적으로, 테스트 코드가 JUnit5 기반으로 통일되길 원하며, 오래된 테스트 유틸이나 라이브러리에 묶여 있는 잔존 JUnit4 종속성을 제거하는 데 목적이 있었습니다.
 
