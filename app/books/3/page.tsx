@@ -4,7 +4,7 @@ import { ArrowLeft, Star, Calendar, User, Building } from "lucide-react"
 
 export const metadata: Metadata = {
   title: "엔터프라이즈 데이터 플랫폼 구축 - 도서 리뷰",
-  description: "고케 얀센의 엔터프라이즈 데이터 플랫폼 구축 도서 리뷰",
+  description: "얀 쿠닉크의 엔터프라이즈 데이터 플랫폼 구축 도서 리뷰",
 }
 
 export default function BookReviewPage() {
@@ -41,7 +41,7 @@ export default function BookReviewPage() {
               <div className="flex flex-wrap gap-4 text-muted-foreground mb-6">
                 <div className="flex items-center gap-2">
                   <User className="w-4 h-4" />
-                  <span>고케 얀센</span>
+                  <span>얀 쿠닉크</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <Building className="w-4 h-4" />
