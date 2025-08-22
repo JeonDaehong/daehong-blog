@@ -4,7 +4,10 @@ export const meta: Omit<BlogPost, "id"> = {
   title: "📘 Apache Iceberg Flink Catalog 오픈소스 기여 회고",
   excerpt:
     "Apache Iceberg 프로젝트에서 JUnit4 의존성을 제거하고 MiniClusterWithClientResource 종속성을 해결한 오픈소스 기여 경험을 공유합니다.",
-  author: "전대홍",
+  author: {
+    name: "전대홍",
+    image: "/profile.jpg",
+  },
   publishedAt: "2025-05-23",
   tags: ["OpenSource PR", "Iceberg", "Flink"],
   category: "오픈소스기여",

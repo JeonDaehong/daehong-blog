@@ -4,7 +4,10 @@ export const meta: Omit<BlogPost, "id"> = {
   title: "📘 Apache Iceberg Flink Catalog Backport 기여 회고",
   excerpt:
     "Iceberg Flink Catalog v2.0에서 성공한 MiniClusterWithClientResource 종속성 제거 작업을 Flink 1.19와 1.20 버전에 백포팅한 경험을 공유합니다.",
-  author: "전대홍",
+  author: {
+    name: "전대홍",
+    image: "/profile.jpg",
+  },
   publishedAt: "2025-05-28",
   tags: ["OpenSource PR", "Iceberg", "Flink", "Backporting"],
   category: "오픈소스기여",
@@ -22,7 +25,7 @@ const content = `
 
 (현재 Iceberg는 1.9.1 버전을 사용 중이며, Flink Catalog는 1.19, 1.20, 그리고 2.0 버전을 지원합니다.)
 
-이번 작업은 이전 포스팅인 **📘 Iceberg Flink Catalog v2.0 MiniClusterWithClientResource 종속성 제거**의 연장선이자, 유사한 내용이 많아, 비교적 짧게 정리해보려 합니다.
+이번 작업은 이전 포스팅인 **📘 Apache Iceberg Flink Catalog 오픈소스 기여 회고**의 연장선이자, 유사한 내용이 많아, 비교적 짧게 정리해보려 합니다.
 
 <br>
 <br>

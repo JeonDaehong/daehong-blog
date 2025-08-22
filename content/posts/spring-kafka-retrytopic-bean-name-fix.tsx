@@ -3,7 +3,10 @@ import type { BlogPost } from "@/lib/types"
 export const meta: Omit<BlogPost, "id"> = {
   title: "📘 오픈소스 기여의 첫 발자국, 실패와 성공의 과정",
   excerpt: "Spring Kafka의 RetryTopic Bean 이름 불일치 문제를 발견하고 해결한 첫 오픈소스 기여 경험을 공유합니다.",
-  author: "전대홍",
+  author: {
+    name: "전대홍",
+    image: "/profile.jpg",
+  },
   publishedAt: "2024-10-09",
   tags: ["OpenSource PR", "Spring", "Kafka"],
   category: "오픈소스기여",
