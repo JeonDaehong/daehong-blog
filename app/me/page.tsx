@@ -75,13 +75,13 @@ export default function MePage() {
       contributions: "2 PRs merged",
       prs: [
         {
-          title: "Flink Catalog v2.0: MiniCluster 의존성 제거",
+          title: "Flink Catalog v2.0: Remove MiniCluster dependency", // 한글 제목을 영어로 변경
           description: "Flink: Remove the MiniClusterWithClientResource dependency",
           status: "Merged (2025.05)",
           link: "https://github.com/apache/iceberg/pull/13021",
         },
         {
-          title: "Flink Catalog MiniCluster 의존성 제거 Backport",
+          title: "Flink Catalog MiniCluster dependency removal Backport", // 한글 제목을 영어로 변경
           description: "Flink 1.19, 1.20: Remove the MiniClusterWithClientResource dependency",
           status: "Merged (2025.05)",
           link: "https://github.com/apache/iceberg/pull/13165",
@@ -92,19 +92,26 @@ export default function MePage() {
       name: "Apache Gravitino",
       role: "Contributor",
       description: "다양한 데이터 소스의 메타데이터를 통합적으로 관리하고 거버넌스를 제공하는 시스템에 기여하였습니다.",
-      contributions: "2 PRs merged",
+      contributions: "3 PRs merged",
       prs: [
+        {
+          title: "fix: null-safe handling of hiddenProperties in EntityCombinedFileset.java",
+          description:
+            "Ensured that hiddenProperties is properly initialized to prevent NullPointerExceptions in the properties() method. Added null-safe handling in withHiddenProperties() and corresponding unit tests to validate safe behavior when hidden properties are not explicitly set.",
+          status: "Merged (2025.08)",
+          link: "https://github.com/apache/gravitino/pull/8144",
+        },
         {
           title: "fix: null-safe handling of 'managed' property in CreateFileset.java",
           description:
-            "CreateFileset.java의 handle() 메서드에서 `managed` 프로퍼티 누락 시 발생할 수 있는 NullPointerException을 방지하도록 null-safe 처리 로직을 추가하고, 기본값을 EXTERNAL 모드로 설정. 관련 단위 테스트 작성으로 안정성 강화",
+            "Added null-safe handling logic to prevent potential NullPointerExceptions when the 'managed' property is missing in the handle() method of CreateFileset.java. Set default value to EXTERNAL mode and enhanced stability with related unit tests.",
           status: "Merged (2025.08)",
           link: "https://github.com/apache/gravitino/pull/8144",
         },
         {
           title: "fix: call request.validate() in PartitionOperations.java",
           description:
-            "PartitionOperations.java의 addPartitions 메서드에 request.validate() 호출을 추가하여 잘못된 요청을 적절히 거부하도록 개선",
+            "Added request.validate() call to the addPartitions method in PartitionOperations.java to properly reject invalid requests and improve request validation.",
           status: "Merged (2025.08)",
           link: "https://github.com/apache/gravitino/pull/8098",
         },
@@ -117,7 +124,7 @@ export default function MePage() {
       contributions: "1 PR merged",
       prs: [
         {
-          title: "RetryTopic 기본 Template Bean 이름 변경",
+          title: "Change default RetryTopic template bean name", // 한글 제목을 영어로 변경
           description:
             "GH-3514: Change default template bean name from retryTopicDefaultKafkaTemplate to defaultRetryTopicKafkaTemplate.",
           status: "Merged (2024.10)",
