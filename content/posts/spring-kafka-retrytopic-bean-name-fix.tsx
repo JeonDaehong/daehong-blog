@@ -241,7 +241,7 @@ PR을 올리고 나서 며칠 후, Spring Kafka의 메인테이너 중 한 분�
 
 리뷰 피드백을 반영하고 며칠 후, 드디어 PR이 Merge 되었습니다! 그 순간의 기쁨은 정말 말로 표현하기 어려웠습니다. **Spring Kafka의 공식 Contributor**가 되었다는 사실이 믿기지 않았습니다.
 
-GitHub 프로필에 Spring Kafka 기여 내역이 표시되는 걸 보면서, "아, 내가 정말 오픈소스에 기여했구나"라는 실감이 났어요. 작은 변경이었지만, 전 세계 수많은 개발자들이 사용하는 라이브러리에 내 코드가 포함되었다는 게 정말 뿌듯했습니다.
+GitHub 프로필에 Spring Kafka 기여 내��이 표시되는 걸 보면서, "아, 내가 정말 오픈소스에 기여했구나"라는 실감이 났어요. 작은 변경이었지만, 전 세계 수많은 개발자들이 사용하는 라이브러리에 내 코드가 포함되었다는 게 정말 뿌듯했습니다.
 
 해당 PR 내용을 확인하고 싶다면, <a href="https://github.com/spring-projects/spring-kafka/pull/3543" target="_blank" rel="noopener noreferrer" className="text-primary hover:text-primary/80 underline underline-offset-2 font-medium transition-colors decoration-2">Spring Kafka PR #3543</a>에서 자세한 내용을 볼 수 있어요.
 

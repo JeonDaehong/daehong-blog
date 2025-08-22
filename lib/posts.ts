@@ -5,12 +5,14 @@ import { meta as meta1, default as content1 } from "@/content/posts/spring-kafka
 import { meta as meta2, default as content2 } from "@/content/posts/iceberg-flink-junit4-dependency-removal"
 import { meta as meta3, default as content3 } from "@/content/posts/iceberg-flink-backporting-minicluster-removal"
 import { meta as meta4, default as content4 } from "@/content/posts/apache-gravitino-stability-improvements"
+import { meta as meta5, default as content5 } from "@/content/posts/spark-data-skew-research"
 
 const postModules = [
   { id: "spring-kafka-retrytopic-bean-name-fix", meta: meta1, content: content1 },
   { id: "iceberg-flink-junit4-dependency-removal", meta: meta2, content: content2 },
   { id: "iceberg-flink-backporting-minicluster-removal", meta: meta3, content: content3 },
   { id: "apache-gravitino-stability-improvements", meta: meta4, content: content4 },
+  { id: "spark-data-skew-research", meta: meta5, content: content5 },
 ]
 
 export const posts: Post[] = postModules
