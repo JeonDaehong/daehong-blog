@@ -106,7 +106,7 @@ export default function MePage() {
           description:
             "Ensured that hiddenProperties is properly initialized to prevent NullPointerExceptions in the properties() method. Added null-safe handling in withHiddenProperties() and corresponding unit tests to validate safe behavior when hidden properties are not explicitly set.",
           status: "Merged (2025.08)",
-          link: "https://github.com/apache/gravitino/pull/8144",
+          link: "https://github.com/apache/gravitino/pull/8238",
         },
         {
           title: "fix: null-safe handling of 'managed' property in CreateFileset.java",
