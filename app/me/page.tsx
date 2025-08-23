@@ -92,8 +92,15 @@ export default function MePage() {
       name: "Apache Gravitino",
       role: "Contributor",
       description: "다양한 데이터 소스의 메타데이터를 통합적으로 관리하고 거버넌스를 제공하는 시스템에 기여하였습니다.",
-      contributions: "3 PRs merged",
+      contributions: "4 PRs merged",
       prs: [
+        {
+          title: "fix: updateGroup in GroupMetaService to handle non-role changes",
+          description:
+            "Removed an early return in updateGroup that ignored updates when there were no role changes. This ensures that changes to group metadata, such as group name updates or audit information modifications, are now correctly persisted even if roles remain unchanged. Added unit test updateGroupWithoutRoleChange() to verify non-role updates work as expected, while existing role-based update functionality remains intact.",
+          status: "Merged (2025.08)",
+          link: "https://github.com/apache/gravitino/pull/8255",
+        },
         {
           title: "fix: null-safe handling of hiddenProperties in EntityCombinedFileset.java",
           description:
