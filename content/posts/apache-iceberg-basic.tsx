@@ -13,7 +13,9 @@ export const meta = {
 }
 
 const content = `
-*내용을 작성해주세요...*
+<div className="my-8">
+  <img src="/iceberg/slide_1.png" alt="Apache Iceberg PR 머지 완료" style="border: 2px solid skyblue; border-radius: 4px;" width="100%" />
+</div>
 `
 
 export default content
