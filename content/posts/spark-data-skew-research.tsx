@@ -8,7 +8,7 @@ export const meta: Omit<BlogPost, "id"> = {
     image: "/profile.jpg",
   },
   publishedAt: "2025-07-17",
-  category: "데이터엔지니어",
+  category: "빅데이터",
   tags: ["Apache Spark", "Data Engineering"],
   thumbnail: "/spark-data-skew-research.png",
   views: 0,
