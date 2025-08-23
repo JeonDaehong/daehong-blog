@@ -7,7 +7,7 @@ export const meta = {
     name: "전대홍",
     image: "/profile.jpg",
   },
-  category: "데이터 엔지니어링",
+  category: "데이터엔지니어",
   tags: ["Apache Iceberg", "Data Engineering", "Open Table Format"],
   excerpt: "Apache Iceberg의 기본 개념과 혁신적인 테이블 포맷 기술을 소개합니다.",
 }
