@@ -48,7 +48,9 @@ const content = `
 
 # ✏️ 2. 공부에 활용한 실습 환경
 
-학습 과정에서 저는 Apache Iceberg를 직접 활용하여 파이프라인을 설계하고 구현해 보았습니다.  
+학습 과정에서 저는 Apache Iceberg를 직접 활용하여 파이프라인을 설계하고 구현해 보았습니다.
+
+▶ 해당 프로젝트는 저의 깃허브에서 확인 할 수 있습니다: https://github.com/JeonDaehong/LoL-iceberg-spark-minio-zeppline-project
 
 이를 통해 Iceberg의 특성과 장점을 보다 실무적으로 체감할 수 있었으며, 아래 아키텍처는 당시 실습을 위해 구성한 환경을 나타낸 것입니다.
 
@@ -225,9 +227,105 @@ A Transaction은 스냅샷 ID 1001의 데이터를 조회하고, 다른 트랜�
 
 ### 2️⃣ 파티션의 변경 및 확장성 Partition Evolution
 
+<div className="my-8">
+  <img src="/iceberg/iceberg_7.png" alt="Apache Iceberg" style="border: 2px solid skyblue; border-radius: 4px;" width="100%" />
+</div>
+
+대규모 데이터 환경에서 비즈니스 요구사항은 지속적으로 변화합니다.
+
+처음에는 특정 기준으로 파티셔닝했던 테이블이 시간이 지나면서 다른 기준으로 분할해야 할 필요성이 생기곤 합니다. 전통적인 데이터 웨어하우스 시스템에서는 이러한 파티션 변경 작업이 매우 복잡하고 비용이 많이 드는 과정이었습니다.
+
+전체 데이터를 다시 쓰거나, 새로운 테이블을 생성해서 데이터를 이전해야 했기 때문입니다.
+
+하지만 Apache Iceberg는 파티션 진화(Partition Evolution)라는 혁신적인 기능을 통해 이러한 문제를 해결합니다.
+
+메타데이터 레벨에서 파티션 스키마를 관리하여, 기존 데이터를 물리적으로 이동하지 않고도 파티션 구조를 변경할 수 있습니다. 이는 운영 중단 없이도 파티션 전략을 자유롭게 변경할 수 있음을 의미합니다.
+
+실제 League of Legends 게임 데이터를 활용한 예시를 통해 이러한 파티션 진화 과정을 살펴보겠습니다.
+
+먼저 기존에 tier 기준으로 파티션이 나누어진 데이터 구조를 살펴보겠습니다.
+
+<div className="my-8">
+  <img src="/iceberg/iceberg_8.png" alt="Apache Iceberg" style="border: 2px solid skyblue; border-radius: 4px;" width="100%" />
+</div>
+
+기본 파티션에서 tier별 데이터 분포를 확인하기 위해 다음 쿼리를 실행해보겠습니다.
+
+\`\`\`sql
+spark.sql("SELECT * FROM spark_catalog.lol_db.game_table.partitions").show(100, False)
+\`\`\`
+
+<div className="my-8">
+  <img src="/iceberg/iceberg_9.png" alt="Apache Iceberg" style="border: 2px solid skyblue; border-radius: 4px;" width="100%" />
+</div>
+
+실행 결과를 살펴보면 각 tier별로 데이터가 다르게 분산되어 있음을 확인할 수 있습니다. Bronze 티어가 1779개의 레코드로 가장 많은 데이터를 포함하고 있으며, Diamond 티어는 1696개, Silver 티어는 1225개의 레코드를 가지고 있습니다.
+
+상위 티어인 Challenger의 경우 561개로 상대적으로 적은 데이터를 포함하고 있는데, 이는 실제 게임 환경에서 상위 티어 플레이어가 적다는 현실을 반영한 것으로 보입니다.
+
+이제 비즈니스 요구사항이 변경되어 tier 기준 분석보다는 champion(챔피언) 기준 분석이 더 중요해졌다고 가정해보겠습니다. 기존 시스템에서는 이러한 변경을 위해 전체 데이터를 새로운 파티션 구조로 다시 써야 했지만, Apache Iceberg에서는 간단한 \`ALTER TABLE\` 명령만으로 해결할 수 있습니다.
+
+\`\`\`sql
+-- 기존 tier 파티션 제거
+spark.sql("ALTER TABLE spark_catalog.lol_db.game_table DROP PARTITION FIELD tier")
+
+-- champion 파티션 추가
+spark.sql("ALTER TABLE spark_catalog.lol_db.game_table ADD PARTITION FIELD champion")
+\`\`\`
+
+이 두 명령만으로 파티션 스키마 변경이 완료됩니다. 중요한 점은 이 과정에서 기존 데이터는 전혀 건드리지 않는다는 것입니다.
+
+파티션 변경 후에는 데이터 저장 구조가 champion 기준으로 재구성됩니다. 기존 tier 기반 데이터는 tier=null 디렉토리 하위에 유지되면서, 새로운 데이터들은 champion 기준으로 분할되어 저장됩니다.
+
+<div className="my-8">
+  <img src="/iceberg/iceberg_10.png" alt="Apache Iceberg" style="border: 2px solid skyblue; border-radius: 4px;" width="100%" />
+</div>
+
+변경된 파티션 구조에서 데이터를 다시 조회해보겠습니다.
+
+<div className="my-8">
+  <img src="/iceberg/iceberg_11.png" alt="Apache Iceberg" style="border: 2px solid skyblue; border-radius: 4px;" width="100%" />
+</div>
+
+쿼리 결과를 살펴보면 흥미로운 패턴을 발견할 수 있습니다.
+
+기존 tier 기반으로 저장된 데이터는 (null, Silver, null)과 같이 첫 번째와 세 번째 컬럼이 null 값으로 표시되면서 1226개의 레코드를 포함하고 있습니다. 반면 새로운 champion 기반 데이터는 (null, XERICECC), (null, CASSIOPEIA) 같은 형태로 각각 2개씩의 레코드를 가지고 있습니다. 이는 파티션 스키마가 변경되었음에도 불구하고 기존 데이터와 새로운 데이터가 모두 정상적으로 조회되고 있음을 보여줍니다.
+
+Apache Iceberg의 파티션 진화를 이해하기 위해서는 내부적으로 어떻게 파티션 정보가 관리되는지 살펴볼 필요가 있습니다. 매니페스트 파일과 메타데이터 파일에서 파티션 스펙 ID가 어떻게 활용되는지 확인해보겠습니다.
+
+<div className="my-8">
+  <img src="/iceberg/iceberg_12.png" alt="Apache Iceberg" style="border: 2px solid skyblue; border-radius: 4px;" width="100%" />
+</div>
+
+<div className="my-8">
+  <img src="/iceberg/iceberg_13.png" alt="Apache Iceberg" style="border: 2px solid skyblue; border-radius: 4px;" width="100%" />
+</div>
+
+매니페스트 리스트 파일을 살펴보면 ( 매니페스트나 매니페스트 리스트와 같은 파일들에 대해서는, 추후 아키텍처에서 자세히 설명하겠습니다. )
+
+\`partition_spec_id\` 컬럼을 통해 각 데이터 파일이 어떤 파티션 스펙을 사용하는지 추적할 수 있습니다. 기존 tier 기반으로 생성된 데이터 파일들은 \`partition_spec_id\`가 1 또는 2로 표시되고, 새로운 champion 기반 데이터 파일들은 \`partition_spec_id\`가 3으로 표시됩니다. 이를 통해 Iceberg는 서로 다른 파티션 스펙으로 생성된 데이터들을 구분하고 관리할 수 있습니다.
+
+메타데이터 파일에서는 각 파티션 스펙 ID별로 상세한 정의를 확인할 수 있습니다. 파티션 스펙 ID 3은 기본 스펙으로 tier 필드를 identity transform으로 사용하며, 파티션 스펙 ID 2는 tier 필드를 void transform으로 설정하고 champion 필드를 identity transform으로 새롭게 추가한 구조입니다. 이러한 메타데이터 기반 관리를 통해 Iceberg는 파티션 스키마의 변경 이력을 완벽하게 추적하고, 각 데이터 파일이 어떤 파티션 규칙으로 저장되었는지 정확히 파악할 수 있습니다.
+
+결국 Patition Evolution 을 통해 아래와 같은 장점을 얻을 수 있습니다.
+
+- 기존 데이터를 **물리적으로 다시 쓰지 않고도** 파티션 구조를 변경할 수 있음  
+- 대규모 데이터셋에서도 **빠른 스키마 진화 지원**  
+- 운영 환경에서 **서비스 중단 없이 파티션 전략 개선 가능**
+- Apache Hive 같은 전통적인 시스템 대비 **시간·비용 절감**  
+- 메타데이터 레벨에서 관리되므로 **물리적 데이터 이동 불필요**  
+- **테라바이트 규모 데이터도 몇 초 내에** 파티션 구조 변경 가능
+- 기존 파티션 스펙으로 생성된 데이터도 **계속 조회 가능**  
+- **점진적 마이그레이션 지원** → 레거시 데이터 유지 가능  
+- 새로운 파티션 전략을 적용하면서도 기존 데이터와 **호환성 확보**
+- **파티션 프루닝을 통한 성능 최적화**  
+- 다양한 액세스 패턴에 맞는 파티션 전략 **동시 적용 가능**  
+- 복잡한 분석 워크로드에도 **최적화된 성능 제공**
+
 <br>
 
 ### 3️⃣ Hidden Partitioning
+
 
 <br>
 
