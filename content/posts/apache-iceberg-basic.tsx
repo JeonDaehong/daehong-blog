@@ -50,8 +50,12 @@ const content = `
 
 학습 과정에서 저는 Apache Iceberg를 직접 활용하여 파이프라인을 설계하고 구현해 보았습니다.
 
-▶ 해당 프로젝트는 저의 깃허브에서 확인 할 수 있습니다: https://github.com/JeonDaehong/LoL-iceberg-spark-minio-zeppline-project
+<br>
+해당 프로젝트는 저의 깃허브에서 확인 할 수 있습니다: 
 
+**클릭** ▶ <a href="https://github.com/JeonDaehong/LoL-iceberg-spark-minio-zeppline-project" target="_blank" rel="noopener noreferrer" className="text-primary hover:text-primary/80 underline underline-offset-2 font-medium transition-colors decoration-2">My Iceberg Project Github</a> ◀
+
+<br>
 이를 통해 Iceberg의 특성과 장점을 보다 실무적으로 체감할 수 있었으며, 아래 아키텍처는 당시 실습을 위해 구성한 환경을 나타낸 것입니다.
 
 <div className="my-8">
@@ -325,6 +329,64 @@ Apache Iceberg의 파티션 진화를 이해하기 위해서는 내부적으로 
 <br>
 
 ### 3️⃣ Hidden Partitioning
+
+<div className="my-8">
+  <img src="/iceberg/iceberg_14.png" alt="Apache Iceberg" style="border: 2px solid skyblue; border-radius: 4px;" width="100%" />
+</div>
+
+Apache Iceberg를 사용하면서 가장 혁신적이라고 느낀 기능 중 하나가 바로 Hidden Partitioning입니다.
+
+기존 Hive나 다른 데이터 레이크 솔루션에서 겪었던 파티셔닝의 고통스러운 경험들을 완전히 바꿔놓은 이 기능에 대해 실무 경험을 바탕으로 자세히 설명해드리겠습니다.
+
+기존 Hive 환경에서 게임 데이터를 다룬다고 가정해봅시다. 게임 플레이 데이터를 연도별로 파티셔닝했다면, 테이블 구조는 다음과 같았을 것입니다
+
+\`\`\`
+/game_data/
+  /year=2023/
+  /year=2024/
+  /year=2025/
+\`\`\`
+
+이런 구조에서 2024년 데이터를 조회하려면 다음과 같이 작성해야 했습니다:
+
+\`\`\`sql
+SELECT * FROM game_table 
+WHERE year = 2024 AND createGameDate >= '2024-01-01';
+\`\`\`
+
+이렇게 파티션 컬럼을 반드시 명시해야 했습니다.
+
+문제는 여기서 시작됩니다. 만약 개발자가 실수로 \`WHERE year = 2024\` 조건을 빼먹고 다음과 같이 쿼리를 작성한다면
+
+\`\`\`sql
+SELECT * FROM game_table 
+WHERE createGameDate >= '2024-01-01';
+\`\`\`
+
+이 쿼리는 모든 연도의 데이터를 **FULL SCAN** 하게 됩니다.
+5년치 데이터가 있다면 2024년 데이터만 필요한데도 전체 5년치를 다 읽어서 엄청난 비용과 시간이 소모됩니다.
+
+그리고 파티션 컬럼 중복 관리의 번거로움도 있습니다.
+
+기존 방식에서는 원본 날짜 컬럼(createGameDate) 외에 파티션용 컬럼(year)을 별도로 관리해야 했습니다.
+
+이는 다음과 같은 문제들을 야기했습니다.
+
+- **저장 공간 낭비:** 같은 정보를 두 번 저장
+- **일관성 문제:** createGameDate는 2024-01-01인데 year가 2023으로 잘못 들어가는 경우
+- **ETL 복잡성:** 데이터 입수 시 파티션 컬럼을 별도로 계산하여 추가해야 함
+
+그 뿐 아니라, 비즈니스 요구사항이 변경되어 월별 파티셔닝으로 바꾸고 싶다면 기존 방식에서는 다음과 같은 대공사가 필요했습니다.
+
+1. 새로운 테이블 스키마 설계 (year_month 파티션 컬럼 추가)
+2. 모든 기존 데이터를 새 파티션 구조로 마이그레이션
+3. 모든 기존 쿼리를 새 파티션 조건으로 수정
+4. 테스트 및 배포
+
+이는 시간이 엄청나게 오래걸리는 번거로운 작업이기도 합니다.
+
+이런 Hive 의 문제를 한 번에 해결 할 수 있는 것이 바로 **Iceberg 의 Hidden Partitioning** 입니다.
+
 
 
 <br>
