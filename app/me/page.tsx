@@ -72,16 +72,23 @@ export default function MePage() {
       name: "Apache Iceberg",
       role: "Contributor",
       description: "대규모 데이터를 안정적으로 관리하고, 효율적으로 처리할 수 있는 테이블 포맷에 기여하였습니다.",
-      contributions: "2 PRs merged",
+      contributions: "3 PRs merged",
       prs: [
         {
-          title: "Flink Catalog v2.0: Remove MiniCluster dependency", // 한글 제목을 영어로 변경
+          title: "Docs: Add docs for Table Maintenance in Flink",
+          description:
+            "Added documentation for Table Maintenance in Flink, enabling Flink users to run file compaction, orphan file removal, and snapshot expiration without relying on Spark. First full-page docs contribution with in-depth code understanding and collaboration with maintainers.",
+          status: "Merged (2025.08)",
+          link: "https://github.com/apache/iceberg/pull/13853",
+        },
+        {
+          title: "Flink Catalog v2.0: Remove MiniCluster dependency",
           description: "Flink: Remove the MiniClusterWithClientResource dependency",
           status: "Merged (2025.05)",
           link: "https://github.com/apache/iceberg/pull/13021",
         },
         {
-          title: "Flink Catalog MiniCluster dependency removal Backport", // 한글 제목을 영어로 변경
+          title: "Flink Catalog MiniCluster dependency removal Backport",
           description: "Flink 1.19, 1.20: Remove the MiniClusterWithClientResource dependency",
           status: "Merged (2025.05)",
           link: "https://github.com/apache/iceberg/pull/13165",
@@ -131,7 +138,7 @@ export default function MePage() {
       contributions: "1 PR merged",
       prs: [
         {
-          title: "Change default RetryTopic template bean name", // 한글 제목을 영어로 변경
+          title: "Change default RetryTopic template bean name",
           description:
             "GH-3514: Change default template bean name from retryTopicDefaultKafkaTemplate to defaultRetryTopicKafkaTemplate.",
           status: "Merged (2024.10)",
