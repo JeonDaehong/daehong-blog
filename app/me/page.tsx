@@ -99,8 +99,15 @@ export default function MePage() {
       name: "Apache Gravitino",
       role: "Contributor",
       description: "다양한 데이터 소스의 메타데이터를 통합적으로 관리하고 거버넌스를 제공하는 시스템에 기여하였습니다.",
-      contributions: "4 PRs merged",
+      contributions: "5 PRs merged",
       prs: [
+        {
+          title: "fix: incorrect field assignments in TestModelMetaService tests",
+          description:
+            "Fixed incorrect assignments in `testInsertAndUpdateModelComment` and `testInsertAndUpdateModelProperties` within `TestModelMetaService.java`. Previously, the name and comment fields were overwritten incorrectly, preventing proper verification. This fix ensures comments and properties are updated as intended, maintaining correct validation logic.",
+          status: "Merged (2025.08)",
+          link: "https://github.com/apache/gravitino/pull/8296",
+        },
         {
           title: "fix: updateGroup in GroupMetaService to handle non-role changes",
           description:
