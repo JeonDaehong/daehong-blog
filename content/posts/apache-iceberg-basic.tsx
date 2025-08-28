@@ -388,7 +388,6 @@ WHERE createGameDate >= '2024-01-01';
 이런 Hive 의 문제를 한 번에 해결 할 수 있는 것이 바로 **Iceberg 의 Hidden Partitioning** 입니다.
 
 
-
 <br>
 
 ### 4️⃣ 효율적인 행 수준 테이블 작업(COW vs MOR)
