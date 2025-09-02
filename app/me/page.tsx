@@ -99,8 +99,15 @@ export default function MePage() {
       name: "Apache Gravitino",
       role: "Contributor",
       description: "다양한 데이터 소스의 메타데이터를 통합적으로 관리하고 거버넌스를 제공하는 시스템에 기여하였습니다.",
-      contributions: "5 PRs merged",
+      contributions: "6 PRs merged",
       prs: [
+        {
+          title: "Add super.validate() call in OAuth2TokenResponse.validate() method",
+          description:
+            "Added missing `super.validate()` call in `OAuth2TokenResponse.validate()` to ensure parent class validation (`BaseResponse`) is executed before subclass-specific checks, preventing invalid responses from bypassing validation.",
+          status: "Merged (2025.09)",
+          link: "https://github.com/apache/gravitino/pull/8376",
+        },
         {
           title: "fix: incorrect field assignments in TestModelMetaService tests",
           description:
@@ -502,8 +509,8 @@ export default function MePage() {
                     금융 도메인에서 데이터 엔지니어로 근무하며, Hadoop 기반의 레거시 환경부터 Spark·Iceberg 기반의
                     클라우드 아키텍처 설계, 개발 및 운영이 가능합니다.
                     <br />
-                    수십~수백 TB 규모의 대규모 데이터 처리 환경에서 데이터 플랫폼 애플리케이션을
-                    설계·개발하고 운영하며 성능 최적화에 강점을 가지고 있습니다.
+                    수십~수백 TB 규모의 대규모 데이터 처리 환경에서 데이터 플랫폼 애플리케이션을 설계·개발하고 운영하며
+                    성능 최적화에 강점을 가지고 있습니다.
                   </p>
 
                   <div>
