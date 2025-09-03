@@ -76,7 +76,7 @@ Combiner는 최적화용으로 사용되며, 항상 사용해도 되는 것은 �
 
 **장점**
 네트워크 셔플을 최소화하여 조인 속도가 빠릅니다.
-구현이 간단하며, Spark가 자동으로 ���로드캐스트를 최적화할 수 있습니다.
+구현이 간단하며, Spark가 자동으로 브로드캐스트를 최적화할 수 있습니다.
 
 **단점**
 작은 테이블이 너무 크면 워커 노드 메모리에 올라가지 않아 OOM(Out Of Memory) 오류가 발생할 수 있습니다.
@@ -178,6 +178,14 @@ SELECT user_id, user_name, SUM(order_amount)
 FROM salted_orders o
 JOIN salted_users u ON o.salted_key = u.salted_key
 GROUP BY user_id, user_name;`,
+      },
+      {
+        title: "💡 Shuffle 이란?",
+        summary:
+          "셔플(Shuffle)은 연산 과정에서 데이터를 키나 기준에 따라 파티션 간에 재분배하기 위해 디스크·네트워크를 거쳐 이동하는 과정입니다.",
+        date: "25.09.03",
+        detail:
+          "스파크에서 **셔플(Shuffle)**이란 연산 과정에서 동일한 키나 특정 기준에 따라 데이터를 재배치하기 위해 파티션 간에 네트워크를 통해 교환하는 과정으로, groupByKey, reduceByKey, join과 같은 연산에서 발생하며 이때 데이터가 디스크에 기록되거나 네트워크를 통해 전송되고 직렬화·정렬 과정까지 거치면서 CPU, 메모리, 디스크 I/O, 네트워크 I/O 모두에 부담을 주어 성능에 큰 영향을 미칩니다.",
       },
     ],
   },

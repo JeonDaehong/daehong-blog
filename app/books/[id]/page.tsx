@@ -277,7 +277,7 @@ export default function BookReviewPage({ params }: { params: { id: string } }) {
                 걸쳐 보안, 데이터 관리, DevOps, 아키텍처, 그리고 오케스트레이션, 소프트웨어 엔지니어링까지 다양한
                 요소들이 복합적으로 작용합니다. 결국, 데이터 엔지니어는 이러한 수명주기 전반에 걸쳐 기업의
                 투자수익률(ROI)을 극대화하고, 재무적, 기회적 비용을 최소화하며, 다양한 리스크(보안과 데이터 품질 등)를
-                효과적으로 관리하는 것이 최상위 목표라 할 수 있습니다.
+                효과적으로 관리하는 것이 최상위 목표라 할 수 ��습니다.
               </p>
 
               <p className="text-muted-foreground leading-relaxed mb-6">
