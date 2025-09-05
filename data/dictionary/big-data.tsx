@@ -143,7 +143,7 @@ skew key를 여러 Partition으로 분산
 
 AQE가 skew key를 감지 → 자동으로 분할 & 병합
 
-특정 Executor에 과도한 부하가 몰리는 현상을 완화
+특정 Executor에 과도한 부하가 몰리는 현상을 완화 ( 그러나 완전한 해결책이 되지는 못함. )
 
 <br/>
 <br/>`,
