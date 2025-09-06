@@ -509,26 +509,7 @@ export default function BookReviewPage({ params }: { params: { id: string } }) {
             </h2>
             <div className="prose prose-gray dark:prose-invert max-w-none">
               <p className="text-muted-foreground leading-relaxed mb-4">
-                저자는 최신 기술과 사례들의 장단점을 이해하는 데 도움이 되는 분야 전문가를 찾아보는 것을 권장합니다.
-                또한, 다양한 최신 서적, 블로그 게시물, 논문을 광범위하게 조사하고, 데이터 엔지니어링 관련 밋업에
-                참여하여 다양한 관점을 듣고, 질문하며, 자신의 전문 지식을 공유하는 것이 유익하다고 말합니다.
-              </p>
-
-              <p className="text-muted-foreground leading-relaxed mb-4">
-                데이터 엔지니어로서 주니어로써 저자의 권유에 따라 이러한 다양한 활동에 참여하고 있으며, 이는 스킬업 큰
-                도움이 되고 있습니다. 책을 읽으며 많은 부분에 공감하고 경험과 지식을 풍부하게 하는 데에 많은 도움을
-                받았습니다.
-              </p>
-
-              <p className="text-muted-foreground leading-relaxed mb-4">
-                이 책은 우수한 아키텍처 설계, 데이터 엔지니어링의 수명 주기 단계, 그리고 보안 관행에 대해 깊이 있게
-                탐구합니다. 저자는 데이터 엔지니어링의 연속성과 그 뒤에 숨겨진 요소들에 중점을 두고, 관련된 주제들을
-                상세히 다루어 많은 통찰력을 제공합니다.
-              </p>
-
-              <p className="text-muted-foreground leading-relaxed">
-                이 책의 내용을 한 번만 읽기에는 아쉬움이 남아, 내용을 꼼꼼하게 정리하며 정독했습니다. 데이터
-                엔지니어링에 관한 이 책은 제게 기본서가 되어, 앞으로도 여러 번 읽을 계획입니다.
+                
               </p>
             </div>
           </section>
