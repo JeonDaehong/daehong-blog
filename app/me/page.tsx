@@ -319,6 +319,7 @@ export default function MePage() {
       description: [
         "오픈소스 한국 커뮤니티 8기부터 꾸준히 운영진으로 활동.",
         "현재까지 약 500명 이상의 멘티들에 대하여, 오픈소스 기여 가이드 제공 및 서포트.",
+        "약 200개 이상의 PR 와 100개 이상의 Merge 에 도움을 줌.",
         "Apache Iceberg, Apache Gravitino, Spring Kafka 등 여러 오픈소스에 적극 기여.",
       ],
     },
