@@ -2,6 +2,7 @@ import { TypingText } from "@/components/typing-text"
 import { Github, Linkedin, Book } from "lucide-react"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
+import Image from "next/image"
 
 export default function Home() {
   return (
@@ -83,6 +84,55 @@ export default function Home() {
                 <span>LinkedIn</span>
               </Link>
             </Button>
+          </div>
+
+          <br/>
+          <br/>
+          <br/>
+
+          <div className="mt-16 mb-6 w-full max-w-6xl mx-auto">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start">
+              {/* Presentation Photo */}
+              <div className="flex flex-col items-center">
+                <div className="relative w-full max-w-md mx-auto">
+                  <div className="bg-white p-3 rounded-lg shadow-xl transform rotate-1 hover:rotate-0 transition-transform duration-300">
+                    <Image
+                      src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/KakaoTalk_20250906_193003212_02.jpg-ZInjWKD5ovGPFpmWdEicRRJpR01wBi.jpeg"
+                      alt="전대홍의 오픈소스 기여 발표 - Spring Kafka, Apache Iceberg, Apache Gravitino 프로젝트 기여 내용을 소개하는 모습"
+                      width={400}
+                      height={300}
+                      className="rounded-md object-cover w-full h-auto"
+                      priority
+                    />
+                  </div>
+                  <div className="absolute -bottom-2 -right-2 w-6 h-6 bg-red-500 rounded-full border-2 border-white shadow-lg"></div>
+                  <div className="absolute -top-2 -left-2 w-4 h-4 bg-yellow-400 rounded-full border-2 border-white shadow-lg"></div>
+                </div>
+                <p className="text-sm text-muted-foreground mt-4 italic text-center">
+                  오픈소스 기여 발표 - Apache 프로젝트들에 대한 기여 경험 공유
+                </p>
+              </div>
+
+              {/* Contributions Dashboard */}
+              <div className="flex flex-col items-center">
+                <div className="relative w-full max-w-md mx-auto">
+                  <div className="bg-white p-3 rounded-lg shadow-xl transform -rotate-1 hover:rotate-0 transition-transform duration-300">
+                    <Image
+                      src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-vJm38OQA85lDjWNtlPr3asjaBHYIk0.png"
+                      alt="오픈소스 기여 대시보드 - Apache Iceberg, Spring Kafka, Apache Gravitino 프로젝트 기여 현황"
+                      width={400}
+                      height={500}
+                      className="rounded-md object-cover w-full h-auto"
+                    />
+                  </div>
+                  <div className="absolute -bottom-2 -left-2 w-6 h-6 bg-blue-500 rounded-full border-2 border-white shadow-lg"></div>
+                  <div className="absolute -top-2 -right-2 w-4 h-4 bg-green-400 rounded-full border-2 border-white shadow-lg"></div>
+                </div>
+                <p className="text-sm text-muted-foreground mt-4 italic text-center">
+                  오픈소스 기여 현황 - 다양한 Apache 프로젝트 기여 내역
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
