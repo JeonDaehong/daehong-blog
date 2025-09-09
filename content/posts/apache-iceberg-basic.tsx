@@ -387,10 +387,85 @@ WHERE createGameDate >= '2024-01-01';
 
 이런 Hive 의 문제를 한 번에 해결 할 수 있는 것이 바로 **Iceberg 의 Hidden Partitioning** 입니다.
 
+**Hidden Partitioning** 은 다음과 같이 사용 할 수 있습니다.
+
+먼저 날짜와 관련된 히든 파티션입니다.
+
+\`\`\`sql
+CREATE TABLE IF NOT EXISTS lol_db.game_table (
+    gameID STRING,
+    playerID STRING,
+    email STRING,
+    password STRING,
+    tier STRING,
+    sex STRING,
+    age STRING,
+    nickName STRING,
+    goldEarn STRING,
+    ip STRING,
+    champion STRING,
+    kill STRING,
+    death STRING,
+    assist STRING,
+    gamePlayTime STRING,
+    isWin STRING,
+    createGameDate DATE
+)
+USING iceberg
+LOCATION 's3a://league-of-legend-iceberg/ice-berg/lol_db/game_table'
+PARTITIONED BY (years(createGameDate));
+\`\`\`
+
+여기서 핵심은 \`PARTITIONED BY (years(createGameDate))\` 부분입니다.
+
+기존의 Hive 였다면,
+
+\`\`\`sql
+-- 파티션 컬럼을 반드시 명시해야 함
+SELECT * FROM game_table 
+WHERE year = 2024 AND createGameDate >= '2024-01-01';
+\`\`\`
+
+이렇게 작성해야만 했지만,
+이제 파티션 컬럼을 명시할 필요가 없습니다.
+
+\`\`\`sql
+SELECT * FROM spark_catalog.lol_db.game_table 
+WHERE createGameDate >= TIMESTAMP '2024-01-01';
+\`\`\`
+
+해당 쿼리처럼, Iceberg가 알아서 \`createGameDate\`를 기준으로 적절한 파티션만 읽어옵니다.
+또한, 자동 파티션 프루닝이 되어  2024년 데이터만 필요하면 2024년 파티션만 스캔합니다.
+
+그 외에도 **Bucket, Identity, Truncate Transform** 등의 히든 파티션이 존재합니다.
+
+<div className="my-8">
+  <img src="/iceberg/iceberg_16.png" alt="Apache Iceberg" style="border: 2px solid skyblue; border-radius: 4px;" width="100%" />
+</div>
+<div className="my-8">
+  <img src="/iceberg/iceberg_17.png" alt="Apache Iceberg" style="border: 2px solid skyblue; border-radius: 4px;" width="100%" />
+</div>
+
+해당 이미지는 제가 발표할 때 사용했던 PPT 에서 가져온 히든 파티션에 대한 이미지이니 참고하시면 좋을 거 같습니다.
+
+마지막으로 Partition 설정 시 주의할 점이 있습니다.
+
+<div className="my-8">
+  <img src="/iceberg/iceberg_18.png" alt="Apache Iceberg" style="border: 2px solid skyblue; border-radius: 4px;" width="100%" />
+</div>
+
+- MOR 모드로 데이터를 작게 할 경우, 변화된 파일 정보를 두어서 읽기나, Small File을 Compaction 하는 단위로 Partition 단위로 이루어지지 때문에, 적절히 파티션을 잘 세분화 한다면, 성능 향상에 큰 도움을 줄 수 있습니다.
+- 하나의 컬럼에 대하여 여러 Hidden Partition 사용 지양해야 합니다. ( 관리가 복잡해지고, Small File이 다수 생기며, 테이블 조회 시 할 수 있는 예외가 발생할 수 있음. )
 
 <br>
 
 ### 4️⃣ 효율적인 행 수준 테이블 작업(COW vs MOR)
+
+<div className="my-8">
+  <img src="/iceberg/iceberg_23.png" alt="Apache Iceberg" style="border: 2px solid skyblue; border-radius: 4px;" width="100%" />
+</div>
+
+다음은 Iceberg 의 아주 핵심 강점인, COW 와 MOR 에 대해서 알아보겠습니다.
 
 <br>
 
