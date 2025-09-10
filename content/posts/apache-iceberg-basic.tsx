@@ -459,17 +459,47 @@ WHERE createGameDate >= TIMESTAMP '2024-01-01';
 
 <br>
 
-### 4️⃣ 효율적인 행 수준 테이블 작업(COW vs MOR)
+### 4️⃣ 효율적인 행 수준 테이블 작업 (COW vs MOR)
 
 <div className="my-8">
   <img src="/iceberg/iceberg_23.png" alt="Apache Iceberg" style="border: 2px solid skyblue; border-radius: 4px;" width="100%" />
 </div>
 
-다음은 Iceberg 의 아주 핵심 강점인, COW 와 MOR 에 대해서 알아보겠습니다.
+<div className="my-8">
+  <img src="/iceberg/iceberg_24.png" alt="Apache Iceberg" style="border: 2px solid skyblue; border-radius: 4px;" width="100%" />
+</div>
+
+Iceberg의 가장 큰 강점 중 하나는 행(Row) 단위의 업데이트와 삭제 작업을 효율적으로 처리할 수 있다는 점입니다. 이를 가능하게 하는 핵심 전략은 크게 두 가지로, **Copy-on-Write(COW)** 와 **Merge-on-Read(MOR)** 방식입니다. 두 방식은 서로 다른 장단점을 가지며, 환경에 따라 적절히 선택할 수 있습니다.
+
+#### 📌 Copy-on-Write (COW)
+
+COW 방식은 Update나 Delete가 발생했을 때 해당 Row가 들어 있는 전체 Data File을 새로 생성하는 구조를 가집니다. 기존 파일은 더 이상 최신 스냅샷에서 보이지 않고, 새로운 파일이 최신 상태를 반영하게 됩니다.  
+
+이 방식의 특징은 읽기가 단순하다는 점입니다. 추가적인 연산 없이 최신 데이터 파일만 스캔하면 되므로 쿼리 속도가 빠릅니다. 그러나 쓰기 비용이 크다는 단점이 있습니다. 작은 업데이트 하나에도 큰 파일 전체를 다시 써야 하므로 스토리지와 I/O 부담이 커질 수 있습니다.  
+
+따라서 COW는 **읽기 성능이 중요한 분석용 데이터 웨어하우스 환경**에서 적합합니다. 예를 들어 월말 리포트나 집계 쿼리가 중심이 되는 워크로드에서는 큰 장점을 발휘합니다.
+
+<div className="my-6">
+  <img src="/iceberg/iceberg_25.png" alt="Copy-on-Write 예시" style="border: 2px solid lightgray; border-radius: 4px;" width="100%" />
+</div>
+
+#### 📌 Merge-on-Read (MOR)
+
+MOR 방식은 Update나 Delete 시 원본 파일을 직접 수정하지 않습니다. 삭제된 데이터는 Delete File로 기록하고, 변경된 값은 새로운 Data File에 Append 방식으로 추가합니다. 이후 쿼리를 실행할 때 원본 파일과 Delete File을 실시간으로 병합하여 최신 데이터를 제공합니다.  
+
+이 방식의 장점은 쓰기 부담이 적다는 점입니다. 대부분의 작업이 Append 중심이므로 쓰기 성능이 뛰어납니다. 그러나 읽기 과정에서 병합 연산이 추가되므로 쿼리 성능이 저하될 수 있습니다. 특히 Delete File이 누적되면 이 문제가 더욱 심각해질 수 있어, 주기적으로 Compaction 작업을 수행해 병합된 파일을 만들어주는 관리가 필요합니다.  
+
+MOR는 **쓰기 효율성과 저지연이 중요한 스트리밍 및 CDC(Change Data Capture) 환경**에 적합합니다. 이벤트 로그 처리나 실시간 업데이트가 많은 워크로드에서 주로 사용됩니다. 
+
+<div className="my-6">
+  <img src="/iceberg/iceberg_26.png" alt="Merge-on-Read 예시" style="border: 2px solid lightgray; border-radius: 4px;" width="100%" />
+</div>
 
 <br>
 
 ### 5️⃣ Time Travel
+
+
 
 <br>
 
