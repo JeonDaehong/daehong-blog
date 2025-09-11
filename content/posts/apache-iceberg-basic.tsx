@@ -10,6 +10,8 @@ export const meta = {
   category: "빅데이터",
   tags: ["Apache Iceberg", "Data Engineering", "Open Table Format"],
   excerpt: "Apache Iceberg의 기본 개념과 혁신적인 테이블 포맷 기술을 소개합니다.",
+  bookmark: true,
+  featured: true
 }
 
 const content = `
@@ -499,23 +501,111 @@ MOR는 **쓰기 효율성과 저지연이 중요한 스트리밍 및 CDC(Change 
 
 ### 5️⃣ Time Travel
 
+<div className="my-6">
+  <img src="/iceberg/iceberg_27.png" alt="Merge-on-Read 예시" style="border: 2px solid lightgray; border-radius: 4px;" width="100%" />
+</div>
 
+Apache Iceberg의 **Time Travel** 기능은 데이터 레이크에서 과거 특정 시점의 데이터 상태를 조회할 수 있게 해주는 강력한 기능입니다.  
+
+이 기능을 통해 사용자는 **Snapshot ID**, **TIMESTAMP**, 혹은 사용자가 지정한 **Branch** 또는 **Tag**를 활용하여 원하는 시점의 과거 데이터를 조회할 수 있습니다.
+
+<br>
+⏳ **Snapshot ID**  
+Iceberg 테이블의 모든 변경은 Snapshot으로 관리되며, 각 Snapshot은 고유한 ID를 가집니다. \`VERSION AS OF <snapshot_id>\` 구문을 통해 특정 스냅샷 시점의 데이터를 직접 조회할 수 있습니다.
+
+<br>
+⏳ **TIMESTAMP**  
+스냅샷이 생성된 시각(커밋 시간)을 기준으로 Time Travel을 수행할 수 있습니다.
+예: \`TIMESTAMP AS OF '2025-01-01 12:00:00'\`
+
+<br>
+⏳ **Branch**  
+Iceberg는 Git과 유사한 개념의 Branch를 지원합니다.  
+특정 Branch에 연결된 스냅샷을 기준으로 데이터를 조회하면, 해당 Branch가 가리키는 시점의 데이터를 손쉽게 확인할 수 있습니다.
+
+<br>
+⏳ **Tag**  
+사용자가 중요한 스냅샷에 Tag를 지정해 두면, 나중에 그 Tag를 기준으로 과거 데이터를 바로 조회할 수 있습니다.  
+예를 들어 \`monthly_report\`라는 Tag를 만들어 두면, 매번 Snapshot ID를 기억하지 않아도 동일한 시점의 데이터를 쉽게 불러올 수 있습니다.
+
+<br>
+Time Travel 기능의 핵심은 데이터의 모든 변경사항이 **불변의 스냅샷(immutable snapshot)** 으로 저장되기 때문에 가능합니다.  
+각 스냅샷은 고유한 ID와 타임스탬프를 가지며, 이를 통해 정확한 시점의 데이터 상태를 재현할 수 있습니다.  
+이를 통하여 과거 데이터를 재현하고 다시 분석하거나, 오류 데이터 등을 추적하고 찾아낼 수 있습니다.
+
+<div className="my-6">
+  <img src="/iceberg/iceberg_28.png" alt="Merge-on-Read 예시" style="border: 2px solid lightgray; border-radius: 4px;" width="100%" />
+</div>
+
+실제 사용 예시를 살펴보면, 현재 시점에서 \`game_table\`을 조회했을 때는 250건의 레코드가 있지만, 특정 스냅샷 ID(6988300959500022283)를 사용하여 Time Travel을 수행하면 과거 시점의 50건 데이터만 조회됩니다. 이는 해당 스냅샷이 생성된 시점에는 테이블에 50건의 데이터만 존재했음을 의미합니다.
+
+Time Travel 기능은 데이터 복구, 규제 준수, 감사 추적, 그리고 과거 데이터 상태와의 비교 분석 등 다양한 용도로 활용될 수 있습니다. 특히 실수로 데이터가 삭제되거나 잘못 수정된 경우, Time Travel을 통해 문제가 발생하기 이전의 안전한 상태로 되돌릴 수 있어 데이터 관리의 안정성을 크게 향상시킵니다.
 
 <br>
 
 ### 6️⃣ Version Roll Back
 
+<div className="my-6">
+  <img src="/iceberg/iceberg_29.png" alt="Merge-on-Read 예시" style="border: 2px solid lightgray; border-radius: 4px;" width="100%" />
+</div>
+
+Apache Iceberg의 Version Roll Back 기능은 Time Travel의 확장된 개념으로, 단순히 과거 데이터를 조회하는 것을 넘어서 테이블 자체를 이전 상태로 되돌리는 강력한 기능입니다. Snapshot ID나 TIMESTAMP를 활용하여 원하는 시점으로 Roll Back할 수 있으며, 이를 통해 잘못된 데이터가 저장되었을 경우 이전 데이터 상태로 되돌릴 수 있습니다.
+
+<div className="my-6">
+  <img src="/iceberg/iceberg_30.png" alt="Merge-on-Read 예시" style="border: 2px solid lightgray; border-radius: 4px;" width="100%" />
+</div>
+
+실제 사용 예시를 살펴보면, 현재 game_table에는 8013건의 레코드가 있습니다. 특정 스냅샷 ID(28170362372511079890)를 사용하여 Roll Back을 수행하면, 테이블이 해당 시점의 상태로 되돌아가며 450건의 데이터만 남게 됩니다. 이때 Roll Back 작업은 rollback_to_snapshot 함수를 사용하여 수행되며, 작업 완료 후에는 이전 스냅샷 ID와 현재 스냅샷 ID 정보가 반환됩니다.
+
+<div className="my-6">
+  <img src="/iceberg/iceberg_31.png" alt="Merge-on-Read 예시" style="border: 2px solid lightgray; border-radius: 4px;" width="100%" />
+</div>
+
+하지만 Roll Back 기능을 사용할 때는 중요한 주의사항이 있습니다. 과거로 Roll Back을 수행하면 Roll Back을 했다가 다시 미래 버전으로 되돌릴 수는 없다는 점입니다. 이는 스냅샷의 부모 자식 관계가 있기 때문이며, Roll Back은 신중해야 합니다. 다만 Time Travel 방법으로는 언제든지 조회가 가능합니다.
+
 <br>
 
 ### 7️⃣ 제약 없는 스키마 변경
 
+<div className="my-6">
+  <img src="/iceberg/iceberg_32.png" alt="Merge-on-Read 예시" style="border: 2px solid lightgray; border-radius: 4px;" width="100%" />
+</div>
 
+Apache Iceberg의 Schema Evolution 기능은 운영 중인 테이블의 스키마를 자유롭게 변경할 수 있게 해주는 강력한 기능입니다. 제약 없이 Column을 추가, 변경, 삭제할 수 있으며, 이는 전통적인 데이터 웨어하우스에서는 매우 복잡하고 위험한 작업이었던 것을 간단하게 만들어줍니다.
 
+전통적인 데이터베이스 시스템에서 스키마를 변경하려면 테이블을 잠그고, 전체 데이터를 재구성하거나 복잡한 마이그레이션 스크립트를 실행해야 했습니다. 하지만 Iceberg는 이러한 제약사항을 완전히 해결하여, 운영 중단 없이 스키마를 자유롭게 진화시킬 수 있습니다.
 
+스키마 변경이 발생하면 Iceberg는 메타데이터를 업데이트하여 해당 스키마 버전을 기록하고, 실제 데이터 파일이 수정되지는 않습니다. 이후 새로운 쿼리가 실행될 때, Iceberg는 최신 메타데이터를 참조하여 변경된 스키마를 적용합니다. 이러한 메타데이터 기반 접근 방식 덕분에 스키마 변경 작업이 즉시 완료되며, 기존 데이터의 가용성에는 전혀 영향을 주지 않습니다.
 
+<div className="my-6">
+  <img src="/iceberg/iceberg_33.png" alt="Merge-on-Read 예시" style="border: 2px solid lightgray; border-radius: 4px;" width="100%" />
+</div>
 
+실제 예시를 살펴보면, 다양한 스키마 변경 시나리오를 확인할 수 있습니다. 먼저 새로운 컬럼을 추가하는 경우, 기존 테이블에서 SELECT * 쿼리를 실행했을 때 신규 컬럼에 대한 데이터가 null로 들어가 있는 것을 확인할 수 있습니다. 이후 새로운 데이터가 INSERT되면서 해당 컬럼에 실제 값들이 채워지는 것을 볼 수 있습니다.
 
+<div className="my-6">
+  <img src="/iceberg/iceberg_34.png" alt="Merge-on-Read 예시" style="border: 2px solid lightgray; border-radius: 4px;" width="100%" />
+</div>
 
+또한 컬럼명을 변경하는 작업도 간단하게 수행할 수 있습니다. 예를 들어 email 컬럼을 didimdp로 변경하는 경우에도 기존 데이터의 무결성은 그대로 유지되면서 스키마 정보만 업데이트됩니다.
+
+이러한 방식으로 Iceberg는 스키마 변경 과정에서도 데이터 무결성을 보장하면서 유연한 스키마 관리를 제공하며, 개발팀이 비즈니스 요구사항 변화에 빠르게 대응할 수 있도록 도와줍니다.
+
+<br>
+<div align="center">◈</div>
+<br>
+
+# ✏️ 4. 결론
+
+이번 글을 통해 **Apache Iceberg**가 어떻게 전통적인 Apache Hive의 한계를 극복하고, 현대적인 데이터 레이크하우스 환경에서 핵심 역할을 하고 있는지를 살펴보았습니다.  
+
+특히 Iceberg의 **스키마 진화, 파티셔닝 최적화, Time Travel**과 같은 기능들은 대규모 데이터를 안정적으로 관리하면서도, 분석의 유연성과 정확성을 동시에 확보할 수 있도록 해줍니다. 즉, 단순히 데이터를 저장하는 수준을 넘어서, **데이터 관리·분석의 신뢰성을 크게 향상시키는 토대**가 됩니다.  
+
+이번 글에서는 사내 솔루션에 Iceberg를 적용하기 위해 공부하고 발표했던 내용을 일부 공유드렸습니다. 실제 도입 과정에서 가장 크게 와 닿았던 점은, Iceberg가 **데이터 엔지니어링 운영의 복잡성을 줄여주면서도, 장기적으로는 분석 품질과 생산성을 높일 수 있다**는 것이었습니다.  
+
+다음 포스팅에서는 Iceberg의 **아키텍처와 내부 동작 원리**를 중점적으로 다루며, 어떻게 메타데이터 레이어와 쿼리 엔진이 상호작용하는지, 그리고 실무에서 어떤 이점을 가져오는지를 설명하겠습니다.  
+
+긴 글 끝까지 읽어주셔서 감사합니다. :D  
 
 `
 
