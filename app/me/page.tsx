@@ -72,8 +72,15 @@ export default function MePage() {
       name: "Apache Iceberg",
       role: "Contributor",
       description: "대규모 데이터를 안정적으로 관리하고, 효율적으로 처리할 수 있는 테이블 포맷에 기여하였습니다.",
-      contributions: "3 PRs merged",
+      contributions: "4 PRs merged",
       prs: [
+        {
+          title: "Fixed Markdown rendering in Row-level Deletes section",
+          description:
+            "Fixed Markdown rendering issues in the Row-level Deletes documentation section, including bullet point formatting, duplicate content removal, and proper line break handling to improve documentation readability and structure.",
+          status: "Merged (2025.09)",
+          link: "https://github.com/apache/iceberg/pull/13851",
+        },
         {
           title: "Docs: Add docs for Table Maintenance in Flink",
           description:
