@@ -16,8 +16,8 @@ export function ThemeToggle() {
   if (!mounted) {
     return (
       <Button variant="ghost" size="sm" className="w-9 px-0">
-        <Sun className="h-[1.2rem] w-[1.2rem]" />
-        <span className="sr-only">Toggle theme</span>
+        <Sun className="h-[1.2rem] w-[1.2rem] text-foreground" />
+        <span className="sr-only text-foreground">Toggle theme</span>
       </Button>
     )
   }
@@ -34,11 +34,11 @@ export function ThemeToggle() {
       className="w-9 px-0 hover:bg-accent transition-all duration-300 hover:scale-110"
     >
       {theme === "dark" ? (
-        <Sun className="h-[1.2rem] w-[1.2rem] transition-all" />
+        <Sun className="h-[1.2rem] w-[1.2rem] transition-all text-foreground" />
       ) : (
-        <Moon className="h-[1.2rem] w-[1.2rem] transition-all" />
+        <Moon className="h-[1.2rem] w-[1.2rem] transition-all text-foreground" />
       )}
-      <span className="sr-only">Toggle theme</span>
+      <span className="sr-only text-foreground">Toggle theme</span>
     </Button>
   )
 }
