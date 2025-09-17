@@ -1008,6 +1008,708 @@ export default function BookReviewPage({ params }: { params: { id: string } }) {
             </div>
           </section>
 
+          <section className="bg-card rounded-lg p-6 border">
+            <h2 className="text-2xl font-bold text-foreground mb-4 flex items-center gap-2">
+              <Star className="w-6 h-6 text-primary" />
+              6. 데이터 엔지니어링 수명 주기 전체에 걸친 기술 선택
+            </h2>
+            <div className="prose prose-gray dark:prose-invert max-w-none">
+              <div className="space-y-6">
+                <div>
+                  <h4 className="text-lg font-medium text-foreground mb-3">데이터 엔지니어링의 핵심 목적</h4>
+                  <p className="text-muted-foreground leading-relaxed mb-4">
+                    데이터 엔지니어링의 핵심 목적은 수명 주기 전체에 걸쳐 데이터를 운반하고, 최종 사용자의 요구에 따라
+                    이를 제공하며, 견고하고 신뢰성 높은 시스템을 설계하는 것입니다.
+                  </p>
+                  <div className="bg-blue-50 dark:bg-blue-950/20 rounded-lg p-4 border border-blue-200 dark:border-blue-800">
+                    <h5 className="font-medium text-foreground mb-2">아키텍처 vs 도구</h5>
+                    <div className="grid md:grid-cols-2 gap-4">
+                      <div>
+                        <p className="text-sm font-medium text-foreground mb-1">아키텍처 (전략적)</p>
+                        <p className="text-xs text-muted-foreground">
+                          비즈니스의 전략적 목표를 충족하는 데이터 시스템의 고수준 설계, 로드맵 및 청사진. 무엇을, 왜,
+                          언제 구축해야 하는지를 결정
+                        </p>
+                      </div>
+                      <div>
+                        <p className="text-sm font-medium text-foreground mb-1">도구 (전술적)</p>
+                        <p className="text-xs text-muted-foreground">
+                          아키텍처를 실현하는 데 쓰이는 구체적인 기술. 어떻게 구축할지를 결정
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div>
+                  <h4 className="text-lg font-medium text-foreground mb-3">팀의 규모와 능력</h4>
+                  <div className="bg-amber-50 dark:bg-amber-950/20 rounded-lg p-4 border border-amber-200 dark:border-amber-800 mb-4">
+                    <h5 className="font-medium text-foreground mb-2">⚠️ 카고-컬트 엔지니어링 주의</h5>
+                    <p className="text-sm text-muted-foreground mb-2">
+                      소규모 데이터 팀이 대기업의 새로운 최첨단 기술에 관한 블로그 포스팅을 읽고, 그 포스팅의 내용과
+                      같은 매우 복잡한 기술과 사례를 모방하려 시도하는 경우
+                    </p>
+                    <p className="text-xs text-muted-foreground">
+                      일반적으로 귀중한 시간과 비용을 많이 소비하지만 그 대가로 얻을 만한 것은 거의 없는 큰 실수
+                    </p>
+                  </div>
+                  <div className="space-y-3">
+                    <div className="bg-muted/30 rounded-lg p-4">
+                      <h5 className="font-medium text-foreground mb-2">소규모/기술력 약한 팀 권장사항</h5>
+                      <ul className="text-sm text-muted-foreground space-y-1">
+                        <li>• 가능한 한 많은 관리형 도구와 SaaS 도구 사용</li>
+                        <li>• 비즈니스에 직접적으로 가치를 부여하는 복잡한 문제 해결에 역량 집중</li>
+                        <li>• 팀에 이미 익숙한 기술과 워크플로 계속 사용</li>
+                      </ul>
+                    </div>
+                    <div className="bg-muted/30 rounded-lg p-4">
+                      <h5 className="font-medium text-foreground mb-2">팀 기술 목록 작성 시 고려사항</h5>
+                      <ul className="text-sm text-muted-foreground space-y-1">
+                        <li>• 로우 코드 도구 vs 코드 우선 접근 방식 선호도</li>
+                        <li>• 특정 언어(Java, Python, Go 등)에 능숙한 인력 보유 여부</li>
+                        <li>• 로우 코드부터 코드 중심 영역까지 모든 선호도를 충족하는 기술 선택 가능</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                <div>
+                  <h4 className="text-lg font-medium text-foreground mb-3">시장 출시 속도 & 상호 운용성</h4>
+                  <div className="grid md:grid-cols-2 gap-4">
+                    <div className="bg-muted/30 rounded-lg p-4">
+                      <h5 className="font-medium text-foreground mb-2">시장 출시 속도</h5>
+                      <p className="text-sm text-muted-foreground mb-2">
+                        고품질의 표준과 보안을 유지하면서도 기능과 데이터를 더 신속하게 제공할 수 있는 적절한 기술 선택
+                      </p>
+                      <p className="text-xs text-muted-foreground">
+                        출시, 학습, 반복 및 개선의 긴밀한 피드백 루프에서 작업
+                      </p>
+                    </div>
+                    <div className="bg-muted/30 rounded-lg p-4">
+                      <h5 className="font-medium text-foreground mb-2">상호 운용성</h5>
+                      <p className="text-sm text-muted-foreground mb-2">
+                        다양한 기술 또는 시스템이 어떻게 연결되고, 정보를 교환하며, 상호 작용하는지
+                      </p>
+                      <div className="text-xs text-muted-foreground space-y-1">
+                        <p>• JDBC/ODBC: 거의 모든 데이터베이스 연결 표준</p>
+                        <p>• REST API: 표준은 아니지만 널리 사용되는 방식</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div>
+                  <h4 className="text-lg font-medium text-foreground mb-3">비용 최적화 및 비즈니스 가치</h4>
+
+                  <div className="space-y-4">
+                    <div className="bg-muted/30 rounded-lg p-4">
+                      <h5 className="font-medium text-foreground mb-2">총소유비용 (TCO)</h5>
+                      <p className="text-sm text-muted-foreground mb-2">
+                        활용되는 제품 및 서비스의 직접비용과 간접비용을 포함한 이니셔티브의 전체 추정비용
+                      </p>
+                      <div className="grid md:grid-cols-2 gap-3">
+                        <div>
+                          <p className="text-xs font-medium text-foreground">직접비용</p>
+                          <p className="text-xs text-muted-foreground">이니셔티브에 직접 귀속될 수 있는 비용</p>
+                        </div>
+                        <div>
+                          <p className="text-xs text-muted-foreground">간접비용</p>
+                          <p className="text-xs text-muted-foreground">
+                            이니셔티브와 무관하며, 어디에 귀속되는지와 관계없이 지불해야 하는 비용
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="bg-muted/30 rounded-lg p-4">
+                      <h5 className="font-medium text-foreground mb-2">CAPEX vs OPEX</h5>
+                      <div className="grid md:grid-cols-2 gap-4">
+                        <div className="bg-blue-50 dark:bg-blue-950/20 rounded-lg p-3 border border-blue-200 dark:border-blue-800">
+                          <p className="text-sm font-medium text-foreground mb-1">설비투자비용 (CAPEX)</p>
+                          <ul className="text-xs text-muted-foreground space-y-1">
+                            <li>• 선행 투자가 필요한 자본 지출</li>
+                            <li>• 하드웨어/소프트웨어 선불 구매</li>
+                            <li>• 시간이 지남에 따라 서서히 감가상각</li>
+                            <li>• 장기 계획에 따른 상당한 자본 지출</li>
+                          </ul>
+                        </div>
+                        <div className="bg-green-50 dark:bg-green-950/20 rounded-lg p-3 border border-green-200 dark:border-green-800">
+                          <p className="text-sm font-medium text-foreground mb-1">운영비용 (OPEX)</p>
+                          <ul className="text-xs text-muted-foreground space-y-1">
+                            <li>• 점진적이며 시간이 지남에 따라 분산</li>
+                            <li>• 단기적 관점의 비용</li>
+                            <li>• 종량제 또는 유사한 방식</li>
+                            <li>• 많은 유연성 제공</li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="bg-muted/30 rounded-lg p-4">
+                      <h5 className="font-medium text-foreground mb-2">총소유 기회비용 (TOCO) & 핀옵스</h5>
+                      <div className="space-y-3">
+                        <div>
+                          <p className="text-sm font-medium text-foreground">TOCO</p>
+                          <p className="text-xs text-muted-foreground">
+                            기술, 아키텍처 또는 프로세스를 선택할 때 발생하는 기회상실비용
+                          </p>
+                        </div>
+                        <div>
+                          <p className="text-sm font-medium text-foreground">핀옵스 (FinOps)</p>
+                          <p className="text-xs text-muted-foreground mb-1">
+                            시스템을 모니터링하고 동적으로 조정하는 데브옵스와 같은 방식을 적용해 재무적 책임과 비즈니스
+                            가치를 완전히 운용
+                          </p>
+                          <p className="text-xs text-muted-foreground">
+                            일반적인 클라우드 지출은 본질적으로 운영비용으로, 서비스에 대한 비용을 지불하는 방식
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div>
+                  <h4 className="text-lg font-medium text-foreground mb-3">현재 vs 미래: 불변의 기술과 일시적 기술</h4>
+                  <div className="grid md:grid-cols-2 gap-4">
+                    <div className="bg-green-50 dark:bg-green-950/20 rounded-lg p-4 border border-green-200 dark:border-green-800">
+                      <h5 className="font-medium text-foreground mb-2">불변의 기술</h5>
+                      <p className="text-sm text-muted-foreground mb-2">
+                        클라우드 기반이 되는 컴포넌트일 수도 있고 오랜 세월을 견딘 언어와 패러다임일 수 있음
+                      </p>
+                      <div className="text-xs text-muted-foreground space-y-1">
+                        <p>
+                          <strong>예시:</strong> 객체 스토리지, 네트워킹, 서버, 보안
+                        </p>
+                        <p>
+                          <strong>린디 효과:</strong> 기술이 확립된 기간이 오래될수록 해당 기술은 더 오래 사용되는 현상
+                        </p>
+                      </div>
+                    </div>
+                    <div className="bg-red-50 dark:bg-red-950/20 rounded-lg p-4 border border-red-200 dark:border-red-800">
+                      <h5 className="font-medium text-foreground mb-2">일시적 기술</h5>
+                      <p className="text-sm text-muted-foreground mb-2">등장했다가 곧 사라지는 기술</p>
+                      <div className="text-xs text-muted-foreground space-y-1">
+                        <p>
+                          <strong>예시:</strong> 2010년대 초 하이브 → 프레스토 등으로 대체
+                        </p>
+                        <p>
+                          <strong>특징:</strong> 거의 모든 기술이 이처럼 필연적인 쇠퇴의 길을 걷게 됨
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div>
+                  <h4 className="text-lg font-medium text-foreground mb-3">
+                    장소: 온프레미스, 클라우드, 하이브리드, 멀티클라우드
+                  </h4>
+
+                  <div className="space-y-4">
+                    <div className="bg-muted/30 rounded-lg p-4">
+                      <h5 className="font-medium text-foreground mb-2">온프레미스</h5>
+                      <p className="text-sm text-muted-foreground mb-2">
+                        기업이 하드웨어를 소유하고, 자체 데이터 센터 또는 임대 코로케이션 공간에 위치
+                      </p>
+                      <div className="text-xs text-muted-foreground space-y-1">
+                        <li>• 하드웨어와 소프트웨어에 대한 운영상의 책임</li>
+                        <li>• 하드웨어 장애 시 수리하거나 교체 필요</li>
+                        <li>• 몇 년마다 업그레이드 주기 관리</li>
+                        <li>• 과잉 구매나 과소비 없이 최대 부하에 뛰어난 성능 제공 필요</li>
+                      </div>
+                    </div>
+
+                    <div className="bg-muted/30 rounded-lg p-4">
+                      <h5 className="font-medium text-foreground mb-2">클라우드</h5>
+                      <p className="text-sm text-muted-foreground mb-2">
+                        온프레미스 모델을 완전히 뒤집어, 클라우드 제공업체로부터 하드웨어와 관리형 서비스를 임대
+                      </p>
+                      <div className="grid md:grid-cols-3 gap-3 mb-3">
+                        <div className="bg-blue-50 dark:bg-blue-950/20 rounded p-2 border border-blue-200 dark:border-blue-800">
+                          <p className="text-xs font-medium text-foreground">IaaS</p>
+                          <p className="text-xs text-muted-foreground">하드웨어 슬라이스 대여 (VM, 가상 디스크)</p>
+                        </div>
+                        <div className="bg-green-50 dark:bg-green-950/20 rounded p-2 border border-green-200 dark:border-green-800">
+                          <p className="text-xs font-medium text-foreground">PaaS</p>
+                          <p className="text-xs text-muted-foreground">운영 세부 사항 무시, 턴키 접근</p>
+                        </div>
+                        <div className="bg-purple-50 dark:bg-purple-950/20 rounded p-2 border border-purple-200 dark:border-purple-800">
+                          <p className="text-xs font-medium text-foreground">SaaS</p>
+                          <p className="text-xs text-muted-foreground">완전한 기능의 엔터프라이즈 소프트웨어</p>
+                        </div>
+                      </div>
+                      <div className="bg-amber-50 dark:bg-amber-950/20 rounded-lg p-3 border border-amber-200 dark:border-amber-800">
+                        <h6 className="text-xs font-medium text-foreground mb-1">서버리스</h6>
+                        <p className="text-xs text-muted-foreground">
+                          0에서 매우 높은 사용률까지 자동 확장, 종량제 방식 청구, 기본 서버에 대한 운영 인식 없이 작업
+                          수행
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className="bg-muted/30 rounded-lg p-4">
+                      <h5 className="font-medium text-foreground mb-2">클라우드 경제학</h5>
+                      <div className="space-y-3">
+                        <div className="bg-red-50 dark:bg-red-950/20 rounded p-3 border border-red-200 dark:border-red-800">
+                          <p className="text-xs font-medium text-foreground mb-1">리프트 앤 시프트의 함정</p>
+                          <p className="text-xs text-muted-foreground">
+                            온프레미스 서버를 클라우드 VM으로 하나씩 이동하는 방식은 장기간 실행 시 온프레미스보다 훨씬
+                            비쌈
+                          </p>
+                        </div>
+                        <div className="bg-green-50 dark:bg-green-950/20 rounded p-3 border border-green-200 dark:border-green-800">
+                          <p className="text-xs font-medium text-foreground mb-1">클라우드 가치 발견의 핵심</p>
+                          <p className="text-xs text-muted-foreground">
+                            클라우드 가격 모델을 이해하고 최적화: 자동 확장, 예약/스폿 인스턴스, 서버리스 함수 활용
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="bg-muted/30 rounded-lg p-4">
+                      <h5 className="font-medium text-foreground mb-2">하이브리드 & 멀티클라우드</h5>
+                      <div className="grid md:grid-cols-2 gap-3">
+                        <div>
+                          <p className="text-sm font-medium text-foreground mb-1">하이브리드 클라우드</p>
+                          <p className="text-xs text-muted-foreground mb-2">
+                            특정 워크로드만 클라우드로 마이그레이션. 데이터 이그레스 비용 최소화
+                          </p>
+                          <p className="text-xs text-muted-foreground">
+                            예: 온프레미스 → 클라우드 분석 → 소량 데이터만 다시 온프레미스
+                          </p>
+                        </div>
+                        <div>
+                          <p className="text-sm font-medium text-foreground mb-1">멀티클라우드</p>
+                          <p className="text-xs text-muted-foreground mb-2">
+                            여러 퍼블릭 클라우드에 워크로드 배포. 최고의 서비스 활용 가능
+                          </p>
+                          <p className="text-xs text-muted-foreground text-red-600 dark:text-red-400">
+                            단점: 데이터 이그레스 비용, 네트워킹 병목, 상당한 복잡성
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="bg-muted/30 rounded-lg p-4">
+                      <h5 className="font-medium text-foreground mb-2">클라우드 송환 논쟁</h5>
+                      <p className="text-sm text-muted-foreground mb-2">
+                        클라우드 규모(엑사바이트 데이터, 초당 테라비트 트래픽)에서는 서버 소유 고려 가능
+                      </p>
+                      <p className="text-xs text-muted-foreground">
+                        예: 애플의 iCloud 스토리지를 자체 서버로 마이그레이션하여 상당한 재정적/성능적 이점 획득
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div>
+                  <h4 className="text-lg font-medium text-foreground mb-3">구축 vs 구매</h4>
+
+                  <div className="space-y-4">
+                    <div className="bg-muted/30 rounded-lg p-4">
+                      <h5 className="font-medium text-foreground mb-2">구축 vs 구매 비교</h5>
+                      <div className="grid md:grid-cols-2 gap-4">
+                        <div className="bg-blue-50 dark:bg-blue-950/20 rounded p-3 border border-blue-200 dark:border-blue-800">
+                          <p className="text-sm font-medium text-foreground mb-1">구축 논거</p>
+                          <p className="text-xs text-muted-foreground">
+                            솔루션을 엔드투엔드로 제어 가능, 벤더나 오픈 소스 커뮤니티에 의해 좌우되지 않음
+                          </p>
+                        </div>
+                        <div className="bg-green-50 dark:bg-green-950/20 rounded p-3 border border-green-200 dark:border-green-800">
+                          <p className="text-sm font-medium text-foreground mb-1">구매 논거</p>
+                          <p className="text-xs text-muted-foreground">
+                            리소스의 제약과 전문성. 이미 사용 가능한 솔루션보다 더 나은 솔루션을 구축할 수 있는 전문
+                            지식이 있는가?
+                          </p>
+                        </div>
+                      </div>
+                      <p className="text-sm text-muted-foreground mt-3">
+                        결정은 TCO, TOCO 및 솔루션이 조직에 경쟁 우위를 제공하는지 여부에 달려 있음
+                      </p>
+                    </div>
+
+                    <div className="bg-muted/30 rounded-lg p-4">
+                      <h5 className="font-medium text-foreground mb-2">오픈 소스 소프트웨어 (OSS)</h5>
+                      <p className="text-sm text-muted-foreground mb-3">
+                        특정 라이센스 조건에 따라 소프트웨어 및 기본 코드베이스를 일반적으로 용도로 이용할 수 있도록
+                        공개하는 소프트웨어 분산 모델
+                      </p>
+
+                      <div className="space-y-3">
+                        <div>
+                          <h6 className="text-sm font-medium text-foreground mb-2">커뮤니티 관리 OSS 평가 기준</h6>
+                          <div className="grid md:grid-cols-2 gap-3">
+                            <div className="space-y-2">
+                              <div>
+                                <p className="text-xs font-medium text-foreground">인지도</p>
+                                <p className="text-xs text-muted-foreground">
+                                  GitHub 스타, 포크, 커밋 수, 커뮤니티 활동
+                                </p>
+                              </div>
+                              <div>
+                                <p className="text-xs font-medium text-foreground">성숙도</p>
+                                <p className="text-xs text-muted-foreground">
+                                  프로젝트 시작 시기, 활성화 정도, 사용자 수
+                                </p>
+                              </div>
+                              <div>
+                                <p className="text-xs font-medium text-foreground">문제 해결</p>
+                                <p className="text-xs text-muted-foreground">
+                                  혼자 해결 가능한가? 커뮤니티 도움 가능한가?
+                                </p>
+                              </div>
+                            </div>
+                            <div className="space-y-2">
+                              <div>
+                                <p className="text-xs font-medium text-foreground">프로젝트 관리</p>
+                                <p className="text-xs text-muted-foreground">Git 이슈 대응 방식, 신속한 대응 가능성</p>
+                              </div>
+                              <div>
+                                <p className="text-xs font-medium text-foreground">팀 & 후원</p>
+                                <p className="text-xs text-muted-foreground">기업 후원 여부, 핵심 기여자</p>
+                              </div>
+                              <div>
+                                <p className="text-xs text-muted-foreground">로드맵</p>
+                                <p className="text-xs text-muted-foreground">명확하고 투명한 프로젝트 로드맵 존재</p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div>
+                          <h6 className="text-sm font-medium text-foreground mb-2">상용 OSS (COSS)</h6>
+                          <p className="text-xs text-muted-foreground mb-2">
+                            비즈니스 벤더가 OSS 솔루션을 호스팅 및 관리하는 서비스 (예: 데이터브릭스, 컨플루언스, DBT
+                            랩스)
+                          </p>
+                          <div className="grid md:grid-cols-2 gap-3">
+                            <div className="space-y-1">
+                              <p className="text-xs font-medium text-foreground">고려사항</p>
+                              <ul className="text-xs text-muted-foreground space-y-1">
+                                <li>• 가치: 직접 관리보다 더 나은 가치 제공?</li>
+                                <li>• 제공 모델: API, 웹/모바일 UI 접근성</li>
+                                <li>• 지원: 지원 모델과 비용</li>
+                                <li>• 릴리스: 투명한 업데이트 일정</li>
+                              </ul>
+                            </div>
+                            <div className="space-y-1">
+                              <p className="text-xs font-medium text-foreground">비즈니스 측면</p>
+                              <ul className="text-xs text-muted-foreground space-y-1">
+                                <li>• 회사 재정: 존속 가능성</li>
+                                <li>• 로고 vs 수익: 고객 수 vs 수익 증대 초점</li>
+                                <li>• 커뮤니티 지원: OSS 프로젝트 진정한 지원</li>
+                                <li>• 판매 주기: 온디맨드 vs 장기 계약</li>
+                              </ul>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="bg-muted/30 rounded-lg p-4">
+                      <h5 className="font-medium text-foreground mb-2">전용 폐쇄형 네트워크 서비스</h5>
+                      <div className="grid md:grid-cols-2 gap-4">
+                        <div>
+                          <p className="text-sm font-medium text-foreground mb-1">독립 오퍼링</p>
+                          <div className="text-xs text-muted-foreground space-y-1">
+                            <p>• 상호 운용성: 다른 도구와의 호환성</p>
+                            <p>• 인지도와 시장 점유율</p>
+                            <p>• 문서화와 지원</p>
+                            <p>• 가격 책정의 합리성</p>
+                            <p>• 수명: 회사의 생존 가능성</p>
+                          </div>
+                        </div>
+                        <div>
+                          <p className="text-sm font-medium text-foreground mb-1">클라우드 플랫폼 전용 서비스</p>
+                          <div className="text-xs text-muted-foreground space-y-1">
+                            <p>• 성능 vs 가격: 독립형/OSS 버전과 비교</p>
+                            <p>• 구매 고려사항: 온디맨드 vs 예약 용량</p>
+                            <p>• TCO 계산</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div>
+                  <h4 className="text-lg font-medium text-foreground mb-3">모놀리식 vs 모듈식</h4>
+
+                  <div className="grid md:grid-cols-2 gap-4 mb-4">
+                    <div className="bg-blue-50 dark:bg-blue-950/20 rounded-lg p-4 border border-blue-200 dark:border-blue-800">
+                      <h5 className="font-medium text-foreground mb-2">모놀리스 (Monolith)</h5>
+                      <p className="text-sm text-muted-foreground mb-2">독립형이며, 단일 시스템에서 여러 기능을 수행</p>
+                      <div className="space-y-2">
+                        <div>
+                          <p className="text-xs font-medium text-green-600 dark:text-green-400">장점</p>
+                          <ul className="text-xs text-muted-foreground space-y-1">
+                            <li>• 추론하기 쉽고 인지적 부담 적음</li>
+                            <li>• 하나의 기술과 프로그래밍 언어</li>
+                            <li>• 단순한 아키텍처와 프로세스</li>
+                          </ul>
+                        </div>
+                        <div>
+                          <p className="text-xs font-medium text-red-600 dark:text-red-400">단점</p>
+                          <ul className="text-xs text-muted-foreground space-y-1">
+                            <li>• 깨지기 쉬움, 소프트웨어 갱신 오래 걸림</li>
+                            <li>• 시스템 버그가 전체에 영향</li>
+                            <li>• 멀티테넌시 문제</li>
+                            <li>• 새로운 플랫폼으로 전환 어려움</li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="bg-green-50 dark:bg-green-950/20 rounded-lg p-4 border border-green-200 dark:border-green-800">
+                      <h5 className="font-medium text-foreground mb-2">모듈성 (Modularity)</h5>
+                      <p className="text-sm text-muted-foreground mb-2">
+                        마이크로서비스 API를 통해 통신, 표준 형식으로 객체 스토리지에 데이터 저장
+                      </p>
+                      <div className="space-y-2">
+                        <div>
+                          <p className="text-xs font-medium text-green-600 dark:text-green-400">장점</p>
+                          <ul className="text-xs text-muted-foreground space-y-1">
+                            <li>• 동종 최고의 분리형 기술 선택</li>
+                            <li>• 표준 형식을 통한 상호 운용성</li>
+                            <li>• 유연성과 되돌릴 수 있는 의사결정</li>
+                          </ul>
+                        </div>
+                        <div>
+                          <p className="text-xs font-medium text-red-600 dark:text-red-400">단점</p>
+                          <ul className="text-xs text-muted-foreground space-y-1">
+                            <li>• 고려해야 할 사항이 더 많음</li>
+                            <li>• 수많은 시스템 이해 및 운용 필요</li>
+                            <li>• 상호 운용성의 잠재적 골칫거리</li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="bg-amber-50 dark:bg-amber-950/20 rounded-lg p-4 border border-amber-200 dark:border-amber-800">
+                    <h5 className="font-medium text-foreground mb-2">분산형 모놀리스 패턴 주의</h5>
+                    <p className="text-sm text-muted-foreground mb-2">
+                      분산 시스템을 서로 다른 서비스로 실행하지만, 서비스와 노드가 공통의 의존 관계나 코드베이스를 공유
+                    </p>
+                    <div className="text-xs text-muted-foreground space-y-1">
+                      <p>
+                        <strong>예시:</strong> 전통적인 하둡 클러스터, 아파치 에어플로
+                      </p>
+                      <p>
+                        <strong>문제:</strong> 의존성 충돌, 업그레이드 관리 복잡성
+                      </p>
+                      <p>
+                        <strong>해결방안:</strong> 임시 인프라, 컨테이너를 통한 환경 분리
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div>
+                  <h4 className="text-lg font-medium text-foreground mb-3">서버리스 vs 서버</h4>
+
+                  <div className="space-y-4">
+                    <div className="bg-muted/30 rounded-lg p-4">
+                      <h5 className="font-medium text-foreground mb-2">서버리스</h5>
+                      <p className="text-sm text-muted-foreground mb-2">
+                        서버를 관리할 필요 없이 필요에 따라 작은 코드 청크를 실행. 비용과 편리함이 주된 이유
+                      </p>
+                      <div className="grid md:grid-cols-2 gap-3">
+                        <div>
+                          <p className="text-xs font-medium text-foreground">서비스형 함수 (FaaS)</p>
+                          <p className="text-xs text-muted-foreground">AWS 람다 등, 이벤트당 비용 지불</p>
+                        </div>
+                        <div>
+                          <p className="text-xs font-medium text-foreground">서버리스 데이터베이스</p>
+                          <p className="text-xs text-muted-foreground">
+                            BigQuery 등, 데이터 사용량과 저장량에 대한 비용
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="bg-muted/30 rounded-lg p-4">
+                      <h5 className="font-medium text-foreground mb-2">컨테이너</h5>
+                      <p className="text-sm text-muted-foreground mb-2">
+                        경량 가상 머신으로, 격리된 사용자 공간을 패키징. 단일 호스트 OS에서 다수의 컨테이너 공존 가능
+                      </p>
+                      <div className="text-xs text-muted-foreground space-y-1">
+                        <p>
+                          <strong>장점:</strong> 의존성 및 코드 분리, 세분화된 자원 할당
+                        </p>
+                        <p>
+                          <strong>주의사항:</strong> 컨테이너 이스케이프 위험, 상호 신뢰 환경에서만 사용
+                        </p>
+                        <p>
+                          <strong>컨테이너형 함수:</strong> AWS 파게이트, 구글 앱 엔진 등
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className="bg-muted/30 rounded-lg p-4">
+                      <h5 className="font-medium text-foreground mb-2">서버 vs 서버리스 평가 방법</h5>
+                      <div className="grid md:grid-cols-2 gap-4">
+                        <div>
+                          <p className="text-sm font-medium text-foreground mb-1">서버리스 고려사항</p>
+                          <ul className="text-xs text-muted-foreground space-y-1">
+                            <li>• 워크로드 규모와 복잡성</li>
+                            <li>• 실행 빈도 및 기간</li>
+                            <li>• 요청과 네트워킹 제약</li>
+                            <li>• 언어 지원</li>
+                            <li>• 런타임 제약</li>
+                            <li>• 비용 (이벤트 수 증가 시 급증)</li>
+                          </ul>
+                        </div>
+                        <div>
+                          <p className="text-sm font-medium text-foreground mb-1">서버 사용 시 고려사항</p>
+                          <ul className="text-xs text-muted-foreground space-y-1">
+                            <li>• 서버 장애 예상하기</li>
+                            <li>• 클러스터와 오토스케일링 사용</li>
+                            <li>• 인프라를 코드로 취급</li>
+                            <li>• 컨테이너 사용</li>
+                          </ul>
+                        </div>
+                      </div>
+                      <p className="text-sm text-muted-foreground mt-3 bg-blue-50 dark:bg-blue-950/20 rounded p-2 border border-blue-200 dark:border-blue-800">
+                        <strong>권장사항:</strong> 추상화가 우세한 경향. 서버리스를 먼저 사용한 다음, 충분히 성장한
+                        후에는 서버 사용
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div>
+                  <h4 className="text-lg font-medium text-foreground mb-3">최적화, 성능, 벤치마크 전쟁</h4>
+
+                  <div className="space-y-4">
+                    <div className="bg-red-50 dark:bg-red-950/20 rounded-lg p-4 border border-red-200 dark:border-red-800">
+                      <h5 className="font-medium text-foreground mb-2">⚠️ 1990년대의 빅데이터</h5>
+                      <p className="text-sm text-muted-foreground mb-2">
+                        페타바이트 규모의 빅데이터를 지원한다고 주장하는 제품이 스마트폰 저장 공간에 들어갈 만큼 작은
+                        벤치마크 데이터셋 사용
+                      </p>
+                      <ul className="text-xs text-muted-foreground space-y-1">
+                        <li>• 캐싱 계층에 의존한 성능 (SSD/메모리에 완전히 상주)</li>
+                        <li>• 동일한 데이터를 반복적으로 쿼리해 최고 성능 과시</li>
+                        <li>• 소규모 테스트로 RAM과 SSD 비용 최소화</li>
+                      </ul>
+                    </div>
+
+                    <div className="bg-amber-50 dark:bg-amber-950/20 rounded-lg p-4 border border-amber-200 dark:border-amber-800">
+                      <h5 className="font-medium text-foreground mb-2">무의미한 비용 비교</h5>
+                      <p className="text-sm text-muted-foreground mb-2">
+                        단기 시스템과 비단기 시스템을 초당 비용으로 비교하는 것은 무의미
+                      </p>
+                      <p className="text-xs text-muted-foreground">
+                        예: MPP 시스템(몇 년간 계속 실행) vs 동적 컴퓨팅 모델(쿼리당/사용 초당 과금)
+                      </p>
+                    </div>
+
+                    <div className="bg-orange-50 dark:bg-orange-950/20 rounded-lg p-4 border border-orange-200 dark:border-orange-800">
+                      <h5 className="font-medium text-foreground mb-2">비대칭 최적화</h5>
+                      <p className="text-sm text-muted-foreground mb-2">
+                        업체들이 고도로 정규화된 데이터에 대해 복잡한 조인 쿼리를 실행하는 벤치마크로 행 기반 MPP
+                        시스템과 열 기반 데이터베이스 비교
+                      </p>
+                      <p className="text-xs text-muted-foreground">
+                        정규화된 데이터 모델은 행 기반 시스템에 최적이지만, 열 기반 시스템은 스키마 변경이 필요
+                      </p>
+                    </div>
+
+                    <div className="bg-green-50 dark:bg-green-950/20 rounded-lg p-4 border border-green-200 dark:border-green-800">
+                      <h5 className="font-medium text-foreground mb-2">올바른 벤치마킹</h5>
+                      <p className="text-sm text-muted-foreground">
+                        실제 사용 사례를 벤치마킹하려면 예상되는 실제 데이터와 쿼리 크기를 시뮬레이션해야 함. 요구
+                        사항에 대한 상세한 평가를 바탕으로 쿼리 성능 및 자원 비용을 평가
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div>
+                  <h4 className="text-lg font-medium text-foreground mb-3">
+                    데이터 엔지니어링 수명 주기의 드러나지 않는 요소
+                  </h4>
+
+                  <div className="space-y-4">
+                    <div className="bg-muted/30 rounded-lg p-4">
+                      <h5 className="font-medium text-foreground mb-2">데이터 관리</h5>
+                      <p className="text-sm text-muted-foreground mb-2">질문해야 할 몇 가지 예제 사항:</p>
+                      <ul className="text-xs text-muted-foreground space-y-1">
+                        <li>• 외부와 내부 모두에서 발생하는 침해로부터 데이터를 어떻게 보호하고 있는가?</li>
+                        <li>• GDPR, CCPA 및 기타 데이터 개인정보보호 규정을 준수하는 제품은 무엇인가?</li>
+                        <li>• 이러한 규정을 준수하기 위해 데이터를 호스팅할 수 있는가?</li>
+                        <li>• 어떻게 데이터 품질을 보장하고 솔루션에서 올바른 데이터를 표시하는가?</li>
+                      </ul>
+                    </div>
+
+                    <div className="bg-muted/30 rounded-lg p-4">
+                      <h5 className="font-medium text-foreground mb-2">데이터옵스</h5>
+                      <p className="text-sm text-muted-foreground mb-2">새로운 기술을 평가할 때 고려사항:</p>
+                      <ul className="text-xs text-muted-foreground space-y-1">
+                        <li>• 새로운 코드 배포를 얼마나 제어할 수 있을까?</li>
+                        <li>• 문제가 발생했을 때 어떻게 경고를 받고 어떻게 대응할 수 있을까?</li>
+                        <li>• 문제를 어떻게 처리할 것인가? 사고 대응은 어떻게 하는가?</li>
+                        <li>• 관리형 오퍼링 사용 시 벤더의 SLA, 문제 경고 방식, ETA 제공 등</li>
+                      </ul>
+                    </div>
+
+                    <div className="bg-muted/30 rounded-lg p-4">
+                      <h5 className="font-medium text-foreground mb-2">오케스트레이션 예제: 에어플로</h5>
+                      <div className="grid md:grid-cols-2 gap-4">
+                        <div>
+                          <p className="text-sm font-medium text-green-600 dark:text-green-400 mb-1">장점</p>
+                          <ul className="text-xs text-muted-foreground space-y-1">
+                            <li>• 오픈 소스 시장에서 지배적 위치</li>
+                            <li>• 매우 활발한 프로젝트 운영</li>
+                            <li>• 높은 수준의 인지도와 활발한 커뮤니티</li>
+                            <li>• 다양한 벤더를 통한 관리형 서비스 제공</li>
+                          </ul>
+                        </div>
+                        <div>
+                          <p className="text-sm font-medium text-red-600 dark:text-red-400 mb-1">단점</p>
+                          <ul className="text-xs text-muted-foreground space-y-1">
+                            <li>• 확장 불가능한 핵심 컴포넌트 의존</li>
+                            <li>• 분산형 모놀리스 패턴</li>
+                            <li>• 데이터 네이티브 구조 미지원</li>
+                            <li>• 워크플로 개발 및 테스트 어려움</li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div>
+                  <h4 className="text-lg font-medium text-foreground mb-3">조언 및 권장사항</h4>
+                  <div className="bg-blue-50 dark:bg-blue-950/20 rounded-lg p-4 border border-blue-200 dark:border-blue-800">
+                    <ul className="text-sm text-muted-foreground space-y-2">
+                      <li>
+                        • <strong>경쟁 우위 파악:</strong> 구축과 구매 사이의 비교는 경쟁 우위를 파악하고 맞춤화를 위해
+                        자원을 투자하는 것이 합리적인지 파악하는 것으로 귀결
+                      </li>
+                      <li>
+                        • <strong>OSS와 COSS 선호:</strong> 보통은 OSS와 COSS를 선호하므로, 이러한 옵션이 부족한 영역을
+                        개선하는 데 집중
+                      </li>
+                      <li>
+                        • <strong>내부 운영 오버헤드:</strong> 매몰 비용으로 처리하지 말고, 관리형 플랫폼상에 정교한
+                        시스템을 구축하도록 기존 데이터 팀의 역량 강화
+                      </li>
+                      <li>
+                        • <strong>모놀리스 vs 모듈성:</strong> 상호 운용성, 곰의 덫 회피, 유연성을 고려하여 결정
+                      </li>
+                      <li>
+                        • <strong>서버리스 우선:</strong> 서버리스를 먼저 사용한 다음, 충분히 성장한 후에는 컨테이너 및
+                        오케스트레이션과 함께 서버 사용
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
           {/* 느낀점 Section */}
           <section className="bg-card rounded-lg p-6 border">
             <h2 className="text-2xl font-bold text-foreground mb-4 flex items-center gap-2">
