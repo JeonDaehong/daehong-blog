@@ -27,7 +27,7 @@ export default function BookReviewPage() {
           <div className="md:col-span-1">
             <div className="relative aspect-[2/3] max-w-sm mx-auto">
               <img
-                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-PZ8kd6V0nRv36O7vf78QbiJB6SL4Sk.png"
+                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/design-mode-images/image-UVUsRVTTiR7MqpZvZOZB43ocJNN6X9.png"
                 alt="데이터 중심 애플리케이션 설계 책 표지"
                 className="w-full h-full object-contain rounded-lg shadow-lg"
               />

@@ -97,7 +97,7 @@ export default function Home() {
                 <div className="relative w-full max-w-md mx-auto">
                   <div className="bg-white p-3 rounded-lg shadow-xl transform rotate-1 hover:rotate-0 transition-transform duration-300">
                     <Image
-                      src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/KakaoTalk_20250906_193003212_02.jpg-ZInjWKD5ovGPFpmWdEicRRJpR01wBi.jpeg"
+                      src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/design-mode-images/KakaoTalk_20250906_193003212_02.jpg-q7x9FKmV3Tzuc3lsna7Dc6Lu8w8c5z.jpeg"
                       alt="전대홍의 오픈소스 기여 발표 - Spring Kafka, Apache Iceberg, Apache Gravitino 프로젝트 기여 내용을 소개하는 모습"
                       width={400}
                       height={300}
@@ -118,7 +118,7 @@ export default function Home() {
                 <div className="relative w-full max-w-md mx-auto">
                   <div className="bg-white p-3 rounded-lg shadow-xl transform -rotate-1 hover:rotate-0 transition-transform duration-300">
                     <Image
-                      src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-vJm38OQA85lDjWNtlPr3asjaBHYIk0.png"
+                      src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/design-mode-images/image-7EZBqJesbXNhhcHiqd9CsBxYII0Clt.png"
                       alt="오픈소스 기여 대시보드 - Apache Iceberg, Spring Kafka, Apache Gravitino 프로젝트 기여 현황"
                       width={400}
                       height={500}
