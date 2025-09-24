@@ -194,12 +194,15 @@ export default function BookReviewPage({ params }: { params: { id: string } }) {
           <section className="bg-card rounded-lg p-6 border">
             <h2 className="text-2xl font-bold text-foreground mb-4 flex items-center gap-2">
               <Star className="w-6 h-6 text-primary" />
-              1. 데이터 엔지니어링 수명 주기 정의
+              1. 데이터 엔지니어링이란?
             </h2>
             <div className="prose prose-gray dark:prose-invert max-w-none">
               <p className="text-muted-foreground leading-relaxed mb-4">
-                데이터 엔지니어링 수명 주기는 원시 데이터의 요소를 분석가, 데이터 과학자, ML 엔지니어 등이 사용할 수
-                있는 유용한 최종 제품으로 전환하는 단계로 구성됨.
+                데이터 엔지니어링은 원시 데이터를 원천 시스템에서 가져와 분석 및 머신러닝 같은 다운스트림 사용 사례를 지원하기 위해, 고품질의 일관된 정보를 생성하는 시스템과 프로세스를 개발·구현·유지관리하는 작업이다.
+                <br/>
+                이는 보안, 데이터 관리, 데이터 운영, 데이터 아키텍처, 오케스트레이션, 소프트웨어 엔지니어링의 교차점에 위치하며, 데이터 엔지니어는 이러한 데이터 엔지니어링 수명 주기를 관리한다. 
+                <br/>
+                데이터 엔지니어링 수명 주기는 데이터를 원천에서 추출(Extract)하여 필요한 형태로 가공(Transform)한 뒤, 분석가나 데이터 과학자가 활용할 수 있도록 전달·저장(Load)하는 일련의 과정을 의미하며, 데이터 과학의 업스트림에 해당한다.
               </p>
             </div>
           </section>
