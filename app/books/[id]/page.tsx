@@ -190,6 +190,276 @@ export default function BookReviewPage({ params }: { params: { id: string } }) {
             </div>
           </section>
 
+          {/* 본문/리뷰 Section */}
+          <section className="bg-card rounded-lg p-6 border">
+            <h2 className="text-2xl font-bold text-foreground mb-6 flex items-center gap-2">
+              <BookOpen className="w-6 h-6 text-primary" />
+              본문/리뷰
+            </h2>
+
+            {/* Chapter 1 */}
+            <div className="mb-8 p-4 bg-muted/50 rounded-lg border">
+              <h3 className="text-xl font-semibold text-foreground mb-4">1장 : 데이터 엔지니어링 상세</h3>
+
+              <h4 className="text-lg font-medium text-foreground mb-3">데이터 엔지니어링이란</h4>
+
+              <div className="text-muted-foreground leading-relaxed space-y-4">
+                <p>
+                  데이터 엔지니어링은 데이터를 수집·저장·변환·제공하는 과정 전반을 설계하고 운영하는 활동으로, 데이터
+                  과학자, 데이터 분석가, 비즈니스 인텔리전스(BI) 개발자 등이 데이터를 활용할 수 있도록 기반을 마련하는
+                  역할을 한다.
+                </p>
+
+                <p>
+                  즉, 데이터 엔지니어는 조직의 데이터 인프라를 구축하고 운영하여, 분석 및 머신러닝 같은 고도화된 활용이
+                  가능하도록 데이터를 준비한다.
+                </p>
+
+                <p>
+                  데이터 엔지니어링은 원시 데이터(raw data)를 고품질의 일관된 정보로 가공·관리하여, 분석·AI/ML·BI 등
+                  다양한 활용 사례를 지원하는 시스템과 프로세스를 개발·구현·유지 관리하는 일련의 과정이다.
+                </p>
+
+                <div className="mt-4">
+                  <p className="mb-3 font-medium">이 분야는 다음과 같은 영역과 긴밀히 연결된다</p>
+                  <ul className="space-y-2 ml-4">
+                    <li className="flex items-start gap-2">
+                      <span className="text-primary mt-1">•</span>
+                      <span>
+                        <strong>보안(Security)</strong> – 데이터 접근 통제, 개인정보 보호
+                      </span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-primary mt-1">•</span>
+                      <span>
+                        <strong>데이터 관리(Data Management)</strong> – 품질 관리, 메타데이터, 거버넌스
+                      </span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-primary mt-1">•</span>
+                      <span>
+                        <strong>데이터 운영(DataOps)</strong> – 배포 자동화, 모니터링, 운영 안정성
+                      </span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-primary mt-1">•</span>
+                      <span>
+                        <strong>데이터 아키텍처(Data Architecture)</strong> – 데이터 모델링, 시스템 설계
+                      </span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-primary mt-1">•</span>
+                      <span>
+                        <strong>오케스트레이션(Orchestration)</strong> – 파이프라인 스케줄링, 워크플로우 관리
+                      </span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-primary mt-1">•</span>
+                      <span>
+                        <strong>소프트웨어 엔지니어링</strong> – 효율적이고 확장 가능한 코드 및 시스템 구현
+                      </span>
+                    </li>
+                  </ul>
+                </div>
+
+                <p>
+                  <br />
+                </p>
+
+                <h4 className="text-lg font-medium text-foreground mb-3">데이터 엔지니어링 수명 주기</h4>
+                <div className="mt-4">
+                  <ul className="space-y-2 ml-4">
+                    <li className="flex items-start gap-2">
+                      <span className="text-primary mt-1">•</span>
+                      <span>
+                        <strong>데이터 생성(generation)</strong>
+                      </span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-primary mt-1">•</span>
+                      <span>
+                        <strong>데이터 저장(Storage)</strong>
+                      </span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-primary mt-1">•</span>
+                      <span>
+                        <strong>데이터 수집(Ingestion)</strong>
+                      </span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-primary mt-1">•</span>
+                      <span>
+                        <strong>데이터 변환(Transformation)</strong>
+                      </span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-primary mt-1">•</span>
+                      <span>
+                        <strong>데이터 서빙(Serving)</strong>
+                      </span>
+                    </li>
+                  </ul>
+                </div>
+
+                <p>
+                  데이터 엔지니어링 수명 주기는 전체 수명 주기에 걸쳐 중요한 아이디어인 드러나지 않는
+                  요소(undercurrent)라는 개념을 포함함. 여기에는 보안, 데이터 관리, 데이터옵스, 데이터 아키텍처,
+                  오케스트레이션, 소프트웨어 엔지니어링이 포함된다.
+                </p>
+
+                <h4 className="text-lg font-medium text-foreground mb-3">데이터 엔지니어의 진화</h4>
+
+                <div className="text-muted-foreground leading-relaxed space-y-4">
+                  <p className="font-medium">1980년부터 2000년까지: 데이터 웨어하우징에서 웹으로</p>
+                  <ul className="space-y-2 ml-4">
+                    <li className="flex items-start gap-2">
+                      <span className="text-primary mt-1">•</span>
+                      <span>
+                        1980년대에 비즈니스 데이터 웨어하우스라는 용어가 형성되었으며 1989년 빌 인먼이 데이터
+                        웨어하우스라는 용어를 공식적으로 만들었음
+                      </span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-primary mt-1">•</span>
+                      <span>
+                        IBM의 엔지니어들이 관계형 데이터 베이스와 구조적 질의 언어(SQL)를 개발한 이후 오라클은 이 기술을
+                        대중화함
+                      </span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-primary mt-1">•</span>
+                      <span>
+                        BI를 위한 전용 툴과 데이터 파이프라인이 필요해졌으며 랄프 킴벌과 빌 인먼은 데이터 모델링 기법과
+                        접근 방식을 개발했음
+                      </span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-primary mt-1">•</span>
+                      <span>
+                        데이터 웨어하우징은 대량의 데이터를 처리하고자 다수의 프로세서를 사용하는 새로운 대규모 병렬
+                        처리(MPP) 데이터베이스로 확장성 있는 분석의 첫 시대를 열음
+                      </span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-primary mt-1">•</span>
+                      <span>
+                        인터넷은 1990년대 중반에 주류를 이루었고 AOL, 야후, 아마존과 같은 세대의 웹 우선(web-first)
+                        기업을 탄생시킴
+                      </span>
+                    </li>
+                  </ul>
+
+                  <p className="font-medium mt-6">2000년대 초: 현대 데이터 엔지니어링의 탄생</p>
+                  <ul className="space-y-2 ml-4">
+                    <li className="flex items-start gap-2">
+                      <span className="text-primary mt-1">•</span>
+                      <span>
+                        닷컴 열풍이 무너지고 생존자 중 일부인 야후, 구글, 아마존 같은 기업들은 강력한 기술 기업으로
+                        성장함
+                      </span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-primary mt-1">•</span>
+                      <span>
+                        데이터의 폭발적 증가와 함께 범용 하드웨어도 저렴해지고 분산 연산 및 저장을 실현함 (빅데이터시대,
+                        3V)
+                      </span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-primary mt-1">•</span>
+                      <span>
+                        2003년 구글은 구글 파일 시스템에 관한 논문을 발표했고, 2004년에는 맵리듀스에 대한 논문을
+                        발표했음
+                      </span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-primary mt-1">•</span>
+                      <span>구글의 논문들은 야후의 엔지니어들이 2006년 아파치 하둡을 개발하는 데 영감을 주었음</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-primary mt-1">•</span>
+                      <span>
+                        아마존은 EC2, S3, 다이나모DB를 비롯한 데이터 빌딩 블록을 구축했으며, AWS가 성장 엔진이 되면서
+                        다른 퍼블릭 클라우드들이 등장함
+                      </span>
+                    </li>
+                  </ul>
+
+                  <p className="font-medium mt-6">2000년대와 2010년대: 빅데이터 엔지니어링</p>
+                  <ul className="space-y-2 ml-4">
+                    <li className="flex items-start gap-2">
+                      <span className="text-primary mt-1">•</span>
+                      <span>
+                        하둡 생태계의 오픈 소스 빅데이터 도구는 빠르게 성숙했고, 배치 컴퓨팅에서 이벤트 스트리밍으로의
+                        전환이 발생함
+                      </span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-primary mt-1">•</span>
+                      <span>
+                        엔지니어는 하둡, 피그, 하이브, HBase, 스톰, 카산드라, 스파크, 프레스토 등 최신 기술을 선택할 수
+                        있었음
+                      </span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-primary mt-1">•</span>
+                      <span>
+                        맵리듀스의 출현으로 코드 우선(code-first) 엔지니어링이 유행했으며, 빅데이터 엔지니어가 탄생함
+                      </span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-primary mt-1">•</span>
+                      <span>핵심 기술 개발에서 데이터 전달로 초점이 옮겨짐</span>
+                    </li>
+                  </ul>
+
+                  <p className="font-medium mt-6">2020년대: 데이터 수명 주기를 위한 엔지니어링</p>
+                  <ul className="space-y-2 ml-4">
+                    <li className="flex items-start gap-2">
+                      <span className="text-primary mt-1">•</span>
+                      <span>
+                        모놀리식 프레임워크에서 분산되고 모듈화되고, 관리되고, 고도로 추상화된 도구로 트렌드가 이동중
+                      </span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-primary mt-1">•</span>
+                      <span>
+                        데이터 엔지니어링은 다양한 기술을 마치 레고 블록처럼 연결하고 상호 운용하는 분야가 되고 있음
+                      </span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-primary mt-1">•</span>
+                      <span>
+                        보안, 데이터 관리, 데이터옵스, 데이터 아키텍처, 오케스트레이션 및 일반 데이터 수명 주기 관리와
+                        같은 가치 사슬의 상위 영역에 역할이 집중됨
+                      </span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-primary mt-1">•</span>
+                      <span>
+                        CCPA와 GDPR 같은 규정에 정통하며 파이프라인 설계 시 개인정보보호, 익명화, 데이터 가비지 수집 및
+                        규정 준수에 관심을 가짐
+                      </span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            {/* Chapter 2 */}
+            <div className="mb-8 p-4 bg-muted/50 rounded-lg border">
+              <h3 className="text-xl font-semibold text-foreground mb-4">2장</h3>
+              {/* 내용을 여기에 추가하세요 */}
+            </div>
+
+            {/* Chapter 3 */}
+            <div className="mb-4 p-4 bg-muted/50 rounded-lg border">
+              <h3 className="text-xl font-semibold text-foreground mb-4">3장</h3>
+              {/* 내용을 여기에 추가하세요 */}
+            </div>
+          </section>
+
           {/* 느낀점 Section */}
           <section className="bg-card rounded-lg p-6 border">
             <h2 className="text-2xl font-bold text-foreground mb-4 flex items-center gap-2">
