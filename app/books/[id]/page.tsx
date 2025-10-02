@@ -199,68 +199,41 @@ export default function BookReviewPage({ params }: { params: { id: string } }) {
 
             {/* Chapter 1 */}
             <div className="mb-8 p-4 bg-muted/50 rounded-lg border">
-              <h3 className="text-xl font-semibold text-foreground mb-4">1장 : 데이터 엔지니어링 상세</h3>
+              <h3 className="text-xl font-semibold text-foreground mb-4">1장: 데이터 엔지니어링 기반 구축하기</h3>
 
               <h4 className="text-lg font-medium text-foreground mb-3">데이터 엔지니어링이란</h4>
 
               <div className="text-muted-foreground leading-relaxed space-y-4">
                 <p>
-                  데이터 엔지니어링은 데이터를 수집·저장·변환·제공하는 과정 전반을 설계하고 운영하는 활동으로, 데이터
-                  과학자, 데이터 분석가, 비즈니스 인텔리전스(BI) 개발자 등이 데이터를 활용할 수 있도록 기반을 마련하는
-                  역할을 한다.
+                  데이터 엔지니어링이란, 조직의 데이터가 단순히 저장되는 수준을 넘어{" "} 
+                  <strong style={{ color: "skyblue" }}>
+                     분석과 머신러닝 같은 실제 비즈니스 활용이 가능하도록 준비하는 과정
+                  </strong>
+                  이라고 정의할 수 있습니다. 실제 현업 상황을 가정해보면, 기업은 수많은 원시 데이터를 수집하지만, 이
+                  데이터가 정제되지 않으면 분석가나 데이터 과학자가 제대로 활용할 수 없습니다. 그래서{" "} 
+                  <strong style={{ color: "skyblue" }}>
+                    데이터 엔지니어는 데이터가 생성되는 시점부터 수집, 변환, 저장, 그리고 최종적으로 서빙
+                  </strong>
+                  까지 이어지는{" "} 
+                  <strong style={{ color: "skyblue" }}>엔드 투 엔드 데이터 파이프라인</strong>을 책임집니다.
                 </p>
 
                 <p>
-                  즉, 데이터 엔지니어는 조직의 데이터 인프라를 구축하고 운영하여, 분석 및 머신러닝 같은 고도화된 활용이
-                  가능하도록 데이터를 준비한다.
+                  또한 데이터 엔지니어링은 단순한 ETL 작업이 아니라{" "} 
+                  <strong style={{ color: "skyblue" }}>
+                    보안, 거버넌스, 데이터옵스, 아키텍처 설계, 오케스트레이션, 소프트웨어 엔지니어링
+                  </strong>
+                  까지 포괄합니다. 즉, 데이터 엔지니어는 조직의 데이터 인프라를 안정적으로 운영하면서도, 분석가와
+                  과학자가 바로 활용 가능한{" "} 
+                  <strong style={{ color: "skyblue" }}>고품질 데이터 환경</strong>을 제공하는 역할을 합니다.
                 </p>
 
                 <p>
-                  데이터 엔지니어링은 원시 데이터(raw data)를 고품질의 일관된 정보로 가공·관리하여, 분석·AI/ML·BI 등
-                  다양한 활용 사례를 지원하는 시스템과 프로세스를 개발·구현·유지 관리하는 일련의 과정이다.
+                  추가적으로 말씀드리자면, 데이터 엔지니어링은 오늘날 클라우드 환경, 대규모 분산 시스템, 스트리밍 처리
+                  등과 맞물려 점점 더 고도화되고 있습니다. 따라서 단순한 데이터 준비를 넘어서{" "} 
+                  <strong style={{ color: "skyblue" }}>확장성과 신뢰성을 갖춘 데이터 플랫폼 구축</strong>이 데이터
+                  엔지니어링의 핵심이라고 생각합니다.
                 </p>
-
-                <div className="mt-4">
-                  <p className="mb-3 font-medium">이 분야는 다음과 같은 영역과 긴밀히 연결된다</p>
-                  <ul className="space-y-2 ml-4">
-                    <li className="flex items-start gap-2">
-                      <span className="text-primary mt-1">•</span>
-                      <span>
-                        <strong>보안(Security)</strong> – 데이터 접근 통제, 개인정보 보호
-                      </span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="text-primary mt-1">•</span>
-                      <span>
-                        <strong>데이터 관리(Data Management)</strong> – 품질 관리, 메타데이터, 거버넌스
-                      </span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="text-primary mt-1">•</span>
-                      <span>
-                        <strong>데이터 운영(DataOps)</strong> – 배포 자동화, 모니터링, 운영 안정성
-                      </span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="text-primary mt-1">•</span>
-                      <span>
-                        <strong>데이터 아키텍처(Data Architecture)</strong> – 데이터 모델링, 시스템 설계
-                      </span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="text-primary mt-1">•</span>
-                      <span>
-                        <strong>오케스트레이션(Orchestration)</strong> – 파이프라인 스케줄링, 워크플로우 관리
-                      </span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="text-primary mt-1">•</span>
-                      <span>
-                        <strong>소프트웨어 엔지니어링</strong> – 효율적이고 확장 가능한 코드 및 시스템 구현
-                      </span>
-                    </li>
-                  </ul>
-                </div>
 
                 <p>
                   <br />

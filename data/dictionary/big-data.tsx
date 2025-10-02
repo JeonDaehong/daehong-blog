@@ -222,7 +222,7 @@ LSM Tree의 핵심 아이디어는 쓰기 시 랜덤 I/O를 피하고 순차 I/O
 
 3. **삭제(Delete) 과정**: Tombstone 마커 기록 → 컴팩션 과정에서 실제 삭제 처리가 이루어집니다.
 
-4. **컴팩션(Compaction) 과정**: 여러 SSTable을 병합하여 중복 제거, 공간 회수, tombstone 반영, 새로운 최적화된 SSTable을 생성합니다.
+4. **컴팩션(Compaction) 과정**: 여러 SSTable을 병합하여 중복 제거, 공간 회수, tombstone 반영, 새로��� 최적화된 SSTable을 생성합니다.
 
 **기존 데이터 업데이트 처리**
 LSM Tree에서는 기존 데이터의 업데이트를 직접 수정하지 않고 다음과 같은 방식으로 처리합니다:
