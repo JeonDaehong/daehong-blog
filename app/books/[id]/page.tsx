@@ -201,7 +201,7 @@ export default function BookReviewPage({ params }: { params: { id: string } }) {
             <div className="mb-8 p-4 bg-muted/50 rounded-lg border">
               <h3 className="text-xl font-semibold text-foreground mb-4">1장: 데이터 엔지니어링 기반 구축하기</h3>
 
-              <h4 className="text-lg font-medium text-foreground mb-3">데이터 엔지니어링이란</h4>
+              <h4 className="text-lg font-medium text-foreground mb-3">💬 데이터 엔지니어링이란</h4>
 
               <div className="text-muted-foreground leading-relaxed space-y-4">
                 <p>
@@ -239,6 +239,71 @@ export default function BookReviewPage({ params }: { params: { id: string } }) {
                   <br />
                 </p>
 
+                <h4 className="text-lg font-medium text-foreground mb-3">💬 데이터 엔지니어의 진화 과정</h4>
+
+                <p>
+                  데이터 엔지니어의 진화는 크게{" "}
+                  <strong style={{ color: "skyblue" }}>
+                    데이터 웨어하우스 시대 → 빅데이터 시대 → 현대 데이터 엔지니어링
+                  </strong>
+                  으로 구분할 수 있습니다. 각 시기는 데이터 기술 패러다임의 변화를 반영하며,
+                  데이터 엔지니어의 역할 역시 점점 더 고도화되어 왔습니다.
+                </p>
+
+                <p>
+                  먼저 1980년대부터 2000년대 초반까지는{" "}
+                  <strong style={{ color: "skyblue" }}>데이터 웨어하우스 시대</strong>로,
+                  오라클(Oracle), 인포매티카(Informatica), 테라데이터(Teradata),
+                  MPP 데이터베이스 같은 전통적인 DW 기술이 중심이었습니다.
+                  이 시기에는 주로{" "}
+                  <strong style={{ color: "skyblue" }}>
+                    BI 개발자와 ETL 전문가
+                  </strong>
+                  가 활동했으며, 정형 데이터를 대상으로{" "}
+                  <strong style={{ color: "skyblue" }}>정기적 배치 처리</strong>를 통해 리포트를 생성하는 것이 핵심이었습니다.
+                </p>
+
+                <p>
+                  이후 2000년대 중반부터 데이터의 폭증과 함께 구글의{" "}
+                  <strong style={{ color: "skyblue" }}>GFS 및 맵리듀스(MapReduce) 논문</strong>이 발표되고,
+                  이를 기반으로 한{" "}
+                  <strong style={{ color: "skyblue" }}>아파치 하둡(Apache Hadoop)</strong>이 오픈소스로 등장하면서
+                  <strong style={{ color: "skyblue" }}>빅데이터 엔지니어링 시대</strong>가 열렸습니다.
+                  이 시기에는{" "}
+                  <strong style={{ color: "skyblue" }}>HDFS, 하이브(Hive), 스파크(Spark)</strong> 같은
+                  분산 처리 프레임워크가 등장하며, 대규모 데이터 병렬 처리와 확장성이
+                  데이터 엔지니어링의 핵심 주제가 되었습니다.
+                </p>
+
+                <p>
+                  2010년대에 들어서는 배치 중심의 워크플로우를 넘어{" "}
+                  <strong style={{ color: "skyblue" }}>실시간 스트리밍 처리</strong>로 패러다임이 이동했습니다.
+                  이를 통해{" "}
+                  <strong style={{ color: "skyblue" }}>
+                    카프카(Kafka), 스톰(Storm), 플링크(Flink)
+                  </strong>
+                  와 같은 이벤트 기반 기술이 각광받았고,
+                  데이터 엔지니어는 단순한 적재·변환을 넘어서{" "}
+                  <strong style={{ color: "skyblue" }}>
+                    실시간 데이터 파이프라인 구축 및 장애 대응 능력
+                  </strong>
+                  을 요구받게 되었습니다.
+                </p>
+
+                <p>
+                  마지막으로 2020년대의{" "}
+                  <strong style={{ color: "skyblue" }}>현대 데이터 엔지니어링</strong>은
+                  저수준 하둡 클러스터 운영보다{" "}
+                  <strong style={{ color: "skyblue" }}>클라우드 네이티브 아키텍처</strong>와
+                  <strong style={{ color: "skyblue" }}>데이터옵스(DataOps)</strong>,
+                  그리고{" "}
+                  <strong style={{ color: "skyblue" }}>GDPR/CCPA 기반 데이터 거버넌스</strong>를 중심으로 발전하고 있습니다.
+                  즉, 데이터 엔지니어는 이제 인프라 구축보다는{" "}
+                  <strong style={{ color: "skyblue" }}>
+                    데이터 수명주기 전체를 관리하고, 데이터 품질·보안·비즈니스 가치 극대화
+                  </strong>
+                  에 초점을 맞추는 역할로 진화했습니다.
+                </p>
                 
               </div>
             </div>
