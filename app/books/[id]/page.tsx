@@ -304,6 +304,90 @@ export default function BookReviewPage({ params }: { params: { id: string } }) {
                   </strong>
                   에 초점을 맞추는 역할로 진화했습니다.
                 </p>
+
+                <p>
+                  <br />
+                </p>
+
+                <h4 className="text-lg font-medium text-foreground mb-3">💬 데이터 엔지니어링의 기술과 활동</h4>
+
+                <p>
+                  데이터 엔지니어의 핵심 활동은{" "}
+                  <strong style={{ color: "skyblue" }}>
+                    데이터 파이프라인의 설계와 운영을 통해 안정적이고 활용 가능한 데이터를 제공하는 것
+                  </strong>
+                  입니다. 조직이 원시 데이터를 다양한 소스에서 수집했다고 할 때,
+                  데이터 엔지니어는 업스트림으로부터 받은 데이터를{" "}
+                  <strong style={{ color: "skyblue" }}>정제·변환</strong>하여
+                  분석가나 머신러닝 엔지니어 같은 다운스트림 직무가 즉시 활용할 수 있는 형태로 전달해야 합니다.
+                </p>
+
+                <p>
+                  이를 위해 데이터 엔지니어는{" "}
+                  <strong style={{ color: "skyblue" }}>
+                    데이터 수명 주기 관리(수집, 저장, 변환, 서빙)
+                  </strong>
+                  의 전 과정에 관여하며, 동시에{" "}
+                  <strong style={{ color: "skyblue" }}>보안·데이터 거버넌스·확장성</strong>
+                  을 고려해야 합니다.
+                </p>
+
+                <p>
+                  1️⃣ {" "}
+                  <strong style={{ color: "skyblue" }}>데이터 아키텍처 설계</strong>
+                  를 통해 비용 효율적이면서도 확장 가능한 인프라를 구축하고,
+                </p>
+
+                <p>
+                  2️⃣ {" "}
+                  <strong style={{ color: "skyblue" }}>데이터옵스(DataOps)와 오케스트레이션</strong>
+                  을 적용하여 파이프라인의{" "}
+                  <strong style={{ color: "skyblue" }}>자동화·모니터링·배포</strong>
+                  를 수행합니다.
+                </p>
+
+                <p>
+                  3️⃣ 데이터 품질을 확보하기 위해{" "}
+                  <strong style={{ color: "skyblue" }}>
+                    데이터 카탈로그·계보(Lineage) 관리·메타데이터 시스템
+                  </strong>
+                  을 활용하며,
+                </p>
+
+                <p>
+                  4️⃣ {" "}
+                  <strong style={{ color: "skyblue" }}>
+                    내부 BI·ML 지원을 위한 API 및 서빙 계층
+                  </strong>
+                  을 최적화합니다.
+                </p>
+
+                <p>
+                  또한 데이터 엔지니어는{" "}
+                  <strong style={{ color: "skyblue" }}>A형(추상화 중심)</strong>과{" "}
+                  <strong style={{ color: "skyblue" }}>B형(구축 중심)</strong> 역할 모두 수행할 수 있으며,
+                  상황에 따라{" "}
+                  <strong style={{ color: "skyblue" }}>
+                    SaaS 기반 관리형 서비스
+                  </strong>
+                  를 빠르게 도입하거나{" "}
+                  <strong style={{ color: "skyblue" }}>맞춤형 데이터 플랫폼</strong>
+                  을 직접 개발하기도 합니다.
+                </p>
+
+                <p>
+                  더불어, 내부 이해관계자(데이터 분석가·데이터 과학자)와 외부 시스템(소셜 미디어, IoT 등) 모두를 고려해{" "}
+                  <strong style={{ color: "skyblue" }}>데이터 소비자와 생산자를 잇는 허브</strong>
+                  역할을 수행하기도 합니다.
+                </p>
+
+                <p>
+                  결국 데이터 엔지니어의 활동은 단순한 파이프라인 구축을 넘어,{" "}
+                  <strong style={{ color: "skyblue" }}>
+                    조직의 데이터 성숙도를 끌어올리고 데이터 기반 의사결정을 가능하게 만드는 전략적 실행
+                  </strong>
+                  이라 할 수 있습니다.
+                </p>
                 
               </div>
             </div>
