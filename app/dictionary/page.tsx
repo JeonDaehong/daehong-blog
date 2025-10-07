@@ -6,8 +6,9 @@ import { Input } from "@/components/ui/input"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog"
-import { CodeBlock } from "@/components/code-block"
+import { MarkdownRenderer } from "@/components/markdown-renderer"
 import { itTechnologies, categories } from "@/data/dictionary"
+import { CodeBlock } from "@/components/code-block" // Declare the CodeBlock variable
 
 const formatTextWithBoldSubheadings = (text: string) => {
   // Convert **text** to HTML with blue styling
@@ -82,11 +83,9 @@ export default function DictionaryPage() {
             <Book className="w-8 h-8 text-green-600 dark:text-green-400" />
           </div>
           <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4 font-round">
-            대홍의 얇고 넓은 IT 백과사전
+            IT Dictionary
           </h1>
-          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-            현업을 지내면서 얻은 지식들과 개인 공부를 통해 얻은 지식들
-          </p>
+          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">질문과 답변으로 정리하는 IT 지식</p>
         </div>
 
         {/* Search Section */}
@@ -291,10 +290,9 @@ export default function DictionaryPage() {
                                   </p>
                                   {isExpanded && (
                                     <div className="mt-3 pt-3 border-t border-gray-200 dark:border-gray-700">
-                                      <div
-                                        className="text-gray-600 dark:text-gray-400 leading-relaxed text-sm break-words overflow-wrap-anywhere"
-                                        dangerouslySetInnerHTML={{ __html: formatTextWithBoldSubheadings(detail) }}
-                                      />
+                                      <div className="text-gray-600 dark:text-gray-400 leading-relaxed text-sm break-words overflow-wrap-anywhere">
+                                        <MarkdownRenderer content={detail} />
+                                      </div>
                                       {originalItem.codeExample && (
                                         <div className="mt-4">
                                           <h5 className="text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">

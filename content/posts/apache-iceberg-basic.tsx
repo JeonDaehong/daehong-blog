@@ -336,7 +336,7 @@ Apache Iceberg의 파티션 진화를 이해하기 위해서는 내부적으로 
   <img src="/iceberg/iceberg_14.png" alt="Apache Iceberg" style="border: 2px solid skyblue; border-radius: 4px;" width="100%" />
 </div>
 
-Apache Iceberg를 사용하면서 가장 혁신적이라고 느낀 기능 중 하나가 바로 Hidden Partitioning입니다.
+Apache Iceberg를 사용하��서 가장 혁신적이라고 느낀 기능 중 하나가 바로 Hidden Partitioning입니다.
 
 기존 Hive나 다른 데이터 레이크 ���루션에서 겪었던 파티셔닝의 고통스러운 경험들을 완전히 바꿔놓은 이 기능에 대해 실무 경험을 바탕으로 자세히 설명해드리겠습니다.
 

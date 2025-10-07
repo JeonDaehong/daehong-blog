@@ -32,13 +32,6 @@ export default function Home() {
               </Link>
             </Button>
 
-            <Button size="lg" asChild className="w-full sm:w-auto max-w-xs bg-green-600 hover:bg-green-700 text-white">
-              <Link href="/me" className="flex items-center justify-center space-x-2">
-                <span>👨‍💻</span>
-                <span>Portfolio</span>
-              </Link>
-            </Button>
-
             <Button
               size="lg"
               asChild
@@ -46,7 +39,7 @@ export default function Home() {
             >
               <Link href="/dictionary" className="flex items-center justify-center space-x-2">
                 <Book className="h-5 w-5" />
-                <span>Daehong's IT Dictionary</span>
+                <span>IT Dictionary</span>
               </Link>
             </Button>
 
@@ -86,9 +79,9 @@ export default function Home() {
             </Button>
           </div>
 
-          <br/>
-          <br/>
-          <br/>
+          <br />
+          <br />
+          <br />
 
           <div className="mt-16 mb-6 w-full max-w-6xl mx-auto">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start">
