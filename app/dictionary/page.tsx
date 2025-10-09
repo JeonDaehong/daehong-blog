@@ -85,7 +85,7 @@ export default function DictionaryPage() {
           <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4 font-round">
             IT Dictionary
           </h1>
-          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">질문과 답변으로 정리하는 IT 지식</p>
+          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">블로그에 정리하기엔 짧지만, 꼭 알아야하는 IT 지식 모음</p>
         </div>
 
         {/* Search Section */}
