@@ -394,8 +394,277 @@ export default function BookReviewPage({ params }: { params: { id: string } }) {
 
             {/* Chapter 2 */}
             <div className="mb-8 p-4 bg-muted/50 rounded-lg border">
-              <h3 className="text-xl font-semibold text-foreground mb-4">2장</h3>
-              {/* 내용을 여기에 추가하세요 */}
+              <h3 className="text-xl font-semibold text-foreground mb-4">2장: 데이터 엔지니어링 생명 주기</h3>
+                <h4 className="text-lg font-medium text-foreground mb-3">💬 데이터 엔지니어링의 수명 주기: “데이터 생성”</h4>
+
+                <div className="text-muted-foreground leading-relaxed space-y-4">
+                  <p>
+                    데이터 생성은 데이터 엔지니어링 파이프라인의 시작점으로, 원천 시스템에서 최초로 데이터가 만들어지는 과정을 의미합니다. 기업 환경을 가정해보면, 데이터는 IoT 센서에서 실시간 이벤트로 발생하거나, 애플리케이션 로그와 메시지 큐를 통해 스트리밍되기도 하며, 트랜잭션 DB에 정형 데이터로 축적되기도 합니다. 따라서{" "} 
+                    <strong style={{ color: "skyblue" }}>
+                      데이터 엔지니어는 단순히 데이터가 존재하는 사실을 아는 것을 넘어, 데이터가 어떤 속도와 구조로 생성되는지, 품질 이슈 가능성이 있는지 이해
+                    </strong>{" "} 
+                    하는 것이 중요합니다. 이러한 이해는 이후의 수집, 저장, 변환 단계에서 설계 의사결정의 핵심 기준이 됩니다.
+                  </p>
+
+                  <p>
+                    예를 들어, IoT 센서 데이터처럼 초당 수천 건의 이벤트가 발생하는 경우에는{" "} 
+                    <strong style={{ color: "skyblue" }}>
+                      스트리밍 파이프라인과 실시간 처리
+                    </strong>{" "} 
+                    가 필요하지만, ERP 시스템의 트랜잭션 데이터처럼 하루 단위로 집계되는 경우에는{" "} 
+                    <strong style={{ color: "skyblue" }}>
+                      배치 수집만으로 충분
+                    </strong>{" "} 
+                    할 수 있습니다. 따라서 데이터 생성 단계에서 발생원과 특성을 명확히 정의하는 것은{" "} 
+                    <strong style={{ color: "skyblue" }}>
+                      전체 데이터 파이프라인의 안정성과 품질 보장
+                    </strong>{" "} 
+                    에 핵심적인 역할을 합니다.
+                  </p>
+
+                  <p>
+                    <strong style={{ color: "skyblue" }}>👉 키워드:</strong> 원천시스템 / 데이터속성
+                  </p>
+
+
+                  <p>
+                    <br />
+                  </p>
+
+                  <h4 className="text-lg font-medium text-foreground mb-3">💬 데이터 엔지니어링의 수명 주기: “데이터 저장”</h4>
+                  <p>
+                    데이터 저장은 생성된 데이터를 안정적으로 보관하고, 향후 분석과 처리 과정에서 효율적으로 활용할 수 있도록 관리하는 단계입니다. 예를 들어, 금융 서비스 기업에서는 실시간 결제 데이터를 빠르게 조회하기 위해{" "} 
+                    <strong style={{ color: "skyblue" }}>
+                      데이터 웨어하우스
+                    </strong>{" "} 
+                    를 사용하고, 장기 로그 데이터는{" "} 
+                    <strong style={{ color: "skyblue" }}>
+                      객체 스토리지
+                    </strong>{" "} 
+                    에 적재하여 비용 효율성을 확보할 수 있습니다.
+                  </p>
+
+                  <p>
+                    데이터 저장에서 중요한 근거는 선택한 스토리지 시스템이{" "} 
+                    <strong style={{ color: "skyblue" }}>
+                      읽기·쓰기 성능 요구사항을 충족하고, 확장성에 대응하며, 다운스트림 프로세스에서 병목을 발생시키지 않는가
+                    </strong>{" "} 
+                    에 있습니다. 또한 데이터의 온도(Hot, Warm, Cold)를 고려하여 자주 쓰이는 데이터는 고성능 스토리지에, 잘 쓰이지 않는 데이터는 아카이브 스토리지에 배치하는 것이 중요합니다.
+                  </p>
+
+                  <p>
+                    추가적으로{" "} 
+                    <strong style={{ color: "skyblue" }}>
+                      스키마 진화, 메타데이터 관리, 데이터 계보 추적
+                    </strong>{" "} 
+                    은 단순 저장을 넘어 데이터 거버넌스와 규제 준수를 가능하게 하며, 이는 장기적으로 데이터 플랫폼의{" "} 
+                    <strong style={{ color: "skyblue" }}>
+                      신뢰성과 활용성
+                    </strong>{" "} 
+                    을 결정짓는 요소가 됩니다. 따라서 데이터 저장 단계는 단순한 보관이 아니라,{" "} 
+                    <strong style={{ color: "skyblue" }}>
+                      아키텍처 전체의 성능과 거버넌스 수준을 좌우하는 전략적 선택
+                    </strong>{" "} 
+                    이라고 할 수 있습니다.
+                  </p>
+
+                  <p>
+                    <strong style={{ color: "skyblue" }}>👉 키워드:</strong> 스토리지 / 성능 / 확장성 / Hot,Cold Data
+                  </p>
+
+
+
+                  <p>
+                    <br />
+                  </p>
+
+                  <h4 className="text-lg font-medium text-foreground mb-3">💬 데이터 엔지니어링의 수명 주기: “데이터 수집”</h4>
+                  <p>
+                    데이터 수집은 원천 시스템에서 발생한 데이터를 안정적이고 효율적으로 취합하여 다운스트림 시스템에서 활용할 수 있도록 전달하는 단계입니다. 예를 들어, 실시간 금융 거래 모니터링 시스템에서는{" "} 
+                    <strong style={{ color: "skyblue" }}>
+                      스트리밍 수집
+                    </strong>{" "} 
+                    을 통해 밀리초 단위로 이벤트를 처리하고, 반대로 리포트용 고객 데이터 분석에서는{" "} 
+                    <strong style={{ color: "skyblue" }}>
+                      하루 단위 배치 수집
+                    </strong>{" "} 
+                    을 활용할 수 있습니다.
+                  </p>
+
+                  <p>
+                    데이터 수집의 핵심 근거는{" "} 
+                    <strong style={{ color: "skyblue" }}>
+                      수집 방식(배치 vs 스트리밍), 수집 모델(푸시 vs 풀), 그리고 CDC
+                    </strong>{" "} 
+                    와 같은 기법을 어떤 아키텍처에 적용하느냐에 따라{" "} 
+                    <strong style={{ color: "skyblue" }}>
+                      데이터 신뢰성, 지연 시간, 운영 안정성
+                    </strong>{" "} 
+                    이 달라진다는 점입니다. 또한 수집된 데이터가 다운스트림 시스템의 처리 속도와 포맷 요구사항을 충족해야 하며,{" "} 
+                    <strong style={{ color: "skyblue" }}>
+                      장애 상황에서도 안정적으로 전달될 수 있는 내결함성
+                    </strong>{" "} 
+                    을 갖추는 것이 중요합니다.
+                  </p>
+
+                  <p>
+                    현대 데이터 엔지니어링에서는{" "} 
+                    <strong style={{ color: "skyblue" }}>
+                      카프카(Kafka), 플링크(Flink), 스파크 스트리밍
+                    </strong>{" "} 
+                    과 같은 분산 스트리밍 플랫폼이 핵심 도구로 자리 잡고 있으며,{" "} 
+                    <strong style={{ color: "skyblue" }}>
+                      관리형 서비스(Pub/Sub, Kinesis)
+                    </strong>{" "} 
+                    를 통해 운영 복잡도를 줄이는 전략도 활용됩니다. 따라서 데이터 수집은 단순 데이터 이동이 아니라,{" "} 
+                    <strong style={{ color: "skyblue" }}>
+                      전체 데이터 파이프라인의 신뢰성과 실시간성을 결정짓는 핵심 단계
+                    </strong>{" "} 
+                    라고 할 수 있습니다.
+                  </p>
+
+                  <p>
+                    <strong style={{ color: "skyblue" }}>👉 핵심 키워드:</strong> 배치 / 스트리밍 / 푸시 / 풀 / CDC / 카프카
+                  </p>
+
+                  <p>
+                    <br />
+                  </p>
+
+                  <h4 className="text-lg font-medium text-foreground mb-3">💬 데이터 엔지니어링의 수명 주기: “데이터 변환”</h4>
+                  <p>
+                    데이터 변환은 원천 데이터를 분석, 머신러닝, 비즈니스 활용에 적합한 형태로 가공하고 정제하는 과정입니다. 예를 들어, 이커머스 기업에서 고객 로그 데이터를 수집했을 때, 이를 단순한 JSON 원시 로그로는 분석하기 어렵기 때문에{" "} 
+                    <strong style={{ color: "skyblue" }}>
+                      정규화된 테이블 구조
+                    </strong>{" "} 
+                    로 변환하고, 불필요한 컬럼을 제거하거나{" "} 
+                    <strong style={{ color: "skyblue" }}>
+                      파생 컬럼 생성
+                    </strong>{" "} 
+                    과 같은 과정을 거칠 수 있습니다.
+                  </p>
+
+                  <p>
+                    데이터 변환의 핵심 근거는{" "} 
+                    <strong style={{ color: "skyblue" }}>
+                      비즈니스 규칙과 분석 목적에 맞춰 데이터를 일관성 있게 가공
+                    </strong>{" "} 
+                    함으로써, 다운스트림 단계에서 즉시 활용 가능하도록 만드는 것입니다. 또한 변환 로직은{" "} 
+                    <strong style={{ color: "skyblue" }}>
+                      단순하고 모듈화
+                    </strong>{" "} 
+                    되어야 유지보수성이 높으며, 불필요한 연산을 줄여{" "} 
+                    <strong style={{ color: "skyblue" }}>
+                      성능과 비용 효율성
+                    </strong>{" "} 
+                    을 확보할 수 있습니다.
+                  </p>
+
+                  <p>
+                    추가적으로, 데이터 변환은 배치 기반 ETL뿐만 아니라{" "} 
+                    <strong style={{ color: "skyblue" }}>
+                      실시간 스트리밍 파이프라인
+                    </strong>{" "} 
+                    에서도 적용되며,{" "} 
+                    <strong style={{ color: "skyblue" }}>
+                      Spark, Flink, dbt
+                    </strong>{" "} 
+                    같은 도구를 통해 자동화되고 관리됩니다. 나아가{" "} 
+                    <strong style={{ color: "skyblue" }}>
+                      스키마 진화와 데이터 품질 검증
+                    </strong>{" "} 
+                    을 통합하면 변환 단계는 단순한 가공을 넘어{" "} 
+                    <strong style={{ color: "skyblue" }}>
+                      데이터 신뢰성 보장
+                    </strong>{" "} 
+                    의 핵심 역할을 합니다.
+                  </p>
+
+                  <p>
+                    <strong style={{ color: "skyblue" }}>👉 키워드:</strong> ETL / Spark / Flink / dbt
+                  </p>
+
+                  <p>
+                    <br />
+                  </p>
+
+                  <h4 className="text-lg font-medium text-foreground mb-3">💬 데이터 엔지니어링의 수명 주기: “데이터 서빙”</h4>
+                  <p>
+                    데이터 서빙은 데이터 엔지니어링 수명 주기의 마지막 단계로, 수집되고 저장된 데이터를 일관성 있고 유용한 구조로 변환한 뒤 실제 비즈니스 현장에서 활용할 수 있도록 제공하는 과정입니다. 이 단계의 핵심은 단순히 데이터를 보관하는 데 그치지 않고,{" "} 
+                    <strong style={{ color: "skyblue" }}>
+                      다양한 소비자가 데이터를 실제로 사용하여 가치로 전환하도록 만드는 것
+                    </strong>{" "} 
+                    에 있습니다.
+                  </p>
+
+                  <p>
+                    기업은 이 단계에서 여러 형태의 서빙 방식을 사용합니다. 첫째,{" "} 
+                    <strong style={{ color: "skyblue" }}>
+                      비즈니스 인텔리전스(BI)
+                    </strong>{" "} 
+                    를 통해 경영진과 분석가가 기업의 과거와 현재 상황을 이해하고 전략을 수립할 수 있습니다. BI는 원시 데이터를 비즈니스 로직으로 가공하고, 리포트나 대시보드로 시각화하여 조직 전반에 배포합니다.
+                  </p>
+
+                  <p>
+                    둘째,{" "} 
+                    <strong style={{ color: "skyblue" }}>
+                      운영 분석
+                    </strong>{" "} 
+                    은 재고나 웹 서비스 상태 같은 실시간 데이터를 모니터링하며, 사용자가 즉시 실행할 수 있는 행동을 촉진합니다.
+                  </p>
+
+                  <p>
+                    셋째,{" "} 
+                    <strong style={{ color: "skyblue" }}>
+                      임베디드 분석
+                    </strong>{" "} 
+                    은 고객에게 직접 데이터를 제공하는 방식으로, 대규모 사용자에게 각자의 데이터만 안전하게 보여주는 것이 핵심입니다. 이 과정에서는{" "} 
+                    <strong style={{ color: "skyblue" }}>
+                      보안과 접근 제어
+                    </strong>{" "} 
+                    가 매우 중요합니다.
+                  </p>
+
+                  <p>
+                    넷째,{" "} 
+                    <strong style={{ color: "skyblue" }}>
+                      머신러닝 서빙
+                    </strong>{" "} 
+                    에서는 데이터 과학자와 ML 엔지니어가 모델 학습과 예측에 활용할 수 있도록 품질 높은 데이터를 제공하는 것이 중요하며,{" "} 
+                    <strong style={{ color: "skyblue" }}>
+                      데이터셋이 실제 상황을 공정하게 반영하는지
+                    </strong>{" "} 
+                    와{" "} 
+                    <strong style={{ color: "skyblue" }}>
+                      편향 여부
+                    </strong>{" "} 
+                    가 검토 포인트가 됩니다.
+                  </p>
+
+                  <p>
+                    특히 최근 데이터 서빙에서 점점 더 중요해지고 있는 개념은{" "} 
+                    <strong style={{ color: "skyblue" }}>
+                      역ETL
+                    </strong>{" "} 
+                    입니다. 역ETL은 데이터 웨어하우스나 데이터 레이크에서 처리된 분석 결과를 원천 시스템이나 SaaS 플랫폼으로 다시 공급하는 과정을 의미합니다. 예를 들어, 기업이 웨어하우스에서 고객 세분화 모델을 만든 뒤 CRM이나 CDP로 전달하여 영업팀이 마케팅 캠페인에 활용하거나, 광고 플랫폼에 맞춤형 데이터를 푸시하여 직접 광고 집행에 반영하는 경우가 있습니다. 역ETL은 단순 전송이 아니라{" "} 
+                    <strong style={{ color: "skyblue" }}>
+                      분석된 데이터를 비즈니스 프로세스 속으로 통합
+                    </strong>{" "} 
+                    하는 핵심 작업이며, SaaS 중심 현대 기업 환경에서 필수적인 요소입니다.
+                  </p>
+
+                  <p>
+                    <strong style={{ color: "skyblue" }}>👉 키워드:</strong> BI / 운영분석 / 임베디드분석 / ML서빙 / 역ETL / 데이터가치
+                  </p>
+
+                  <p>
+                    <br />
+                  </p>
+
+                  <h4 className="text-lg font-medium text-foreground mb-3">💬 데이터 엔지니어링 수명 주기의 드러나지 않는 주요 요소</h4>
+
+
+                </div>
             </div>
 
             {/* Chapter 3 */}
