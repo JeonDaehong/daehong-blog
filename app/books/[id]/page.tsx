@@ -844,7 +844,61 @@ export default function BookReviewPage({ params }: { params: { id: string } }) {
             {/* Chapter 3 */}
             <div className="mb-4 p-4 bg-muted/50 rounded-lg border">
               <h3 className="text-xl font-semibold text-foreground mb-4">3장</h3>
-              {/* 내용을 여기에 추가하세요 */}
+                  <h4 className="text-lg font-medium text-foreground mb-3">💬 데이터 아키텍처 설계의 중요한 3요소</h4>
+                
+                <div className="text-muted-foreground leading-relaxed space-y-4">
+                  <p>
+                    데이터 아키텍처 설계에서 가장 중요한 세 가지 핵심 요소는{" "}
+                    <strong style={{ color: "skyblue" }}>Scalability</strong>,{" "}
+                    <strong style={{ color: "skyblue" }}>Availability</strong>,{" "}
+                    그리고{" "}
+                    <strong style={{ color: "skyblue" }}>Reliability</strong>{" "}
+                    입니다.
+                  </p>
+
+                  <p>
+                    <strong style={{ color: "skyblue" }}>Scalability</strong> 는 데이터 양이나 사용자 수가
+                    증가하더라도{" "}
+                    <strong>시스템 성능이 저하되지 않고 유연하게 확장될 수 있는 능력</strong>을 의미합니다. 
+                    특히 클라우드 환경에서는{" "}
+                    <strong>자동 스케일링(Auto Scaling)</strong> 기능을 활용해 컴퓨팅 자원과 스토리지를
+                    동적으로 조정함으로써, 비용 효율적이면서도 확장성 있는 인프라를 구현할 수 있습니다.
+                  </p>
+
+                  <p>
+                    <strong style={{ color: "skyblue" }}>Availability</strong> 는 시스템이{" "}
+                    <strong>언제나 안정적으로 서비스를 제공할 수 있는 능력</strong>을 의미하며,
+                    장애가 발생하더라도 서비스 중단을 최소화해야 합니다. 이를 위해{" "}
+                    <strong>멀티존 배포</strong>,{" "}
+                    <strong>리던던시 구조</strong>,{" "}
+                    <strong>클러스터링</strong> 등을 활용해 고가용성을 확보합니다.
+                  </p>
+
+                  <p>
+                    <strong style={{ color: "skyblue" }}>Reliability</strong> 는 데이터 처리와 저장 과정에서{" "}
+                    <strong>오류 없이 일관되고 신뢰성 있게 동작하는 능력</strong>을 말합니다. 
+                    이를 위해{" "}
+                    <strong>백업 및 데이터 복제</strong>,{" "}
+                    <strong>장애 복구(Disaster Recovery)</strong> 전략 등을 통해 데이터 손실이나 손상을
+                    최소화해야 합니다.
+                  </p>
+
+                  <p>
+                    따라서 데이터 아키텍처 설계는{" "}
+                    <strong style={{ color: "skyblue" }}>
+                      클라우드 기반의 확장성, 가용성, 신뢰성을 균형 있게 확보하는 것
+                    </strong>{" "}
+                    에 초점을 두어야 하며, 이를 통해 안정적인 데이터 플랫폼 운영과 지속 가능한 확장을 가능하게 합니다.
+                  </p>
+
+                  <p>
+                    <strong style={{ color: "skyblue" }}>👉 키워드:</strong>{" "}
+                    Scalability / Availability / Reliability
+                  </p>
+                  <p>
+                    <br />
+                  </p>
+                </div>
             </div>
           </section>
 
