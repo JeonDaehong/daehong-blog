@@ -555,7 +555,7 @@ export default function BookReviewPage({ params }: { params: { id: string } }) {
                     </strong>{" "} 
                     되어야 유지보수성이 높으며, 불필요한 연산을 줄여{" "} 
                     <strong style={{ color: "skyblue" }}>
-                      성능과 비용 효율성
+                      성능과 비용 효율��
                     </strong>{" "} 
                     을 확보할 수 있습니다.
                   </p>
@@ -892,7 +892,7 @@ export default function BookReviewPage({ params }: { params: { id: string } }) {
                   </p>
 
                   <p>
-                    <strong style={{ color: "skyblue" }}>👉 키워드:</strong>{" "}
+                    <strong style={{ color: "pink" }}>👉 키워드:</strong>{" "}
                     Scalability / Availability / Reliability
                   </p>
                   <p>
