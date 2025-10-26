@@ -423,7 +423,7 @@ export default function BookReviewPage({ params }: { params: { id: string } }) {
                   </p>
 
                   <p>
-                    <strong style={{ color: "skyblue" }}>👉 키워드:</strong> 원천시스템 / 데이터속성
+                    <strong style={{ color: "pink" }}>👉 키워드 → 원천시스템 / 데이터속성 </strong>
                   </p>
 
 
@@ -469,7 +469,7 @@ export default function BookReviewPage({ params }: { params: { id: string } }) {
                   </p>
 
                   <p>
-                    <strong style={{ color: "skyblue" }}>👉 키워드:</strong> 스토리지 / 성능 / 확장성 / Hot,Cold Data
+                    <strong style={{ color: "pink" }}>👉 키워드 → 스토리지 / 성능 / 확장성 / Hot,Cold Data </strong>
                   </p>
 
 
@@ -524,7 +524,7 @@ export default function BookReviewPage({ params }: { params: { id: string } }) {
                   </p>
 
                   <p>
-                    <strong style={{ color: "skyblue" }}>👉 핵심 키워드:</strong> 배치 / 스트리밍 / 푸시 / 풀 / CDC / 카프카
+                    <strong style={{ color: "pink" }}>👉 키워드 → 배치 / 스트리밍 / 푸시 / 풀 / CDC / 카프카 </strong> 
                   </p>
 
                   <p>
@@ -581,7 +581,7 @@ export default function BookReviewPage({ params }: { params: { id: string } }) {
                   </p>
 
                   <p>
-                    <strong style={{ color: "skyblue" }}>👉 키워드:</strong> ETL / Spark / Flink / dbt
+                    <strong style={{ color: "pink" }}>👉 키워드 → ETL / Spark / Flink / dbt </strong>
                   </p>
 
                   <p>
@@ -654,7 +654,7 @@ export default function BookReviewPage({ params }: { params: { id: string } }) {
                   </p>
 
                   <p>
-                    <strong style={{ color: "skyblue" }}>👉 키워드:</strong> BI / 운영분석 / 임베디드분석 / ML서빙 / 역ETL / 데이터가치
+                    <strong style={{ color: "pink" }}>👉 키워드 → BI / 운영분석 / 임베디드분석 / ML서빙 / 역ETL / 데이터가치</strong>
                   </p>
 
                   <p>
@@ -892,8 +892,8 @@ export default function BookReviewPage({ params }: { params: { id: string } }) {
                   </p>
 
                   <p>
-                    <strong style={{ color: "pink" }}>👉 키워드:</strong>{" "}
-                    Scalability / Availability / Reliability
+                    <strong style={{ color: "pink" }}>👉 키워드 →{" "}
+                    Scalability / Availability / Reliability</strong>
                   </p>
                   <p>
                     <br />
