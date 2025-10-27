@@ -898,6 +898,58 @@ export default function BookReviewPage({ params }: { params: { id: string } }) {
                   <p>
                     <br />
                   </p>
+
+                  <h4 className="text-lg font-medium text-foreground mb-3">💬 엔터프라이즈 아키텍처(EA) 란.</h4>
+                  <p>
+                    엔터프라이즈 아키텍처(EA)란, 기업의 변화를 지원하고 비즈니스 목표를 달성하기 위해{" "}
+                    <strong style={{ color: "skyblue" }}>전략, 운용, 기술을 조정하는 시스템 설계</strong>를 말합니다. 
+                    EA는 비즈니스, 기술, 애플리케이션, 데이터를 포함한 여러 하위 영역을 포괄하며, 
+                    기업 내 다양한 시스템과 기능 그룹 간 상호작용을 구조화합니다.
+                  </p>
+
+                  <p>
+                    대표적인 정의로는 <strong style={{ color: "skyblue" }}>TOGAF(The Open Group Architecture Framework)</strong>가 있으며, 
+                    이는 기업 내 주요 데이터 유형과 원천, 논리적·물리적 데이터 자산, 데이터 관리 자원의 구조와 상호작용을 설명합니다. 
+                    가트너는 EA를 기업이 파괴적 변화에 능동적이고 전체적으로 대응하도록 돕는 분야로 정의하며, 
+                    EA는 비즈니스 리더와 IT 리더가 정책과 프로젝트를 조정해 목표한 사업 결과를 달성하도록 권장 사항을 제시함으로써 가치를 제공합니다. 
+                    그 외 정의로는 <strong style={{ color: "skyblue" }}>EABOK(Enterprise Architecture Book of Knowledge)</strong>가 있는데, 
+                    EABOK에서는 EA를 전략, 운용, 기술을 조정하여 성공 로드맵을 만드는 추상적 조직 모델로 설명합니다.
+                  </p>
+
+                  <p>
+                    EA의 핵심 요소 중 하나는 <strong style={{ color: "skyblue" }}>가역적 의사결정(Reversible Decision-Making)</strong>입니다. 
+                    기업 환경은 끊임없이 변화하며, 미래를 완전히 예측할 수 없기 때문에 되돌릴 수 있는 결정(<strong>Two-way Door</strong>)을 통해 
+                    새로운 정보나 변화에 맞춰 프로세스를 조정할 수 있어야 합니다. 반면 단방향 결정(<strong>One-way Door</strong>)은 되돌릴 수 없는 결정으로 인식해야 합니다. 
+                    이러한 가역성을 고려하면, 조직이 성장하면서 자연스럽게 발생하는 <strong>경직화(Ossification)</strong>를 완화하고 
+                    의사결정에 수반되는 위험을 줄일 수 있습니다.
+                  </p>
+
+                  <p>
+                    또한 EA에서는 <strong style={{ color: "skyblue" }}>변경 관리(Change Management)</strong>가 필수적입니다. 
+                    아키텍트는 현재 상태의 문제(낮은 데이터 품질, 확장성 제한, 비용 손실)를 분석하고, 
+                    바람직한 미래 상태(민첩한 데이터 품질 개선, 확장성 있는 클라우드 데이터 솔루션, 비즈니스 프로세스 개선)를 정의한 뒤, 
+                    소규모 구체적인 단계로 실행함으로써 반복 가능한 개선을 수행합니다. 
+                    이 과정에서 기술 솔루션은 그 자체를 위한 것이 아니라 <strong>비즈니스 목표를 지원하기 위한 수단</strong>으로 설계됩니다.
+                  </p>
+
+                  <p>
+                    마지막으로 EA에서 중요한 것은 <strong style={{ color: "skyblue" }}>트레이드오프 평가(Trade-off Evaluation)</strong>입니다. 
+                    데이터 엔지니어와 아키텍트는 시스템 설계 단계에서 다양한 선택의 장단점과 비용을 신중하게 평가하고, 
+                    값비싼 기술 부채를 최소화하면서 <strong>유연하고 유지 관리 가능한 최적의 아키텍처</strong>를 구현해야 합니다.
+                  </p>
+
+                  <p>
+                    요약하면, 엔터프라이즈 아키텍처는 <strong style={{ color: "skyblue" }}>
+                    기업 변화 지원, 가역적 의사결정, 변경 관리, 트레이드오프 평가
+                    </strong>를 통해 <strong>비즈니스 목표 달성, 시스템 유연성, 유지보수 용이성</strong>을 동시에 달성하는 
+                    <strong>기업 시스템 설계</strong>입니다.
+                  </p>
+
+                  <p>
+                    <strong style={{ color: "pink" }}>👉 키워드 → Reversible Decision-Making / Change Management / Trade-off Evaluation</strong>
+                  </p>
+                  <p><br /></p>
+
                 </div>
             </div>
           </section>
