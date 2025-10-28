@@ -3,8 +3,8 @@ import Link from "next/link"
 import { ArrowLeft, Star, Calendar, User, Building } from "lucide-react"
 
 export const metadata: Metadata = {
-  title: "엔터프라이즈 데이터 플랫폼 구축 - 도서 리뷰",
-  description: "얀 쿠닉크의 엔터프라이즈 데이터 플랫폼 구축 도서 리뷰",
+  title: "시작하세요! 도커/쿠버네티스 - 도서 리뷰",
+  description: "용찬호의 시작하세요! 도커/쿠버네티스 도서 리뷰",
 }
 
 export default function BookReviewPage() {
@@ -27,8 +27,8 @@ export default function BookReviewPage() {
           <div className="md:col-span-1">
             <div className="relative aspect-[2/3] max-w-sm mx-auto">
               <img
-                src="/images/design-mode/image%281%29.png"
-                alt="엔터프라이즈 데이터 플랫폼 구축 책 표지"
+                src="/images/books/docker-kubernetes.png"
+                alt="시작하세요! 도커/쿠버네티스 책 표지"
                 className="w-full h-full object-contain rounded-lg shadow-lg"
               />
             </div>
@@ -37,19 +37,19 @@ export default function BookReviewPage() {
           {/* Book Details */}
           <div className="md:col-span-2 space-y-6">
             <div>
-              <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-4">엔터프라이즈 데이터 플랫폼 구축</h1>
+              <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-4">시작하세요! 도커/쿠버네티스</h1>
               <div className="flex flex-wrap gap-4 text-muted-foreground mb-6">
                 <div className="flex items-center gap-2">
                   <User className="w-4 h-4" />
-                  <span>얀 쿠닉크</span>
+                  <span>용찬호</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <Building className="w-4 h-4" />
-                  <span>한빛미디어</span>
+                  <span>위키북스</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <Calendar className="w-4 h-4" />
-                  <span>2021년</span>
+                  <span>2020년</span>
                 </div>
               </div>
             </div>
@@ -66,10 +66,10 @@ export default function BookReviewPage() {
 
             {/* Tags */}
             <div className="flex flex-wrap gap-2">
-              <span className="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">데이터 플랫폼</span>
-              <span className="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">아키텍처</span>
-              <span className="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">엔터프라이즈</span>
-              <span className="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">모던 데이터</span>
+              <span className="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">도커</span>
+              <span className="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">쿠버네티스</span>
+              <span className="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">컨테이너</span>
+              <span className="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">오케스트레이션</span>
             </div>
           </div>
         </div>

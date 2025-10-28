@@ -3,8 +3,8 @@ import Link from "next/link"
 import { ArrowLeft, Star, Calendar, User, Building } from "lucide-react"
 
 export const metadata: Metadata = {
-  title: "데이터 중심 애플리케이션 설계 - 도서 리뷰",
-  description: "마틴 클레프만의 데이터 중심 애플리케이션 설계 도서 리뷰",
+  title: "데이터베이스 인터널스 - 도서 리뷰",
+  description: "알렉스 페트로프의 데이터베이스 인터널스 도서 리뷰",
 }
 
 export default function BookReviewPage() {
@@ -27,8 +27,8 @@ export default function BookReviewPage() {
           <div className="md:col-span-1">
             <div className="relative aspect-[2/3] max-w-sm mx-auto">
               <img
-                src="/images/design-mode/image%281%29.png"
-                alt="데이터 중심 애플리케이션 설계 책 표지"
+                src="/images/books/database-internals.png"
+                alt="데이터베이스 인터널스 책 표지"
                 className="w-full h-full object-contain rounded-lg shadow-lg"
               />
             </div>
@@ -37,11 +37,11 @@ export default function BookReviewPage() {
           {/* Book Details */}
           <div className="md:col-span-2 space-y-6">
             <div>
-              <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-4">데이터 중심 애플리케이션 설계</h1>
+              <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-4">데이터베이스 인터널스</h1>
               <div className="flex flex-wrap gap-4 text-muted-foreground mb-6">
                 <div className="flex items-center gap-2">
                   <User className="w-4 h-4" />
-                  <span>마틴 클레프만</span>
+                  <span>알렉스 페트로프</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <Building className="w-4 h-4" />
@@ -49,7 +49,7 @@ export default function BookReviewPage() {
                 </div>
                 <div className="flex items-center gap-2">
                   <Calendar className="w-4 h-4" />
-                  <span>2018년</span>
+                  <span>2020년</span>
                 </div>
               </div>
             </div>
@@ -68,8 +68,8 @@ export default function BookReviewPage() {
             <div className="flex flex-wrap gap-2">
               <span className="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">데이터베이스</span>
               <span className="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">분산시스템</span>
-              <span className="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">아키텍처</span>
-              <span className="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">확장성</span>
+              <span className="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">스토리지</span>
+              <span className="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">내부구조</span>
             </div>
           </div>
         </div>

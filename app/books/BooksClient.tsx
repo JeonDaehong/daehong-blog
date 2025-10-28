@@ -1,10 +1,6 @@
 "use client"
 
-import type React from "react"
-
 import Link from "next/link"
-import { useState } from "react"
-import { X } from "lucide-react"
 
 interface Book {
   id: number
@@ -26,34 +22,23 @@ const books: Book[] = [
   },
   {
     id: 2,
-    title: "데이터 중심 애플리케이션 설계",
-    author: "마틴 클레프만",
+    title: "데이터베이스 인터널스",
+    author: "알렉스 페트로프",
     publisher: "한빛미디어",
-    coverImage: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-PZ8kd6V0nRv36O7vf78QbiJB6SL4Sk.png",
-    description: "신뢰할 수 있고 확장 가능하며 유지보수하기 쉬운 시스템을 지탱하는 핵심 아이디어",
+    coverImage: "/images/books/database-internals.png",
+    description: "분산 데이터베이스 시스템 실무 분석",
   },
   {
     id: 3,
-    title: "엔터프라이즈 데이터 플랫폼 구축",
-    author: "얀 쿠닉크",
-    publisher: "한빛미디어",
-    coverImage: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-vc5VXo1WTH77lbQ5B3bskvsldbEmFh.png",
-    description: "데이터 엔지니어, 시스템 관리자를 위한 온프레미스 하이브리드 클라우드 구축의 모든 것",
+    title: "시작하세요! 도커/쿠버네티스",
+    author: "용찬호",
+    publisher: "위키북스",
+    coverImage: "/images/books/docker-kubernetes.png",
+    description: "컨테이너 관리의 기초부터 실전까지",
   },
 ]
 
 export default function BooksClient() {
-  const [showAlert, setShowAlert] = useState(false)
-
-  const handleBookClick = (e: React.MouseEvent, bookId: number) => {
-    if (bookId === 2 || bookId === 3) {
-      e.preventDefault()
-      e.stopPropagation()
-      setShowAlert(true)
-      return false
-    }
-  }
-
   return (
     <div className="min-h-screen w-full">
       <div className="container mx-auto px-4 py-8">
@@ -67,8 +52,6 @@ export default function BooksClient() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-4xl mx-auto">
           {books.map((book) => {
-            const isReadingBook = book.id === 2 || book.id === 3
-
             const bookContent = (
               <div className="group cursor-pointer">
                 <div className="relative overflow-hidden rounded-lg shadow-lg transition-all duration-500 ease-out group-hover:shadow-2xl group-hover:shadow-primary/20">
@@ -98,13 +81,9 @@ export default function BooksClient() {
             )
 
             return (
-              <div key={book.id}>
-                {isReadingBook ? (
-                  <div onClick={(e) => handleBookClick(e, book.id)}>{bookContent}</div>
-                ) : (
-                  <Link href={`/books/${book.id}`}>{bookContent}</Link>
-                )}
-              </div>
+              <Link key={book.id} href={`/books/${book.id}`}>
+                {bookContent}
+              </Link>
             )
           })}
         </div>
@@ -113,47 +92,6 @@ export default function BooksClient() {
           <p className="text-muted-foreground">더 많은 책들을 읽고 지속적으로 업데이트할 예정입니다. 📖</p>
         </div>
       </div>
-      {showAlert && (
-        <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 p-4">
-          <div className="bg-background border rounded-2xl shadow-2xl max-w-md w-full mx-4 transform animate-in fade-in-0 zoom-in-95 duration-300">
-            <div className="p-6">
-              <div className="flex items-center justify-between mb-4">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center">
-                    <span className="text-xl">📚</span>
-                  </div>
-                  <h3 className="text-lg font-semibold text-foreground">독서 진행 중</h3>
-                </div>
-                <button
-                  onClick={() => setShowAlert(false)}
-                  className="w-8 h-8 rounded-full hover:bg-muted flex items-center justify-center transition-colors"
-                >
-                  <X className="w-4 h-4 text-muted-foreground" />
-                </button>
-              </div>
-              <div className="space-y-4">
-                <p className="text-muted-foreground leading-relaxed">
-                  현재 독서/공부중인 책입니다. 다 읽고 리뷰 올리겠습니다.
-                </p>
-                <div className="bg-primary/5 border border-primary/20 rounded-lg p-4">
-                  <div className="flex items-center gap-2 text-primary">
-                    <div className="w-2 h-2 bg-primary rounded-full animate-pulse"></div>
-                    <span className="text-sm font-medium">열심히 읽는 중...</span>
-                  </div>
-                </div>
-              </div>
-              <div className="mt-6 flex justify-end">
-                <button
-                  onClick={() => setShowAlert(false)}
-                  className="px-6 py-2 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors font-medium"
-                >
-                  확인
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
     </div>
   )
 }

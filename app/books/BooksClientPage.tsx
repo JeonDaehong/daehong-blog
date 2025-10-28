@@ -23,23 +23,7 @@ const books: Book[] = [
     publisher: "한빛미디어",
     coverImage: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-9KLY1m2zG2pzi80wyrnculTYAl0sUK.png",
     description: "데이터 파이프라인 설계와 구축의 핵심 원리",
-  },
-  {
-    id: 2,
-    title: "데이터 중심 애플리케이션 설계",
-    author: "마틴 클레프만",
-    publisher: "한빛미디어",
-    coverImage: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-PZ8kd6V0nRv36O7vf78QbiJB6SL4Sk.png",
-    description: "신뢰할 수 있고 확장 가능하며 유지보수하기 쉬운 시스템을 지탱하는 핵심 아이디어",
-  },
-  {
-    id: 3,
-    title: "엔터프라이즈 데이터 플랫폼 구축",
-    author: "얀 쿠닉크",
-    publisher: "한빛미디어",
-    coverImage: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-vc5VXo1WTH77lbQ5B3bskvsldbEmFh.png",
-    description: "데이터 엔지니어, 시스템 관리자를 위한 온프레미스 하이브리드 클라우드 구축의 모든 것",
-  },
+  }
 ]
 
 export default function BooksClientPage() {
