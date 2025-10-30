@@ -899,7 +899,7 @@ export default function BookReviewPage({ params }: { params: { id: string } }) {
                     <br />
                   </p>
 
-                  <h4 className="text-lg font-medium text-foreground mb-3">💬 엔터프라이즈 아키텍처(EA) 란.</h4>
+                  <h4 className="text-lg font-medium text-foreground mb-3">💬 엔터프라이즈 아키텍처(EA)란 ?</h4>
                   <p>
                     엔터프라이즈 아키텍처(EA)란, 기업의 변화를 지원하고 비즈니스 목표를 달성하기 위해{" "}
                     <strong style={{ color: "skyblue" }}>전략, 운용, 기술을 조정하는 시스템 설계</strong>를 말합니다. 
@@ -950,6 +950,43 @@ export default function BookReviewPage({ params }: { params: { id: string } }) {
                   </p>
                   <p><br /></p>
 
+                  <h4 className="text-lg font-medium text-foreground mb-3">💬 엔데이터 아키텍처란 ?</h4>
+
+                  <p>
+                    데이터 아키텍처란 엔터프라이즈 아키텍처의 하위집합으로, 프로세스, 전략, 변경 관리, 트레이드오프 평가 등의 속성을 상속하며 기업의 데이터 요구 사항을 지원하는 시스템 설계를 의미합니다.
+                  </p>
+
+                  <p>
+                    <strong style={{ color: "skyblue" }}>TOGAF(The Open Group Architecture Framework)</strong>에서는 기업의 주요 데이터 유형과 원천, 논리적 데이터 자산, 물리적 데이터 자산, 데이터 관리 자원의 구조와 상호 작용을 설명하고 있습니다.
+                  </p>
+
+                  <p>
+                    <strong style={{ color: "skyblue" }}>DAMA(Data Management Association)</strong>는 구조와 관계없이 기업의 데이터 요구 사항을 파악하고 이를 충족할 마스터 청사진을 설계하고 유지 관리하며, 이를 통해 데이터 통합을 안내하고 데이터 자산을 제어하며 데이터 투자를 비즈니스 전략에 맞게 조정하도록 정의합니다.
+                  </p>
+
+                  <p>
+                    데이터 아키텍처는 기업의 진화하는 데이터 요구 사항을 지원하기 위해 트레이드오프에 대한 신중한 평가를 거쳐 유연하고 되돌릴 수 있는 결정을 내림으로써 실현됩니다. 
+                    데이터 엔지니어링 아키텍처는 데이터 엔지니어링 수명주기의 핵심 부분을 구성하는 시스템 프레임워크로서, 운영 아키텍처와 기술 아키텍처로 나눌 수 있습니다.
+                  </p>
+
+                  <p>
+                    <strong style={{ color: "skyblue" }}>운영 아키텍처</strong>는 인력, 프로세스, 기술과 관련된 필요 기능 요건을 포괄하며, 
+                    예를 들어 데이터가 어떤 비즈니스 프로세스를 지원하는지, 조직이 데이터 품질을 어떻게 관리하는지, 
+                    데이터 생성 시점부터 쿼리 가능한 시점까지의 지연 시간 요구사항이 무엇인지 등을 정의합니다.
+                  </p>
+
+                  <p>
+                    <strong style={{ color: "skyblue" }}>기술 아키텍처</strong>는 데이터 엔지니어링 수명주기를 통해 데이터를 수집, 저장, 변환 및 제공하는 방법을 개략적으로 설명하며, 
+                    예를 들어 시간당 10TB 데이터를 원천 데이터베이스에서 데이터 레이크로 이동시키는 방법과 같은 구체적 실행 방안을 포함합니다. 
+                    요컨대, 운영 아키텍처는 무엇을 해야 하는지를, 기술 아키텍처는 어떻게 수행할지를 명확히 설명함으로써 전체 데이터 아키텍처를 완성합니다.
+                  </p>
+
+                  <p>
+                    <strong style={{ color: "pink" }}>👉 키워드 → Operational Architecture / Technical Architecture</strong>
+                  </p>
+
+                  <p><br /></p>
+                  
                 </div>
             </div>
           </section>
