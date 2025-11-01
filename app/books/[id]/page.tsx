@@ -986,7 +986,102 @@ export default function BookReviewPage({ params }: { params: { id: string } }) {
                   </p>
 
                   <p><br /></p>
+
+                  <h4 className="text-lg font-medium text-foreground mb-3">💬 우수한 데이터 아키텍처란 ?</h4>
                   
+                  <p>
+                    <strong style={{ color: "skyblue" }}>우수한 데이터 아키텍처</strong>란 유연하고 유지 관리가 쉬우며, 적절한 트레이드오프를 실현하면서 광범위하게 재사용 가능한 공통 구성 요소를 활용해 비즈니스 요건을 충족하는 아키텍처를 말합니다. 
+                    반대로 나쁜 아키텍처는 권위주의적이고 획일적인 결정을 강제로 적용하며, 시스템을 과도하게 결합시키거나 경직되게 만들고, 중앙집중화가 심하거나 업무에 맞지 않는 잘못된 도구를 사용해 개발과 변경 관리를 방해합니다. 
+                    이상적인 데이터 아키텍처는 <strong>가역성(Reversibility)</strong>을 고려해 설계되어, 변경 비용을 최소화할 수 있어야 합니다. 
+                    따라서 우리는 다음의 9가지 원칙을 지켜야 합니다.
+                  </p>
+
+                  <p>
+                    ① <strong style={{ color: "skyblue" }}>공통 컴포넌트를 현명하게 선택하라</strong> — 
+                    데이터 엔지니어는 조직 전체에서 폭넓게 재사용할 수 있는 구성 요소와 표준을 선택해야 합니다. 
+                    예를 들어, 객체 스토리지(S3, GCS), 버전 관리 시스템(Git), 오케스트레이션(Airflow), 처리 엔진(Spark, Flink) 등이 이에 해당합니다. 
+                    검증된 컴포넌트를 재사용함으로써 개발 시간을 단축하고 보안 및 접근 제어를 강화할 수 있습니다.
+                  </p>
+
+                  <p>
+                    ② <strong style={{ color: "skyblue" }}>장애에 대비하라</strong> — 
+                    안정적인 시스템은 장애를 가정하고 설계되어야 합니다. 
+                    <strong>가용성(Availability)</strong>, <strong>신뢰성(Reliability)</strong>, 
+                    <strong>복구 시간 목표(RTO)</strong>, <strong>복구 시점 목표(RPO)</strong>와 같은 지표를 기반으로 
+                    복구 전략을 수립하고, 장애 시나리오별 대응 절차를 문서화해야 합니다.
+                  </p>
+
+                  <p>
+                    ③ <strong style={{ color: "skyblue" }}>확장성을 위한 설계</strong> — 
+                    부하에 따라 시스템이 자동으로 확장(Scale-out) 또는 축소(Scale-in)되어야 합니다. 
+                    예를 들어, 스트리밍 데이터 수집 파이프라인은 트래픽 급증 시 자동 확장이 가능해야 하며, 
+                    서버리스 환경에서는 <strong>Scale to Zero</strong> 기능을 통해 유휴 자원 비용을 절감할 수 있습니다. 
+                    또한 미래 부하를 예측해 아키텍처 적합성을 지속적으로 평가해야 합니다.
+                  </p>
+
+                  <p>
+                    ④ <strong style={{ color: "skyblue" }}>아키텍처는 리더십이다</strong> — 
+                    데이터 아키텍트는 기술만이 아니라 조직의 비전과 방향을 제시해야 합니다. 
+                    기술 선택 시 비즈니스 목표를 고려하고, 엔지니어링 팀이 공통된 기준으로 협업할 수 있도록 
+                    교육과 리더십을 통해 모범 사례를 전파해야 합니다.
+                  </p>
+
+                  <p>
+                    ⑤ <strong style={{ color: "skyblue" }}>항상 아키텍처에 충실하라</strong> — 
+                    <strong>기본 아키텍처(Baseline Architecture)</strong>를 명확히 이해하고, 
+                    <strong>목표 아키텍처(Target Architecture)</strong>를 정의하며, 
+                    변화의 단계적 이행을 위한 <strong>시퀀싱 계획(Sequencing Plan)</strong>을 수립해야 합니다.
+                    이는 무질서한 변경으로 인한 기술 부채를 방지하고, 일관된 방향성을 유지하기 위함입니다.
+                  </p>
+
+                  <p>
+                    ⑥ <strong style={{ color: "skyblue" }}>느슨하게 결합된 시스템을 구축하라</strong> — 
+                    팀 간 의존성을 줄이고 독립적으로 테스트, 배포, 변경이 가능한 구조를 만들어야 합니다. 
+                    메시징 버스(Kafka, Pub/Sub)나 API Gateway를 통한 인터페이스 추상화로 
+                    내부 구현을 캡슐화하고, 각 컴포넌트가 독립적으로 진화할 수 있도록 설계합니다.
+                  </p>
+
+                  <p>
+                    ⑦ <strong style={{ color: "skyblue" }}>되돌릴 수 있는 의사결정을 하라</strong> — 
+                    데이터 아키텍처는 <strong>가역적 의사결정(Reversible Decision-Making)</strong>을 기반으로 해야 합니다. 
+                    즉, 새로운 기술이나 패턴을 도입하더라도 언제든 철회하거나 대체할 수 있어야 하며, 
+                    이를 통해 빠른 실험과 안전한 롤백이 가능해집니다. 
+                    이 원칙은 조직의 <strong>민첩성(Agility)</strong>을 확보하는 핵심 요소입니다.
+                  </p>
+
+                  <p>
+                    ⑧ <strong style={{ color: "skyblue" }}>보안 우선순위를 지정하라</strong> — 
+                    <strong>제로 트러스트 보안 모델(Zero-trust Security)</strong>은 
+                    내부 네트워크조차 신뢰하지 않고, 모든 접근 요청마다 인증과 권한 검증을 수행하는 모델입니다. 
+                    이는 내부자 위협과 외부 침입 모두에 효과적으로 대응할 수 있습니다. 
+                    또한 <strong>공동 책임 모델(Shared Responsibility Model)</strong>을 통해 
+                    클라우드 제공자(AWS, GCP 등)와 사용자의 보안 역할을 명확히 구분해야 합니다. 
+                    예를 들어, 클라우드 인프라 보안은 제공자가, 데이터 보호와 접근 제어는 사용자가 담당합니다.
+                  </p>
+
+                  <p>
+                    ⑨ <strong style={{ color: "skyblue" }}>핀옵스(FinOps)를 수용하라</strong> — 
+                    핀옵스는 클라우드 재무 관리 문화로, 엔지니어링·재무·비즈니스 팀이 
+                    <strong>데이터 기반 의사결정(Data-driven Decision-making)</strong>을 통해 
+                    클라우드 비용을 최적화하는 것을 목표로 합니다. 
+                    예를 들어, AWS 스팟 인스턴스를 활용한 비용 절감, 
+                    예약 인스턴스로의 전환 시점 결정, 
+                    워크로드별 최적 인프라 선택 등은 핀옵스의 실질적 적용 사례입니다.
+                  </p>
+
+                  <p>
+                    요약하면, <strong style={{ color: "skyblue" }}>우수한 데이터 아키텍처</strong>는 
+                    <strong>가역성(Reversibility)</strong>과 <strong>느슨한 결합(Loose Coupling)</strong>을 기반으로 하며, 
+                    보안·확장성·비용 효율성을 동시에 달성하여 
+                    변화에 강하고 지속 가능한 데이터 환경을 구축하는 것을 목표로 합니다.
+                  </p>
+
+                  <p>
+                    <strong style={{ color: "pink" }}>👉 키워드 → Reversibility / Loose Coupling / Zero-Trust / FinOps</strong>
+                  </p>
+
+                  <p><br /></p>
+
                 </div>
             </div>
           </section>
