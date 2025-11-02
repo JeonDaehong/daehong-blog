@@ -1082,6 +1082,26 @@ export default function BookReviewPage({ params }: { params: { id: string } }) {
 
                   <p><br /></p>
 
+                  <h4 className="text-lg font-medium text-foreground mb-3">💬 도메인 지식이란 ?</h4>
+
+                  <p>
+                    특정 산업이나 업무 분야의 <strong>프로세스, 규칙, 데이터 구조, 관행</strong>을 깊이 이해하고 있는 지식을 의미합니다. 
+                    이는 단순한 기술 역량을 넘어, <strong>해당 분야의 문제를 정확히 정의하고 데이터로 해결할 수 있는 능력</strong>을 포함합니다.
+                  </p>
+
+                  <p>
+                    예를 들어, <strong>금융 도메인</strong>에서는 
+                    <strong>대출, 예금, 거래, 수수료, 이자 계산</strong> 등 금융 서비스의 구조를 이해하고, 
+                    금융 기관의 <strong>기간계, 정보계, 계정계 시스템</strong>이 어떤 역할을 하며 
+                    데이터가 어떻게 흐르는지를 파악하는 것이 핵심입니다.
+                  </p>
+
+                  <p>
+                    <strong style={{ color: "pink" }}>👉 키워드 → 프로세스 / 규칙 / 기간계 / 정보계 / 계정계</strong>
+                  </p>
+
+                  <p><br /></p>
+
                 </div>
             </div>
           </section>
