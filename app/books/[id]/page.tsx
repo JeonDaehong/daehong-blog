@@ -1102,6 +1102,55 @@ export default function BookReviewPage({ params }: { params: { id: string } }) {
 
                   <p><br /></p>
 
+                  <h4 className="text-lg font-medium text-foreground mb-3">💬 분산 시스템을 설계시 고려할 점</h4>
+
+                  <p>
+                    분산 시스템을 설계할 때는 <strong style={{ color: "skyblue" }}>확장성</strong>과 <strong style={{ color: "skyblue" }}>장애 대응 능력</strong>을 고려하는 것이 매우 중요합니다. 
+                    이러한 설계 원칙은 데이터 시스템의 성능, 안정성, 유지 관리성을 결정짓는 핵심 요인으로 작용합니다. 
+                    데이터 시스템에는 서로 밀접하게 연관된 네 가지 주요 특징이 존재합니다.
+                  </p>
+
+                  <p>
+                    첫째, <strong style={{ color: "skyblue" }}>확장성(Scalability)</strong>은 시스템의 용량을 늘려 성능을 개선하고, 증가하는 수요를 처리할 수 있는 능력을 의미합니다. 
+                    특히 수평 확장(horizontal scaling)을 통해 동일한 기능을 수행하는 노드를 여러 개 추가함으로써, 트래픽 급증 시에도 안정적인 성능을 유지할 수 있습니다. 
+                    예를 들어 데이터 파이프라인에서 처리량이 증가하면 새로운 워커 노드를 추가해 병렬 처리를 확장할 수 있습니다.
+                  </p>
+
+                  <p>
+                    둘째, <strong style={{ color: "skyblue" }}>탄력성(Elasticity)</strong>은 시스템이 현재 워크로드에 따라 리소스를 자동으로 조정하는 능력을 의미합니다. 
+                    즉, 부하가 높을 때는 스케일 업(Scale-Up) 또는 스케일 아웃(Scale-Out)을 수행하고, 부하가 낮을 때는 자동으로 스케일 다운(Scale-Down)합니다. 
+                    이는 엔지니어의 수동 개입 없이도 적절한 성능을 유지하며, 클라우드 환경에서 비용 효율적 운영을 가능하게 합니다.
+                  </p>
+
+                  <p>
+                    셋째, <strong style={{ color: "skyblue" }}>가용성(Availability)</strong>은 IT 서비스나 컴포넌트가 정상적으로 작동 가능한 시간의 비율을 나타냅니다. 
+                    예를 들어 99.99%의 가용성(“four nines”)은 1년 중 약 52분 이하의 다운타임만 허용된다는 뜻입니다. 
+                    높은 가용성을 달성하기 위해서는 시스템의 중복 구성과 장애 복구 전략이 필수적입니다.
+                  </p>
+
+                  <p>
+                    넷째, <strong style={{ color: "skyblue" }}>신뢰성(Reliability)</strong>은 시스템이 일정 기간 동안 의도한 기능을 안정적으로 수행하고, 정의된 표준을 충족할 가능성을 의미합니다. 
+                    만약 시스템이 특정 시간 동안 성능 요건을 충족하지 못하거나 응답하지 않는다면, 이는 신뢰성 저하로 이어지며 결과적으로 가용성에도 부정적인 영향을 줍니다.
+                  </p>
+
+                  <p>
+                    분산 환경에서는 이러한 신뢰성과 가용성을 확보하기 위해 <strong style={{ color: "skyblue" }}>리더 노드(Leader Node)</strong>와 <strong style={{ color: "skyblue" }}>워커 노드(Worker Node)</strong> 간의 역할 분담이 이루어집니다. 
+                    리더 노드는 워크로드를 인스턴스화하고 여러 워커 노드로 분배하며, 각 노드에서 수행된 작업 결과를 다시 수집합니다. 
+                    예를 들어 Spark나 YARN 같은 시스템에서 리더 노드는 드라이버 또는 리소스매니저로, 워커 노드는 실제 연산을 수행하는 Executor 또는 NodeManager로 동작합니다.
+                  </p>
+
+                  <p>
+                    최신 분산 아키텍처는 <strong style={{ color: "skyblue" }}>중복성(Redundancy)</strong>을 기반으로 설계되어 있습니다. 
+                    특정 머신이 장애로 인해 중단되더라도 다른 머신이 자동으로 작업을 이어받을 수 있도록 데이터와 메타데이터가 복제(replication)됩니다. 
+                    또한 클러스터는 용량을 회복하거나 성능을 향상시키기 위해 새로운 노드를 동적으로 추가할 수 있으며, 이를 통해 확장성과 신뢰성을 동시에 확보합니다.
+                  </p>
+
+                  <p>
+                    <strong style={{ color: "pink" }}>👉 키워드 → Scalability / Elasticity / Availability / Reliability</strong>
+                  </p>
+                  
+                  <p><br /></p>
+
                 </div>
             </div>
           </section>
