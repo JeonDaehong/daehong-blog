@@ -1151,6 +1151,35 @@ export default function BookReviewPage({ params }: { params: { id: string } }) {
                   
                   <p><br /></p>
 
+                  <h4 className="text-lg font-medium text-foreground mb-3">💬 Tight Coupling vs Loose Coupling</h4>
+
+                  <p>
+                    강한 결합과 느슨한 결합의 차이는 <strong style={{ color: "skyblue" }}>시스템 구성 요소 간 의존성의 정도와 변경 영향 범위</strong>에 있습니다. 
+                    강한 결합에서는 도메인과 서비스가 서로 필수적으로 의존하여 한 부분의 변경이나 장애가 전체 시스템에 영향을 미치지만, 
+                    느슨한 결합에서는 도메인과 서비스가 분산되어 독립적으로 운영 가능하며 한 부분의 변화가 다른 부분에 미치는 영향이 상대적으로 적습니다.
+                  </p>
+
+                  <p>
+                    우수한 데이터 아키텍처를 설계하려면, <strong style={{ color: "skyblue" }}>강한 결합과 느슨한 결합 사이에서 적절한 트레이드오프</strong>를 찾아야 하며, 시스템의 안정성과 유연성을 균형 있게 확보하는 것이 핵심입니다.
+                  </p>
+
+                  <p>
+                    강한 결합에서는 도메인과 서비스의 모든 부분이 서로 필수적으로 의존하며, 중앙 집중화된 종속성과 워크플로가 형성됩니다. 
+                    이는 한 부분의 변경이나 장애가 전체 시스템에 영향을 미칠 수 있음을 의미합니다.
+                  </p>
+
+                  <p>
+                    느슨한 결합에서는 각 도메인과 서비스가 서로 완전히 의존하지 않고 분산되어 있으며, 이를 통해 각 팀이 독립적으로 시스템을 운영할 수 있습니다. 
+                    다만 느슨한 결합 시나리오에서는 서로의 데이터를 활용하기 어려운 구조가 발생할 수 있으므로, 
+                    각 도메인과 서비스를 소유하는 팀에게 <strong style={{ color: "skyblue" }}>공통의 표준, 명확한 소유권, 책임, 의무</strong>를 부여하는 것이 중요합니다.
+                  </p>
+
+                  <p>
+                    <strong style={{ color: "pink" }}>👉 키워드 → Tight Coupling / Loose Coupling</strong>
+                  </p>
+
+                  <p><br /></p>
+
                 </div>
             </div>
           </section>
