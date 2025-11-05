@@ -1180,6 +1180,44 @@ export default function BookReviewPage({ params }: { params: { id: string } }) {
 
                   <p><br /></p>
 
+                  <h4 className="text-lg font-medium text-foreground mb-3">💬 아키텍처 계층</h4>
+
+                  <p>
+                    <strong style={{ color: "skyblue" }}>단일 계층(single-tier) 아키텍처</strong>는 데이터베이스와 애플리케이션이 밀접하게 결합되어 단일 서버에 상주하는 구조를 의미합니다. 
+                    강한 결합의 본질은 서버, 데이터베이스 또는 애플리케이션에 장애가 발생하면 전체 아키텍처가 영향을 받는다는 점입니다. 
+                    단일 계층 아키텍처는 프로토타이핑이나 개발 초기 단계에서는 적합하지만, 명백한 장애 위험 때문에 운영 환경에서는 권장되지 않습니다. 
+                    로컬 머신에서 시스템을 테스트하는 데는 유용하지만, 실제 서비스 환경에서는 사용하지 않는 것이 좋습니다.
+                  </p>
+
+                  <p>
+                    이러한 문제를 해결하기 위해 <strong style={{ color: "skyblue" }}>다중 계층(multi-tier) 아키텍처</strong>가 사용됩니다. 
+                    다중 계층 아키텍처는 데이터, 애플리케이션, 비즈니스 로직, 프레젠테이션 등의 개별 계층으로 구성되며, 
+                    상향식(bottom-up) 계층적 구조를 가지면서 하위 계층은 상위 계층에 의존하지 않습니다. 
+                    반대로 상위 계층은 하위 계층에 의존하며, 이를 통해 애플리케이션에서 데이터를 분리하고 프레젠테이션과 애플리케이션을 독립적으로 관리할 수 있습니다.
+                  </p>
+
+                  <p>
+                    특히, <strong style={{ color: "skyblue" }}>3계층 아키텍처(three-tier architecture)</strong>는 데이터, 애플리케이션 로직, 프레젠테이션 계층으로 구성되며, 
+                    각 계층이 서로 격리되어 리스크를 분리할 수 있습니다. 
+                    이러한 구조에서는 모놀리식에 집중하지 않고도 각 계층에서 원하는 기술을 자유롭게 사용할 수 있습니다.
+                  </p>
+
+                  <p>
+                    분산 시스템 환경에서는 계층을 분리하고, 계층 내에서 자원을 공유할지 여부를 결정해야 합니다. 
+                    <strong style={{ color: "skyblue" }}>비공유 아키텍처(shared-nothing architecture)</strong>는 각 노드가 독립적으로 요청을 처리하며, 
+                    메모리, 디스크, CPU 등 자원을 서로 공유하지 않습니다. 
+                    데이터와 자원이 노드 단위로 격리되어 자원 경합을 최소화하지만, 다양한 노드가 여러 요청을 처리할 때 일부 경합이 발생할 가능성은 존재합니다. 
+                    반대로, <strong style={{ color: "skyblue" }}>공유 디스크 아키텍처(shared-disk architecture)</strong>는 
+                    모든 노드가 동일한 디스크와 메모리에 접근할 수 있도록 설계되어, 
+                    임의의 노드에 장애가 발생하더라도 공유 자원을 활용할 수 있는 환경에서 사용됩니다.
+                  </p>
+
+                  <p>
+                    <strong style={{ color: "pink" }}>👉 키워드 → Single-tier / Multi-tier / Shared-nothing / Shared-disk</strong>
+                  </p>
+
+                  <p><br /></p>
+                  
                 </div>
             </div>
           </section>
