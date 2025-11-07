@@ -1266,6 +1266,32 @@ export default function BookReviewPage({ params }: { params: { id: string } }) {
 
                   <p><br /></p>
 
+                  <h4 className="text-lg font-medium text-foreground mb-3">💬 중앙 집중화 vs 데이터 메시</h4>
+
+                  <p>
+                      데이터 아키텍처를 설계할 때 고려해야 할 중요한 사항 중 하나는 <strong style={{ color: "skyblue" }}>데이터 중앙 집중화(Centralized Data Architecture)</strong>와 
+                      <strong style={{ color: "skyblue" }}>데이터 메시(Data Mesh)</strong> 접근 방식입니다.
+                  </p>
+
+                  <p>
+                      <strong style={{ color: "skyblue" }}>중앙 집중화(Centralized Data Architecture)</strong>는 단일 팀이 조직 내 모든 도메인에서 데이터를 수집하고, 
+                      이를 통합하여 조직 전체에서 사용할 수 있도록 조정하는 방식입니다. 
+                      이 접근법은 전통적인 데이터 웨어하우스 설계에서 일반적으로 사용되며, 데이터 관리와 거버넌스를 일원화할 수 있다는 장점이 있습니다. 
+                      그러나 단일 팀에 책임이 집중되므로 확장성과 민첩성 측면에서 제한이 있을 수 있습니다.
+                  </p>
+
+                  <p>
+                      반면, <strong style={{ color: "skyblue" }}>데이터 메시(Data Mesh)</strong>는 <strong>조직 내 각 도메인이 자신이 소유한 데이터를 직접 관리하고, 다른 팀과 공유하는 분산형 데이터 아키텍처 패턴</strong>을 의미합니다. 
+                      데이터 메시 접근 방식에서는 각 소프트웨어 팀이 자신이 소유한 도메인에서 발생하는 데이터를 준비하고, 조직 전체에서 활용 가능하도록 책임을 집니다. 
+                      이를 통해 데이터 소유권과 책임이 분산되며, 각 팀이 자율적으로 데이터 품질과 접근성을 관리할 수 있어, 대규모 조직에서 데이터 활용의 민첩성과 확장성을 높이는 데 유리합니다.
+                  </p>
+
+                  <p>
+                      <strong style={{ color: "pink" }}>👉 키워드 → Centralized Data Architecture / Data Mesh</strong>
+                  </p>
+
+                  <p><br /></p>
+
                 </div>
             </div>
           </section>
