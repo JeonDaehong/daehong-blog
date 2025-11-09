@@ -1295,6 +1295,18 @@ export default function BookReviewPage({ params }: { params: { id: string } }) {
                   <h4 className="text-lg font-medium text-foreground mb-3">💬 Single-Tenant vs Multi-Tenant</h4>
 
                   <p>
+                      <strong style={{ color: "skyblue" }}>테넌트(Tenant)</strong>란, 
+                      클라우드나 SaaS(Software as a Service) 환경에서 
+                      <strong>서비스를 사용하는 개별 고객이나 사용자 그룹</strong>을 의미합니다.
+                  </p>
+
+                  <p>
+                      예를 들어, 하나의 애플리케이션을 여러 회사가 함께 사용할 때 
+                      각 회사를 하나의 <strong>테넌트</strong>로 구분하며, 
+                      테넌트마다 데이터와 설정이 <strong>논리적으로 분리</strong>되어 관리됩니다.
+                  </p>
+
+                  <p>
                       <strong style={{ color: "skyblue" }}>싱글 테넌트(Single-Tenant)</strong> 환경은 
                       보안과 성능 측면에서 예측 가능하고 격리된 환경을 제공하지만, 
                       비용과 확장성 측면에서는 제한적입니다. 
@@ -1346,7 +1358,18 @@ export default function BookReviewPage({ params }: { params: { id: string } }) {
                       <strong style={{ color: "skyblue" }}>싱글 테넌트</strong>, 
                       <strong>비용과 확장성 우선</strong>이면 
                       <strong style={{ color: "skyblue" }}>멀티 테넌트</strong>가 적합하며, 
-                      <strong style={{ color: "pink" }}>멀티 테넌트의 경우 시끄러운 이웃 문제를 고려한 성능 관리가 필수적</strong>입니다.
+                      <strong style={{ color: "skyblue" }}>멀티 테넌트의 경우 시끄러운 이웃 문제를 고려한 성능 관리가 필수적</strong>입니다.
+                  </p>
+
+                  <p>
+                      <strong style={{ color: "skyblue" }}>시끄러운 이웃 문제(Noisy Neighbor Issue)</strong>란, 
+                      멀티 테넌트 환경에서 한 테넌트의 과도한 리소스 사용이 
+                      다른 테넌트의 성능 저하를 초래하는 현상을 의미합니다.
+                  </p>
+
+                  <p>
+                      주로 <strong>CPU, 메모리, I/O, 네트워크</strong> 같은 공유 자원을 독점할 때 발생하며, 
+                      자원 격리와 성능 모니터링이 제대로 이루어지지 않으면 시스템 불안정으로 이어질 수 있습니다.
                   </p>
 
                   <p>
