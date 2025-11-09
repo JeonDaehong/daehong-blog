@@ -1292,6 +1292,69 @@ export default function BookReviewPage({ params }: { params: { id: string } }) {
 
                   <p><br /></p>
 
+                  <h4 className="text-lg font-medium text-foreground mb-3">💬 Single-Tenant vs Multi-Tenant</h4>
+
+                  <p>
+                      <strong style={{ color: "skyblue" }}>싱글 테넌트(Single-Tenant)</strong> 환경은 
+                      보안과 성능 측면에서 예측 가능하고 격리된 환경을 제공하지만, 
+                      비용과 확장성 측면에서는 제한적입니다. 
+                      반면, <strong style={{ color: "skyblue" }}>멀티 테넌트(Multi-Tenant)</strong> 환경은 
+                      비용 효율과 자원 활용 측면에서 유리하지만, 
+                      성능 격차와 보안 관리가 더 복잡하며, 
+                      <strong>시끄러운 이웃 문제(noisy neighbor issue)</strong>가 발생할 수 있습니다 
+                      (CPU, I/O, 네트워크 등 리소스 경쟁).
+                  </p>
+
+                  <p>
+                      먼저 개념을 정의하면, 
+                      <strong style={{ color: "skyblue" }}>싱글 테넌트(Single-Tenant)</strong>는 
+                      한 테넌트(사용자나 고객)가 전용 서버와 데이터베이스를 독립적으로 사용하는 구조로, 
+                      다른 테넌트의 영향 없이 시스템을 운영할 수 있는 환경을 의미합니다. 
+                      반대로, <strong style={{ color: "skyblue" }}>멀티 테넌트(Multi-Tenant)</strong>는 
+                      여러 테넌트가 하나의 서버와 데이터베이스를 공유하며 자원을 나누어 사용하는 구조로, 
+                      효율적인 비용과 자원 활용이 가능하지만, 
+                      테넌트 간 부하가 겹칠 때 특정 테넌트의 성능이 저하되는 
+                      <strong>시끄러운 이웃 문제(noisy neighbor issue)</strong>가 발생할 수 있으며, 
+                      보안 관리도 더 복잡합니다.
+                  </p>
+
+                  <p>
+                      근거를 살펴보면, 
+                      <strong style={{ color: "skyblue" }}>싱글 테넌트</strong>는 
+                      각 테넌트가 전용 자원을 사용하기 때문에 
+                      다른 테넌트의 부하나 트래픽에 영향을 받지 않고, 
+                      테넌트별 맞춤 보안 정책을 적용하기 용이합니다. 
+                      반면, <strong style={{ color: "skyblue" }}>멀티 테넌트</strong> 환경에서는 
+                      여러 테넌트가 동일 서버와 자원을 공유하기 때문에 
+                      트래픽 불균형이나 부하 스파이크가 발생하면 
+                      일부 테넌트의 성능이 저하될 수 있고, 
+                      데이터 격리와 접근 제어를 보다 정교하게 설계해야 합니다.
+                  </p>
+
+                  <p>
+                      또한, 비용과 운영 측면에서 
+                      <strong style={{ color: "skyblue" }}>멀티 테넌트</strong>는 
+                      자원을 공유함으로써 운영 비용을 절감할 수 있는 장점이 있으며, 
+                      <strong style={{ color: "skyblue" }}>싱글 테넌트</strong>는 
+                      전용 자원을 유지해야 하므로 
+                      초기 구축과 유지보수 비용이 상대적으로 높습니다.
+                  </p>
+
+                  <p>
+                      즉, 선택 기준은 
+                      <strong>보안과 성능 우선</strong>이면 
+                      <strong style={{ color: "skyblue" }}>싱글 테넌트</strong>, 
+                      <strong>비용과 확장성 우선</strong>이면 
+                      <strong style={{ color: "skyblue" }}>멀티 테넌트</strong>가 적합하며, 
+                      <strong style={{ color: "pink" }}>멀티 테넌트의 경우 시끄러운 이웃 문제를 고려한 성능 관리가 필수적</strong>입니다.
+                  </p>
+
+                  <p>
+                      <strong style={{ color: "pink" }}>👉 키워드 → Single-Tenant / Multi-Tenant / Noisy Neighbor</strong>
+                  </p>
+
+                  <p><br /></p>
+
                 </div>
             </div>
           </section>
