@@ -1378,6 +1378,46 @@ export default function BookReviewPage({ params }: { params: { id: string } }) {
 
                   <p><br /></p>
 
+                  <h4 className="text-lg font-medium text-foreground mb-3">💬 Event-Driven Architecture, EDA</h4>
+
+                  <p>
+                      <strong style={{ color: "skyblue" }}>이벤트 기반 아키텍처</strong>는 시스템 내 상태 변화나 비즈니스 활동을 이벤트 단위로 정의하고, 
+                      이를 중심으로 서비스 간 통신과 워크플로우를 구성함으로써 느슨한 결합, 확장성, 장애 내성을 제공하는 아키텍처 패턴입니다.
+                  </p>
+
+                  <p>
+                      이벤트 기반 아키텍처에서 <strong style={{ color: "skyblue" }}>이벤트(Event)</strong>는 시스템 내에서 발생하는 중요한 상태 변화나 사건을 의미하며, 
+                      예를 들어 새로운 고객 가입, 고객의 신규 주문, 제품이나 서비스 주문 등이 모두 이벤트에 해당합니다. 
+                      이벤트는 <strong style={{ color: "skyblue" }}>생산자(Producer)</strong>에 의해 생성되고, 
+                      <strong style={{ color: "skyblue" }}>이벤트 라우터(Event Router, 메시지 브로커 또는 이벤트 버스)</strong>를 통해 전달되며, 
+                      최종적으로 이벤트를 소비하는 <strong style={{ color: "skyblue" }}>소비자(Consumer)</strong>에게 전달됩니다. 
+                      이 과정에서 생산자와 소비자는 서로 직접적인 종속성에 얽매이지 않고, 이벤트를 통해 비동기적으로 통신할 수 있습니다.
+                  </p>
+
+                  <p>
+                      기술적으로 이벤트 기반 아키텍처는 <strong style={{ color: "skyblue" }}>생산자-라우터-소비자 구조</strong>를 갖추고 있으며, 이벤트 중심 워크플로를 구현할 수 있습니다. 
+                      이벤트가 발생하면 생산자가 이를 이벤트 라우터로 전송하고, 라우터는 이를 적절한 소비자에게 전달합니다. 
+                      소비자는 이벤트를 수신하여 필요한 처리를 수행하며, 여러 소비자가 동일 이벤트를 구독하도록 설계할 수도 있습니다. 
+                      이러한 구조 덕분에 서비스 간 강한 결합이 제거되고, 각 서비스는 독립적으로 확장하거나 유지보수할 수 있습니다.
+                  </p>
+
+                  <p>
+                      이벤트 기반 아키텍처의 장점 중 하나는 <strong style={{ color: "skyblue" }}>이벤트 상태를 분산 시스템 전반에 걸쳐 공유</strong>할 수 있다는 점입니다. 
+                      서비스가 일시적으로 오프라인 상태가 되거나, 분산 시스템 내 특정 노드에서 장애가 발생하더라도 이벤트는 이벤트 라우터를 통해 큐잉되거나 저장되어 나중에 소비될 수 있습니다. 
+                      또한, 동일 이벤트를 여러 소비자가 동시에 처리할 수 있어, 이벤트 처리의 유연성과 시스템 확장성이 높아집니다.
+                  </p>
+
+                  <p>
+                      결론적으로, 이벤트 기반 아키텍처는 상태 변화를 이벤트 단위로 캡처하고, 이를 비동기적으로 라우팅하며, 소비자가 독립적으로 처리할 수 있게 함으로써 
+                      <strong style={{ color: "skyblue" }}>확장성, 장애 내성, 서비스 간 느슨한 결합</strong>을 확보할 수 있는 현대 분산 시스템 설계의 핵심 패턴입니다.
+                  </p>
+
+                  <p>
+                      <strong style={{ color: "pink" }}>👉 키워드 → Event-Driven Architecture / Event / Producer / Event Router / Consumer</strong>
+                  </p>
+
+                  <p><br /></p>
+
                 </div>
             </div>
           </section>
