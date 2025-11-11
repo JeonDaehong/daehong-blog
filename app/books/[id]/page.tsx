@@ -1418,6 +1418,45 @@ export default function BookReviewPage({ params }: { params: { id: string } }) {
 
                   <p><br /></p>
 
+                  <h4 className="text-lg font-medium text-foreground mb-3">💬 브라운필드 프로젝트 vs 그린필드 프로젝트</h4>
+
+                  <p>
+                      <strong style={{ color: "skyblue" }}>브라운필드 프로젝트(Brownfield Project)</strong>는 
+                      기존 아키텍처를 기반으로 점진적으로 리팩터링하고 개선하는 접근 방식이며, 
+                      <strong style={{ color: "skyblue" }}>그린필드 프로젝트(Greenfield Project)</strong>는 
+                      기존 아키텍처의 제약 없이 완전히 새로운 시스템을 처음부터 설계하는 접근 방식입니다. 
+                      두 방식 모두 데이터 아키텍처 설계의 원칙을 준수하고, 유연하며 되돌릴 수 있는 결정과 
+                      긍정적인 ROI 달성을 목표로 해야 합니다.
+                  </p>
+
+                  <p>
+                      <strong style={{ color: "skyblue" }}>브라운필드 프로젝트</strong>는 
+                      기존 시스템이나 아키텍처를 기반으로 재설계하거나 개선하는 프로젝트를 의미하며, 
+                      기존 아키텍처와 과거 기술 선택으로 인한 제약을 고려해야 합니다. 
+                      <strong>스트랭글러 패턴(Strangler Pattern)</strong>이 자주 활용되며, 
+                      기존 시스템의 컴포넌트를 하나씩 점진적으로 새로운 시스템으로 대체하여 
+                      시스템 전체에 미치는 영향을 평가하고 안전하게 개선할 수 있습니다.
+                  </p>
+
+                  <p>
+                      반면, <strong style={{ color: "skyblue" }}>그린필드 프로젝트</strong>는 
+                      기존 시스템이나 레거시 제약 없이 완전히 새로운 환경에서 데이터 아키텍처를 설계하는 접근 방식입니다. 
+                      이전 아키텍처에 얽매이지 않고 최신 기술과 최적화된 설계를 자유롭게 적용할 수 있어 
+                      설계 유연성이 높지만, 초기 구축 비용과 설계 리스크가 상대적으로 큽니다.
+                  </p>
+
+                  <p>
+                      결론적으로, <strong>기존 시스템을 개선하고 안정성을 유지하며 점진적 전환이 필요하면 브라운필드</strong>, 
+                      <strong>과거 제약 없이 완전히 새로운 시스템을 설계하고 유연성을 극대화하려면 그린필드</strong> 접근이 적합합니다. 
+                      두 접근 방식 모두 데이터 아키텍처의 우수한 원칙, 트레이드오프 평가, 되돌릴 수 있는 설계 결정, ROI 달성을 중심으로 진행해야 합니다.
+                  </p>
+
+                  <p>
+                      <strong style={{ color: "pink" }}>👉 키워드 → Brownfield Project / Greenfield Project / Strangler Pattern</strong>
+                  </p>
+                  
+                  <p><br /></p>
+
                 </div>
             </div>
           </section>
