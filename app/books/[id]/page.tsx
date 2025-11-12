@@ -1457,6 +1457,70 @@ export default function BookReviewPage({ params }: { params: { id: string } }) {
                   
                   <p><br /></p>
 
+                  <h4 className="text-lg font-medium text-foreground mb-3">💬 아키텍처 관점에서의 "데이터 웨어하우스"</h4>
+
+                  <p>
+                      <strong style={{ color: "skyblue" }}>데이터 웨어하우스(Data Warehouse)</strong>는 
+                      분석과 보고용 중앙 데이터 허브로, 데이터를 주제 중심, 통합, 비휘발성, 시간 변형적 특성을 갖도록 구조화하여 
+                      대규모 데이터 분석과 비즈니스 의사결정을 지원하는 아키텍처입니다. 
+                      현대에는 클라우드 기반 데이터 웨어하우스와 데이터 마트 등을 포함한 확장된 생태계가 일반적입니다.
+                  </p>
+
+                  <p>
+                      데이터 웨어하우스의 개념은 1989년 빌 인먼(Bill Inmon)이 고안했으며, 
+                      그는 이를 경영진의 의사결정을 지원하는 
+                      <strong>주제 지향적(subject-oriented), 통합적(integrated), 비휘발성(non-volatile), 시간 변형적(time-variant) 데이터 모임</strong>으로 정의했습니다. 
+                      이러한 특성은 분석 활용 사례에 맞게 데이터를 고도로 포맷하고 구조화하는 전통적 데이터 아키텍처를 가능하게 합니다.
+                  </p>
+
+                  <p>
+                      조직적 관점에서, <strong style={{ color: "skyblue" }}>조직 데이터 웨어하우스 아키텍처</strong>는 
+                      특정 비즈니스 팀의 구조와 프로세스와 관련된 데이터를 구성하며, 
+                      <strong>운영 데이터베이스(OLTP)와 분석 시스템(OLAP)을 분리</strong>함으로써 운영 시스템 부하를 줄이고 분석 성능을 향상시킵니다. 
+                      데이터 중앙 집중화와 구성은 ETL(Extract, Transform, Load)을 통해 애플리케이션 시스템에서 데이터를 가져오는 방식으로 전통적으로 수행됩니다.
+                  </p>
+
+                  <p>
+                      기술적 관점에서는, <strong style={{ color: "skyblue" }}>기술 데이터 웨어하우스 아키텍처</strong>는 
+                      MPP(Massively Parallel Processing)와 같은 기술적 요소를 포함합니다. 
+                      MPP는 관계형 SQL 시맨틱을 지원하면서 대규모 데이터를 병렬 스캔하도록 최적화되어 
+                      고성능 집계와 통계 계산을 수행할 수 있습니다. 
+                      최근 클라우드 환경에서는 행 기반 아키텍처에서 열 기반 아키텍처(Columnar Storage)로 점점 전환되고 있으며, 
+                      이는 대규모 데이터와 고성능 쿼리 처리에 필수적입니다.
+                  </p>
+
+                  <p>
+                      데이터 로딩과 처리 측면에서, <strong style={{ color: "skyblue" }}>ELT(Extract, Load, Transform) 아키텍처</strong>를 활용하면 
+                      데이터를 운영 시스템에서 직접 데이터 웨어하우스 스테이징 영역으로 이동시키고, 
+                      변환(Transform)은 데이터 웨어하우스 내부에서 수행됩니다. 
+                      이 방식은 클라우드 데이터 웨어하우스의 방대한 계산 능력을 활용할 수 있으며, 
+                      CDC(Change Data Capture) 이벤트를 스트리밍하여 변환할 때도 효율적입니다.
+                  </p>
+
+                  <p>
+                      현대 기업에서는 <strong style={{ color: "skyblue" }}>클라우드 데이터 웨어하우스</strong>가 점점 보편화되고 있습니다. 
+                      AWS Redshift, Google BigQuery, Snowflake 등은 <strong>컴퓨팅과 스토리지를 분리한 아키텍처</strong>를 제공하며, 
+                      데이터를 객체 스토리지에 저장해 사실상 무제한 스토리지를 지원합니다. 
+                      사용자는 컴퓨팅 파워를 온디맨드로 스핀업하거나 필요하지 않을 때 삭제할 수 있어 비용 효율적이며, 
+                      단일 쿼리로 페타바이트 단위 데이터 처리도 가능합니다. 
+                      또한 행당 수십 MB 크기의 원시 텍스트 데이터나 복잡한 JSON 문서도 저장하고 분석할 수 있어 대규모 데이터 분석에 적합합니다.
+                  </p>
+
+                  <p>
+                      마지막으로, 특정 부서나 라인 오브 비즈니스(LOB)를 위해 데이터 웨어하우스의 하위집합으로 설계되는 
+                      <strong style={{ color: "skyblue" }}>데이터 마트(Data Mart)</strong>가 있습니다. 
+                      데이터 마트는 분석가와 보고서 개발자가 데이터를 더 쉽게 접근하도록 하며, 
+                      초기 ETL/ELT에서 제공하지 않는 추가 변환 단계를 수행할 수 있습니다. 
+                      이를 통해 보고서 또는 분석 쿼리에 복잡한 데이터 조인과 집계가 필요할 때 성능을 크게 향상시킬 수 있습니다. 
+                      데이터 마트는 라이브 쿼리 성능을 개선하기 위해 조인 및 집계된 데이터를 미리 채워 넣는 방식으로 운영될 수 있습니다.
+                  </p>
+
+                  <p>
+                      <strong style={{ color: "pink" }}>👉 키워드 → Data Warehouse / OLTP / OLAP / ELT / Cloud Data Warehouse / Data Mart / MPP / Columnar Storage</strong>
+                  </p>
+                  
+                  <p><br /></p>
+
                 </div>
             </div>
           </section>
