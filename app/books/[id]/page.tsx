@@ -1613,9 +1613,46 @@ export default function BookReviewPage({ params }: { params: { id: string } }) {
                   </p>
 
                   <p>
-                      <strong style={{ color: "pink" }}>👉 키워드 → Data Lakehouse / Cloud Data Warehouse / Data Platform / ACID / Object Storage / Spark / Beam</strong>
+                      <strong style={{ color: "pink" }}>👉 키워드 → Data Lakehouse / Cloud Data Warehouse / Data Platform</strong>
                   </p>
 
+                  <p><br /></p>
+
+                  <h4 className="text-lg font-medium text-foreground mb-3">💬 Modern Data Stack</h4>
+                  
+                  <p>
+                      <strong style={{ color: "skyblue" }}>모던 데이터 스택</strong>은 
+                      <strong>클라우드 기반의 모듈식 데이터 아키텍처</strong>로, 
+                      비용 효율적으로 <strong>데이터 파이프라인·스토리지·변환·거버넌스·시각화</strong>를 통합하여 
+                      복잡성을 줄이고 빠른 변화에 대응할 수 있는 현대적 데이터 운영 환경을 제공합니다.
+                  </p>
+
+                  <p>
+                      과거 데이터 환경이 <strong>비싸고 변경이 어려운 모놀리식(monolithic) 도구</strong>에 의존했다면, 
+                      모던 데이터 스택은 <strong>Plug-and-Play(PnP)</strong> 방식의 기성 컴포넌트들을 기반으로 
+                      각 구성 요소를 독립적으로 교체·확장할 수 있는 
+                      <strong style={{ color: "skyblue" }}>모듈식(modular) 구조</strong>를 제공합니다. 
+                      이를 통해 기술 선택의 자유도와 비용 효율성을 크게 확보할 수 있습니다.
+                  </p>
+
+                  <p>
+                      구성 요소는 
+                      <strong>데이터 파이프라인(Data Pipeline), 스토리지(Storage), 변환(Transformation), 
+                      데이터 관리·거버넌스(Data Governance), 모니터링(Monitoring), 시각화·탐색(Visualization)</strong> 등으로 이루어져 있으며, 
+                      목표는 <strong>복잡성 최소화, 셀프 서비스 분석, 신속한 데이터 운영</strong>입니다.
+                  </p>
+
+                  <p>
+                      또한 모던 데이터 스택은 
+                      <strong>명확한 가격 모델을 가진 오픈소스 또는 단순한 SaaS</strong> 기반으로 구성되며, 
+                      커뮤니티 생태계와 사용자 피드백을 통해 도구가 빠르게 발전합니다. 
+                      덕분에 데이터 엔지니어와 분석가가 직접 스택을 구축하고 운영할 수 있는 환경을 제공합니다.
+                  </p>
+
+                  <p>
+                      <strong style={{ color: "pink" }}>👉 키워드 → Modern Data Stack / Modular </strong>
+                  </p>
+                  
                   <p><br /></p>
 
                 </div>
