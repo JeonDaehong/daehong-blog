@@ -1655,6 +1655,54 @@ export default function BookReviewPage({ params }: { params: { id: string } }) {
                   
                   <p><br /></p>
 
+                  <h4 className="text-lg font-medium text-foreground mb-3">💬 Lambda Architecture 와 Kappa Architecture</h4>
+
+                  <p>
+                      <strong style={{ color: "skyblue" }}>람다 아키텍처</strong>는 
+                      <strong>배치 계층과 스트리밍 계층을 분리</strong>하여 정확성과 실시간성을 동시에 제공하는 구조인 반면, 
+                      <strong style={{ color: "skyblue" }}>카파 아키텍처</strong>는 
+                      스트림 처리 플랫폼을 단일 백본으로 사용하여 배치 계층 없이 실시간과 일괄 처리를 통합하는 구조입니다.
+                  </p>
+
+                  <p>
+                      <strong style={{ color: "skyblue" }}>람다 아키텍처</strong>는 
+                      <strong>배치(Batch), 스트리밍(Streaming), 서빙(Serving) 계층</strong>을 독립적으로 운영하여 
+                      대규모 데이터에 대해 저지연 실시간 분석과 정확한 배치 처리를 동시에 제공하는 데이터 처리 아키텍처입니다. 
+                      2010년대 초중반 <strong>Storm, Samza</strong> 등 스트리밍/실시간 분석 프레임워크와 
+                      <strong>Kafka</strong> 같은 확장성 높은 메시지 큐 등장으로 발전했습니다.
+                  </p>
+
+                  <p>
+                      람다 아키텍처에서는 원천 데이터 소스가 변경 불가(immutable)하며, 
+                      데이터가 입력되면 <strong>배치 계층과 스트리밍 계층</strong>으로 동시에 전송됩니다. 
+                      스트리밍 처리 계층은 <strong>NoSQL 기반 속도 계층(Speed Layer)</strong>을 사용하여 
+                      낮은 지연 시간으로 실시간 분석과 인사이트 제공에 집중하고, 
+                      배치 계층은 데이터 웨어하우스에서 <strong>사전 계산(precomputed) 및 집계(view) 처리</strong>를 수행하여 정확성과 안정성을 확보합니다. 
+                      최종적으로 <strong>서빙 계층(Serving Layer)</strong>이 배치와 스트리밍 결과를 결합하여 집계된 통합 뷰를 생성합니다.
+                  </p>
+
+                  <p>
+                      <strong style={{ color: "skyblue" }}>카파 아키텍처</strong>는 
+                      스트림 처리 플랫폼을 데이터 처리, 저장, 서빙의 <strong>단일 백본</strong>으로 사용하여 
+                      실시간과 배치 처리를 통합하는 접근 방식입니다. 
+                      제이 크랩스(Jay Kreps)가 제안했으며, 람다 아키텍처의 배치 계층 중복과 유지보수 복잡성을 제거하고 
+                      모든 데이터 처리(수집, 변환, 저장, 서빙)를 <strong>스트리밍 플랫폼 중심</strong>으로 수행합니다. 
+                      실시간 이벤트 스트림을 직접 읽고 필요 시 데이터 청크를 재생(replay)하여 배치 처리 효과를 얻을 수 있습니다.
+                  </p>
+
+                  <p>
+                      그러나 카파 아키텍처는 
+                      <strong>스트리밍 기반 처리의 복잡성, 높은 구현 비용, 유지보수 어려움</strong>으로 인해 
+                      널리 채택되지 못했습니다. 반면, 전통적 배치 기반 처리와 스토리지는 
+                      대규모 데이터셋 처리에 효율적이고 비용 대비 성능이 우수합니다.
+                  </p>
+
+                  <p>
+                      <strong style={{ color: "pink" }}>👉 키워드 → Lambda Architecture / Kappa Architecture</strong>
+                  </p>
+
+                  <p><br /></p>
+
                 </div>
             </div>
           </section>
