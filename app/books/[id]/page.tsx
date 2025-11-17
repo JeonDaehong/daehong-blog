@@ -1703,6 +1703,46 @@ export default function BookReviewPage({ params }: { params: { id: string } }) {
 
                   <p><br /></p>
 
+                  <h4 className="text-lg font-medium text-foreground mb-3">💬 데이터 흐름 모델과 통합 배치·스트리밍 처리</h4>
+
+                  <p>
+                      <strong style={{ color: "skyblue" }}>데이터 흐름(Data Flow) 모델</strong>은 
+                      <strong>배치 처리와 스트리밍 처리를 단일 통합 프레임워크에서 동일한 코드로 관리</strong>할 수 있도록 설계된 접근 방식으로, 
+                      배치와 스트림 처리 관리의 복잡성을 줄이고 일관성을 확보할 수 있습니다.
+                  </p>
+
+                  <p>
+                      배치(Batch) 및 스트림(Stream) 처리에서 주요 문제 중 하나는 
+                      <strong>여러 코드 경로를 통합</strong>하는 것입니다. 
+                      전통적인 카파 아키텍처는 통합 큐잉과 스토리지 계층을 사용하지만, 
+                      실시간 통계 수집이나 배치 집계 작업 수행 시 <strong>별도의 도구</strong>를 사용해야 하므로 
+                      코드와 시스템 관리가 분리되고 복잡해집니다.
+                  </p>
+
+                  <p>
+                      이를 해결하기 위해 구글은 <strong>데이터 흐름 모델(Data Flow Model)</strong>과 
+                      이를 구현한 <strong>아파치 빔(Apache Beam) 프레임워크</strong>을 개발했습니다. 
+                      데이터 흐름 모델의 핵심 개념은 <strong>모든 데이터를 이벤트(Event)로 간주</strong>하고, 
+                      다양한 유형의 윈도(Window)를 통해 집계가 수행된다는 점입니다. 
+                      지속적인 실시간 이벤트 스트림은 <strong>무한 데이터(Unbounded Data)</strong>로 간주되며, 
+                      배치 처리 시에는 단순히 <strong>경계가 있는 유한 데이터(Bounded Data)</strong>로 취급됩니다. 
+                      이때 경계가 자연스러운 윈도 역할을 합니다.
+                  </p>
+
+                  <p>
+                      엔지니어는 실시간 집계를 위해 <strong>슬라이딩 윈도(Sliding Window)</strong>, 
+                      <strong>텀블링 윈도(Tumbling Window)</strong> 등 다양한 윈도 전략을 선택할 수 있으며, 
+                      배치 처리와 실시간 처리는 <strong>거의 동일한 코드와 시스템</strong>에서 수행됩니다. 
+                      이를 통해 배치와 스트리밍 처리를 별도로 관리하는 복잡성을 줄이고, 
+                      시스템 유지보수와 코드 일관성을 크게 개선할 수 있습니다.
+                  </p>
+
+                  <p>
+                      <strong style={{ color: "pink" }}>👉 키워드 → Data Flow Model / Apache Beam / Sliding Window / Tumbling Window / Batch & Stream Processing</strong>
+                  </p>
+
+                  <p><br /></p>
+
                 </div>
             </div>
           </section>
