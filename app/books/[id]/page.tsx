@@ -1738,6 +1738,23 @@ export default function BookReviewPage({ params }: { params: { id: string } }) {
                   </p>
 
                   <p>
+                      <strong style={{ color: "skyblue" }}>슬라이딩 윈도우(Sliding Window)</strong>는 
+                      윈도우가 일정 간격으로 겹치면서 이동하는 방식입니다. 
+                      같은 이벤트가 여러 윈도우에 포함될 수 있으며, 
+                      실시간 트렌드나 최근 변화량 분석에 유용합니다. 
+                      예를 들어 5초 크기의 윈도우가 2초 간격으로 이동하면, 
+                      0~4초 이벤트와 2~6초 이벤트가 각각 집계되어 2~4초 구간 이벤트는 두 번 계산됩니다.
+                  </p>
+
+                  <p>
+                      <strong style={{ color: "skyblue" }}>텀블링 윈도우(Tumbling Window)</strong>는 
+                      윈도우가 겹치지 않고 연속적으로 나뉘는 방식입니다. 
+                      각 이벤트는 정확히 한 번만 포함되며, 일정 시간 또는 개수 단위로 구간이 분리됩니다. 
+                      예를 들어 5초 크기의 텀블링 윈도우라면, 
+                      0~4초 이벤트는 첫 번째 윈도우, 5~9초 이벤트는 두 번째 윈도우에 각각 집계되어 중복이 발생하지 않습니다.
+                  </p>
+
+                  <p>
                       <strong style={{ color: "pink" }}>👉 키워드 → Data Flow Model / Apache Beam / Sliding Window / Tumbling Window / Batch & Stream Processing</strong>
                   </p>
 
