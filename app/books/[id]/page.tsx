@@ -555,7 +555,7 @@ export default function BookReviewPage({ params }: { params: { id: string } }) {
                     </strong>{" "} 
                     되어야 유지보수성이 높으며, 불필요한 연산을 줄여{" "} 
                     <strong style={{ color: "skyblue" }}>
-                      성능과 비용 효율��
+                      성능과 비용 효율성
                     </strong>{" "} 
                     을 확보할 수 있습니다.
                   </p>

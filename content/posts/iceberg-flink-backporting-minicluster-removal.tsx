@@ -149,7 +149,7 @@ public void testContinuousWithJobManagerFailover(@InjectMiniCluster MiniCluster 
 }
 \`\`\`
 
-이렇게 코드를 수���하게 된 이유와, Minicluster 의 역할 그리고 InjectMiniCluster 와의 차이에 대해서 역시 이전 포스팅에 작성 되어있습니다.
+이렇게 코드를 수정하게 된 이유와, Minicluster 의 역할 그리고 InjectMiniCluster 와의 차이에 대해서 역시 이전 포스팅에 작성 되어있습니다.
 
 거듭 말씀드리지만, 이전 포스팅을 꼭 참고하시기 바랍니다. :D
 
