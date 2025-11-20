@@ -1838,8 +1838,9 @@ export default function BookReviewPage({ params }: { params: { id: string } }) {
                   </p>
 
                   <p>
-                    <strong style={{ color: "pink" }}>👉 키워드</strong><br/>
-                    <span style={{ color: "pink" }}>- Data Mesh / Data Product / Decentralization / Governance / Data Fabric</span>
+                      <strong style={{ color: "pink" }}>
+                          👉 키워드 → Data Mesh / Data Product / Decentralization / Governance / Data Fabric
+                      </strong>
                   </p>
 
                   <p><br /></p>
