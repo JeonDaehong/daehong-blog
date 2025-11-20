@@ -1800,6 +1800,47 @@ export default function BookReviewPage({ params }: { params: { id: string } }) {
                       </strong>
                   </p>
 
+                  <p><br /></p>
+
+                  <h4 className="text-lg font-medium text-foreground mb-3">💬 데이터 메시</h4>
+
+                  <p>
+                    <strong style={{ color: "skyblue" }}>데이터 메시(Data Mesh)</strong>는 중앙 집중식 데이터 레이크나 데이터
+                    웨어하우스 같은 <strong>거대한 모놀리식 데이터 플랫폼</strong>과 운영 데이터와 분석 데이터 사이에서 발생하는
+                    <strong>데이터 격차(Data Gap)</strong>를 해결하기 위해 등장한 현대적 데이터 아키텍처 접근 방식입니다.
+                    데이터 메시의 핵심 목표는 중앙 집중형 아키텍처의 한계를 극복하고,
+                    <strong>분산과 탈중앙화(Decentralization)</strong>를 통해 데이터 소유권과 책임을 도메인 단위로 이전하는 것입니다.
+                  </p>
+
+                  <p>
+                    데이터 메시에서는 기존처럼 모든 데이터를 중앙 플랫폼으로 모아 관리하는 대신,
+                    <strong>각 도메인이 소유한 데이터셋을 쉽게 소비할 수 있는 방식으로 호스팅하고 제공</strong>하도록 설계합니다.
+                    이를 통해 데이터 소비자는 중앙 레이크에 의존하지 않고도 필요한 데이터를 바로 활용할 수 있으며,
+                    데이터 제공자와 소비자 간의 상호작용이 보다 효율적으로 이루어집니다.
+                  </p>
+
+                  <p>
+                    데이터 메시의 핵심 구성 요소는 다음과 같습니다.  
+                    첫째, <strong>도메인 지향 분산형 데이터 소유권 및 아키텍처</strong>로, 각 도메인이 자신의 데이터에 대한 책임과 권한을 갖습니다.  
+                    둘째, <strong>제품으로서의 데이터(Data as a Product)</strong> 개념을 적용하여, 데이터셋이 단순한 저장물이 아니라 명확한 소비자를 위한 제품처럼 설계되고 관리됩니다.  
+                    셋째, <strong>플랫폼으로서의 셀프서비스 데이터 인프라(Self-serve Data Infrastructure as a Platform)</strong>를 제공하여,
+                    도메인이 데이터 파이프라인을 쉽게 구축하고 관리할 수 있도록 지원합니다.  
+                    넷째, <strong>통합 컴퓨팅 거버넌스(Integrated Compute Governance)</strong>를 통해 분산된 데이터 환경에서도 보안, 규제, 품질을 일관되게 관리할 수 있습니다.
+                  </p>
+
+                  <p>
+                    데이터 메시 외에도 데이터 아키텍처에는 <strong>데이터 패브릭(Data Fabric)</strong>,
+                    <strong>데이터 허브(Data Hub)</strong>, <strong>확장 아키텍처(Scalable Architecture)</strong>,
+                    <strong>메타데이터 우선 아키텍처(Metadata-First Architecture)</strong>,
+                    <strong>이벤트 기반 아키텍처(Event-driven Architecture)</strong>,
+                    <strong>라이브 데이터 스택(Live Data Stack)</strong> 등 다양한 접근 방식이 있으며,
+                    각기 다른 요구와 환경에 맞게 선택될 수 있습니다.
+                  </p>
+
+                  <p>
+                    <strong style={{ color: "pink" }}>👉 키워드</strong><br/>
+                    <span style={{ color: "pink" }}>- Data Mesh / Data Product / Decentralization / Governance / Data Fabric</span>
+                  </p>
 
                   <p><br /></p>
 
