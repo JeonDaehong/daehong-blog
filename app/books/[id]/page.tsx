@@ -1847,6 +1847,69 @@ export default function BookReviewPage({ params }: { params: { id: string } }) {
 
                 </div>
             </div>
+            {/* Chapter 4 */}
+            <div className="mb-4 p-4 bg-muted/50 rounded-lg border">
+              <h3 className="text-xl font-semibold text-foreground mb-4">4장: 데이터 엔지니어링 수명 주기 전체에 걸친 기술 선택</h3>
+                <div className="text-muted-foreground leading-relaxed space-y-4">
+
+                  <h4 className="text-lg font-medium text-foreground mb-3">💬 데이터 엔지니어링의 핵심 목적</h4>
+
+                  <p>
+                    데이터 엔지니어링의 핵심 목적은 <strong style={{ color: "skyblue" }}>데이터 수명 주기 전체를 관리하며 데이터를 안전하고 신뢰성 있게 운반하고, 최종 사용자의 요구에 따라 제공할 수 있는 시스템 설계</strong>입니다.
+                    이를 달성하기 위해 데이터 아키텍처와 도구를 구분하여 이해하는 것이 중요합니다.
+                    아키텍처는 전략적 관점에서 <strong>무엇을, 왜, 언제 구축할지</strong>를 결정하며,
+                    도구는 전술적 관점에서 <strong>어떻게 구축할지</strong>를 결정합니다.
+                  </p>
+
+                  <p>
+                    그러나 종종 팀들은 아키텍처 설계보다 기술 선택에 먼저 치우치는 실수를 범합니다.
+                    이는 <strong style={{ color: "skyblue" }}>샤이니 오브젝트 신드롬(shiny object syndrome)</strong>,
+                    <strong style={{ color: "skyblue" }}>이력서 주도(resume-driven) 개발</strong>, 아키텍처 전문 지식 부족 등 여러 요인 때문입니다.
+                    특히 소규모 팀이나 경험이 부족한 팀에서는 <strong style={{ color: "skyblue" }}>카고-컬트 엔지니어링(cargo-cult engineering)</strong> 현상이 발생하기 쉽습니다.
+                    이는 최신 기술이나 사례를 무작정 모방하다가 시간과 비용만 낭비하고 실제 가치는 거의 얻지 못하는 상황을 의미합니다.
+                    따라서 가능한 한 <strong style={{ color: "skyblue" }}>관리형 도구와 SaaS 기반 도구</strong>를 활용해 팀의 제한된 역량을 비즈니스 가치 창출에 집중하는 것이 현명합니다.
+                  </p>
+
+                  <p>
+                    팀 구성원의 선호와 역량을 고려한 기술 선택도 중요합니다.
+                    예를 들어, 팀이 로우코드 도구를 선호하는지, 코드 우선 접근 방식을 선호하는지,
+                    특정 언어(Java, Python, Go 등)에 능숙한지 평가하고, 이미 익숙한 기술과 워크플로를 우선 활용하는 것이 바람직합니다.
+                    이를 통해 <strong style={{ color: "skyblue" }}>시장 출시 속도</strong>를 높이고, 고품질 표준과 보안을 유지하면서도 기능과 데이터를 신속하게 제공할 수 있습니다.
+                  </p>
+
+                  <p>
+                    데이터 엔지니어링에서 중요한 또 다른 원칙은 <strong style={{ color: "skyblue" }}>상호 운용성(interoperability)</strong>입니다.
+                    다양한 시스템과 기술이 서로 연결되고 데이터를 교환할 수 있어야 하며, 이를 위해 JDBC, ODBC 같은 표준 연결 방식이 활용됩니다.
+                    그러나 REST API 등 일부 기술은 표준화가 완전히 이루어지지 않았기 때문에, 원활한 통합은 벤더나 오픈 소스 프로젝트의 지원에 달려 있습니다.
+                  </p>
+
+                  <p>
+                    비용 측면에서는 <strong style={{ color: "skyblue" }}>총소유비용(TCO)</strong>,
+                    <strong style={{ color: "skyblue" }}>자본적 지출(CAPEX)</strong>,
+                    <strong style={{ color: "skyblue" }}>운영비용(OPEX)</strong>, 그리고
+                    <strong style={{ color: "skyblue" }}>총소유 기회비용(TOCO)</strong>를 고려해야 합니다.
+                    CAPEX는 초기 투자와 장기적 계획을 반영하며, OPEX는 점진적이고 유연한 운영비용입니다.
+                    클라우드 환경에서는 대부분 OPEX 모델을 따르며,
+                    <strong style={{ color: "skyblue" }}>핀옵스(FinOps)</strong> 방식을 적용해 시스템을 모니터링하고 동적으로 비용과 가치를 관리함으로써
+                    재무적 책임과 비즈니스 가치를 최적화할 수 있습니다.
+                  </p>
+
+                  <p>
+                    결론적으로, 데이터 엔지니어링은 단순히 기술 선택이 아니라
+                    <strong style={{ color: "skyblue" }}>전략적 아키텍처 설계와 전술적 도구 선택을 통합</strong>하고,
+                    팀 역량과 비용 구조를 고려하며, 시장 요구와 비즈니스 가치를 동시에 충족하는 복합적 과정이라 할 수 있습니다.
+                  </p>
+
+                  <p>
+                      <strong style={{ color: "pink" }}>
+                          👉 키워드 → 데이터 수명 주기 / 아키텍처 vs 도구
+                      </strong>
+                  </p>
+
+                  <p><br /></p>
+
+                </div>
+              </div>
           </section>
 
           {/* 느낀점 Section */}
