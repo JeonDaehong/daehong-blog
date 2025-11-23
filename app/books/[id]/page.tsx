@@ -1907,6 +1907,43 @@ export default function BookReviewPage({ params }: { params: { id: string } }) {
                   </p>
 
                   <p><br /></p>
+                  
+                  <h4 className="text-lg font-medium text-foreground mb-3">💬 불변의 기술 vs 일시적 기술</h4>
+
+                  <p>
+                    데이터 엔지니어링에서는 <strong style={{ color: "skyblue" }}>불변의 기술과 일시적 기술을 구분하고, 전략적 의사결정에서 불변의 기술에 집중</strong>하는 것이
+                    장기적 안정성과 유지보수 효율을 높이는 핵심입니다.
+                  </p>
+
+                  <p>
+                    <strong style={{ color: "skyblue" }}>불변의 기술(immutable technology)</strong>은 시간이 지나도 안정적으로 유지되며,
+                    클라우드 환경의 핵심 컴포넌트나 오랜 세월 검증된 언어와 패러다임을 포함합니다.
+                    예를 들어, 객체 스토리지, 네트워킹, 서버, 보안 등이 이에 속합니다.
+                    이러한 기술은 <strong style={{ color: "skyblue" }}>린디 효과(Lindy effect)</strong>의 혜택을 받는데,
+                    이는 기술이 이미 확립된 기간이 길수록 앞으로도 오래 지속될 가능성이 높다는 것을 의미합니다.
+                  </p>
+
+                  <p>
+                    반면, <strong style={{ color: "skyblue" }}>일시적 기술(transitory technology)</strong>은 등장했다가 단기간 내 사라지거나
+                    다른 기술로 대체되는 경향이 있습니다.
+                    예를 들어, 2010년대 초 <strong>하이브(Hive)</strong>는 엔지니어와 분석가가 복잡한 맵리듀스 작업을 수동 코딩하지 않고
+                    대규모 데이터를 처리할 수 있도록 빠르게 도입되었으나, 이후 단점을 개선한 <strong>프레스토(Presto)</strong> 등으로 대체되면서
+                    현재는 주로 레거시 환경에서만 사용됩니다.
+                    대부분의 기술이 필연적으로 이러한 <strong style={{ color: "skyblue" }}>변화와 쇠퇴의 주기</strong>를 겪습니다.
+                  </p>
+
+                  <p>
+                    따라서 데이터 시스템 설계와 기술 선택 시, 단기적인 유행 기술에 지나치게 의존하기보다는
+                    <strong style={{ color: "skyblue" }}>불변의 기술을 중심으로 안정적이고 확장 가능한 아키텍처 구축</strong>이 바람직합니다.
+                  </p>
+
+                  <p>
+                      <strong style={{ color: "pink" }}>
+                          👉 키워드 → 불변의 기술 / 일시적 기술 / 린디 효과(Lindy Effect) / 안정적 아키텍처 / 확장 가능성
+                      </strong>
+                  </p>
+
+                  <p><br /></p>
 
                 </div>
               </div>
