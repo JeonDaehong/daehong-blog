@@ -2157,6 +2157,39 @@ export default function BookReviewPage({ params }: { params: { id: string } }) {
 
                 </div>
               </div>
+              {/* Chapter 5 */}
+              <div className="mb-4 p-4 bg-muted/50 rounded-lg border">
+                <h3 className="text-xl font-semibold text-foreground mb-4">5장: 원천 시스템에서의 데이터 생성</h3>
+                <div className="text-muted-foreground leading-relaxed space-y-4">
+
+                  <h4 className="text-lg font-medium text-foreground mb-3">💬 일반적으로 데이터는 어떻게 생성되는가</h4>
+
+                  <p>
+                    일반적으로 데이터는 현실 세계에서 발생하는 사건과 활동이 기록되거나 변환되는 과정을 통해 생성됩니다. 이는 크게 아날로그 데이터와 디지털 데이터로 구분할 수 있습니다.
+                  </p>
+                    
+                  <p>
+                    먼저 <strong style={{ color: "skyblue" }}>아날로그 데이터</strong>는 인간의 언어, 수화, 종이에 적은 글, 악기 연주와 같은 실제 세계에서 자연스럽게 발생하는 데이터입니다. 이런 데이터는 대체로 일시적이며 직접적으로 활용하기 어렵기 때문에 디지털 형식으로 변환해야만 저장·전송·분석이 가능합니다. 예를 들어, 음성을 문자 메시지로 변환하는 모바일 앱은 아날로그 음성을 디지털 텍스트로 바꾸는 대표적인 사례입니다.
+                  </p>
+
+                  <p>
+                    반대로 <strong style={{ color: "skyblue" }}>디지털 데이터</strong>는 디지털 시스템에서 직접 생성되거나 아날로그 데이터가 변환되어 생성됩니다. 전자상거래 플랫폼에서 발생하는 신용카드 결제 기록, 웹사이트 로그, 모바일 앱 사용 내역 같은 것들이 디지털 데이터의 예입니다. 또한 IoT 센서가 측정한 온도, 주식 거래 플랫폼의 거래 내역, 망원경에서 수집한 천체 관측 정보 등도 모두 디지털 데이터로서, 구조적으로 저장되고 다양한 분석에 활용될 수 있습니다.
+                  </p>
+
+                  <p>
+                    즉, 데이터는 아날로그적 현실을 디지털화하거나, 디지털 시스템에서 자동으로 기록되는 과정을 통해 생성되며, 데이터 엔지니어는 이러한 원천 데이터의 생성 방식을 이해하고 특성을 파악해야 이후의 수집·처리·분석 단계를 안정적으로 설계할 수 있습니다.
+                  </p>
+
+                  <p>
+                      <strong style={{ color: "pink" }}>
+                          👉 키워드 → 아날로그 데이터 / 디지털 데이터
+                      </strong>
+                  </p>
+
+                  <p><br /></p>
+
+                </div>
+              </div>
           </section>
 
           {/* 느낀점 Section */}
