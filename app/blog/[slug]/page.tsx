@@ -258,7 +258,7 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50/50 via-white to-slate-50/50 dark:from-slate-950/50 dark:via-slate-900 dark:to-slate-950/50">
-      <div className="container mx-auto px-4 sm:px-6 py-6 sm:py-8 max-w-4xl">
+      <div className="container mx-auto px-4 sm:px-6 py-6 sm:py-8 max-w-6xl">
         <div className="space-y-8">
           {/* 뒤로가기 버튼 */}
           <Button variant="ghost" asChild className="hover:bg-primary/10 transition-all duration-300 group">
@@ -270,7 +270,7 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
 
           {/* 포스트 헤더 - 완전히 새로운 디자인 */}
           <article className="bg-white/80 dark:bg-slate-900/80 backdrop-blur-sm rounded-3xl border border-slate-200/50 dark:border-slate-700/50 shadow-xl overflow-hidden">
-            <div className="p-6 sm:p-8 md:p-10">
+            <div className="p-8 sm:p-10 md:p-12 lg:p-14">
               {/* 태그들 */}
               <div className="flex flex-wrap gap-2 mb-6">
                 {post.tags.map((tag, index) => (
@@ -324,7 +324,7 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
           </article>
 
           {/* 포스트 내용 - 타이포그래피 대폭 개선 */}
-          <div className="bg-white/60 dark:bg-slate-900/60 backdrop-blur-sm rounded-2xl border border-slate-200/50 dark:border-slate-700/50 shadow-lg p-6 sm:p-8 md:p-10">
+          <div className="bg-white/60 dark:bg-slate-900/60 backdrop-blur-sm rounded-2xl border border-slate-200/50 dark:border-slate-700/50 shadow-lg p-8 sm:p-10 md:p-12 lg:p-14">
             <div className="prose prose-slate max-w-none dark:prose-invert prose-headings:font-semibold prose-headings:tracking-tight prose-p:text-slate-700 dark:prose-p:text-slate-300 prose-p:leading-7">
               {isLoading ? (
                 <div className="space-y-6">
@@ -341,7 +341,7 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
             </div>
           </div>
 
-          <div className="bg-white/60 dark:bg-slate-900/60 backdrop-blur-sm rounded-2xl border border-slate-200/50 dark:border-slate-700/50 shadow-lg p-6 sm:p-8 md:p-10 mt-4">
+          <div className="bg-white/60 dark:bg-slate-900/60 backdrop-blur-sm rounded-2xl border border-slate-200/50 dark:border-slate-700/50 shadow-lg p-8 sm:p-10 md:p-12 lg:p-14 mt-4">
             <Utterances repo="JeonDaehong/utterances-" />
           </div>
 
