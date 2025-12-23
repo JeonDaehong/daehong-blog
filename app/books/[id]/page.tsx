@@ -2214,6 +2214,83 @@ export default function BookReviewPage({ params }: { params: { id: string } }) {
 
                   <p><br /></p>
 
+                  <h4 className="text-lg font-medium text-foreground mb-3">💬 API 란 무엇인가</h4>
+
+                  <p>
+                    <strong style={{ color: "skyblue" }}>API(Application Programming Interface)</strong>란 애플리케이션이나 시스템 간에 데이터를 주고받고 기능을 활용할 수 있도록 해주는
+                    <strong style={{ color: "skyblue" }}>표준화된 인터페이스</strong>입니다.
+                    쉽게 말해, 서로 다른 시스템이 같은 언어를 쓰지 않아도
+                    <strong style={{ color: "skyblue" }}>약속된 규칙</strong>을 통해 대화할 수 있게 하는 번역기 역할을 합니다.
+                  </p>
+
+                  <p>
+                    예를 들어 데이터 엔지니어는 원천 시스템에서 로그 파일을 직접 내려받을 수도 있지만,
+                    <strong style={{ color: "skyblue" }}>REST API</strong>나
+                    <strong style={{ color: "skyblue" }}>GraphQL API</strong>를 통해 필요한 데이터를 요청하고 응답을 받아오는 것이 더 효율적일 수 있습니다.
+                    또 다른 예로 날씨 API를 사용하면 기상청 데이터베이스에 직접 접속하지 않고도
+                    특정 도시 이름만 요청해 JSON 형식의 날씨 정보를 바로 받을 수 있습니다.
+                  </p>
+
+                  <p>
+                    즉, API는 데이터를 수집하고 교환하는 과정을 단순화하며,
+                    데이터 엔지니어링에서는 <strong style={{ color: "skyblue" }}>다양한 원천 시스템을 연결하는 핵심 도구</strong>로 활용됩니다.
+                  </p>
+
+                  <p>
+                    <strong style={{ color: "skyblue" }}>REST (Representational State Transfer)</strong>는
+                    GET, PUT 같은 HTTP 동사를 중심으로 설계되었지만,
+                    실제 현대 REST는 원래 논문에서 정의한 동사 매핑 중 일부만 사용됩니다.
+                    REST의 핵심 개념 중 하나는 <strong style={{ color: "skyblue" }}>무상태성(stateless)</strong>으로,
+                    각 호출은 독립적으로 수행되며 세션 상태를 유지하지 않습니다.
+                    시스템 상태 변경은 세션이 아닌 전체 시스템에 적용되는 전역 변경으로 처리됩니다.
+                  </p>
+
+                  <p>
+                    REST API 기반 데이터 수집 파이프라인에서는 클라이언트 라이브러리를 통해 상호 작용이 간소화됩니다.
+                    많은 데이터 공급자는 파이썬 등 다양한 언어용 클라이언트 라이브러리를 제공하며,
+                    인증 처리와 API 메서드를 접근 가능한 클래스에 매핑합니다.
+                    또한 많은 SaaS 및 오픈소스 벤더가 공통 API용 상용 커넥터를 제공합니다.
+                  </p>
+
+                  <p>
+                    <strong style={{ color: "skyblue" }}>GraphQL</strong>은 페이스북에서 개발한 애플리케이션 데이터 쿼리 언어이자
+                    REST API의 대안입니다.
+                    REST가 특정 데이터 모델 단위로 요청을 제한하는 반면,
+                    GraphQL은 <strong style={{ color: "skyblue" }}>단일 요청으로 여러 데이터 모델을 조회</strong>할 수 있습니다.
+                    클라이언트는 필요한 데이터만 선택적으로 요청할 수 있어 복잡한 데이터 요구 사항에 효율적입니다.
+                  </p>
+
+                  <p>
+                    <strong style={{ color: "skyblue" }}>웹훅(Webhook)</strong>은
+                    이벤트 발생 시 데이터 원본이 소비자가 호스팅하는 HTTP 엔드포인트를
+                    직접 호출하는 <strong style={{ color: "skyblue" }}>이벤트 기반 데이터 전송 방식</strong>입니다.
+                    일반 API와 달리 데이터 흐름이 원천 시스템에서 소비자로 주도적으로 연결되는
+                    reverse API 구조를 가지며, 실시간 알림과 데이터 동기화에 적합합니다.
+                  </p>
+
+                  <p>
+                    <strong style={{ color: "skyblue" }}>RPC와 gRPC</strong>는
+                    분산 시스템에서 원격 시스템의 프로시저를 실행하기 위한 방식입니다.
+                    gRPC는 구글에서 개발되어 공개된 RPC 프레임워크로,
+                    <strong style={{ color: "skyblue" }}>프로토콜 버퍼</strong>를 사용한 효율적인 직렬화와
+                    HTTP/2 기반 양방향 통신을 지원합니다.
+                    이는 CPU 사용률, 네트워크 대역폭, 전력 소모 측면에서 큰 이점을 제공합니다.
+                  </p>
+
+                  <p>
+                    REST나 GraphQL과 달리 gRPC는 명확한 기술 표준을 따르기 때문에,
+                    공통 클라이언트 라이브러리를 통해 일관된 호출 코드를 작성할 수 있으며,
+                    효율적인 분산 시스템 구현과 엔지니어의 기술 역량 축적에 도움이 됩니다.
+                  </p>
+
+                  <p>
+                      <strong style={{ color: "pink" }}>
+                          👉 키워드 → API / REST / gRPC
+                      </strong>
+                  </p>
+
+                  <p><br /></p>
+
                 </div>
               </div>
           </section>
