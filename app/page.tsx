@@ -11,21 +11,21 @@ export default function Home() {
       <div className="container mx-auto px-4 py-8 sm:py-16">
         <div className="flex flex-col items-center justify-center min-h-[60vh] text-center space-y-6 sm:space-y-8">
           <div className="flex flex-col items-center space-y-6">
-            <div className="space-y-4 w-full max-w-4xl">
+            <div className="space-y-4 w-full max-w-4xl relative">
+              <div className="flex justify-end mb-2">
+                <BlogStats />
+              </div>
               <TypingText
                 text="Daehong's Commit Log !"
                 className="text-2xl sm:text-4xl md:text-6xl font-bold text-primary"
               />
+              {/* </CHANGE> */}
               <br />
               <p className="text-base sm:text-xl text-muted-foreground max-w-2xl mx-auto px-4">
                 하루에 한 걸음씩 꾸준히 성장하는 엔지니어 전대홍입니다.
                 <br />
                 데이터를 통해 세상을 더 좋은 방향으로 이끄는 것을 목표로 합니다.
               </p>
-            </div>
-
-            <div className="pt-4">
-              <BlogStats />
             </div>
           </div>
 
