@@ -1,6 +1,5 @@
 "use client"
 
-import { Card, CardContent } from "@/components/ui/card"
 import { TrendingUp } from "lucide-react"
 import { useEffect, useState } from "react"
 
@@ -28,23 +27,20 @@ export function BlogStats() {
   }, [])
 
   return (
-    <Card className="border border-slate-200/60 dark:border-slate-700/60 shadow-lg bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-950/20 dark:to-indigo-950/20">
-      <CardContent className="p-6">
-        <div className="flex items-center justify-between">
-          <div>
-            <p className="text-sm font-medium text-muted-foreground mb-1">총 방문자 수</p>
-            {isLoading ? (
-              <div className="h-8 w-24 bg-muted animate-pulse rounded"></div>
-            ) : (
-              <p className="text-3xl font-bold text-foreground">{totalViews.toLocaleString()}</p>
-            )}
-          </div>
-          <div className="p-3 bg-blue-100 dark:bg-blue-900/30 rounded-full">
-            <TrendingUp className="h-6 w-6 text-blue-600 dark:text-blue-400" />
-          </div>
-        </div>
-        <p className="text-xs text-muted-foreground mt-3">Vercel Analytics로 추적중</p>
-      </CardContent>
-    </Card>
+    <div className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-gradient-to-r from-blue-500/10 via-indigo-500/10 to-purple-500/10 border border-blue-200/50 dark:border-blue-700/50 backdrop-blur-sm shadow-lg">
+      <div className="p-2 bg-blue-500/20 rounded-full">
+        <TrendingUp className="h-5 w-5 text-blue-600 dark:text-blue-400" />
+      </div>
+      <div className="flex flex-col">
+        <span className="text-xs font-medium text-muted-foreground">Total Visitors</span>
+        {isLoading ? (
+          <div className="h-6 w-20 bg-muted/50 animate-pulse rounded mt-0.5"></div>
+        ) : (
+          <span className="text-xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-blue-400 dark:to-indigo-400 bg-clip-text text-transparent">
+            {totalViews.toLocaleString()}
+          </span>
+        )}
+      </div>
+    </div>
   )
 }

@@ -23,10 +23,10 @@ export default function Home() {
                 데이터를 통해 세상을 더 좋은 방향으로 이끄는 것을 목표로 합니다.
               </p>
             </div>
-          </div>
 
-          <div className="w-full max-w-md mx-auto">
-            <BlogStats />
+            <div className="pt-4">
+              <BlogStats />
+            </div>
           </div>
 
           <div className="pt-8 sm:pt-12 w-full flex flex-col items-center sm:flex-row sm:justify-center gap-4 px-4">
