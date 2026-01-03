@@ -13,6 +13,7 @@ import { useToast } from "@/hooks/use-toast"
 import Image from "next/image"
 import { useState, useEffect } from "react"
 import type { JSX } from "react/jsx-runtime"
+import { PostViews } from "@/components/post-views"
 
 interface BlogPostPageProps {
   params: { slug: string }
@@ -305,6 +306,7 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
                     <Calendar className="h-4 w-4" />
                     <span>{post.publishedAt}</span>
                   </div>
+                  <PostViews postId={post.id} />
                   <Badge variant="secondary" className="font-medium text-xs">
                     {post.category}
                   </Badge>

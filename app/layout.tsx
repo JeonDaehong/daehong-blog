@@ -8,6 +8,8 @@ import { ThemeProvider } from "@/components/theme-provider"
 import { Toaster } from "@/components/ui/toaster"
 import { PrismLoader } from "@/components/prism-loader"
 import { PWAInstaller } from "@/components/pwa-installer"
+import { Analytics } from "@vercel/analytics/react"
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 const inter = Inter({ subsets: ["latin"] })
 const comfortaa = Comfortaa({
@@ -59,6 +61,8 @@ export default function RootLayout({
           <main className="flex-1">{children}</main>
           <Footer />
           <Toaster />
+          <Analytics />
+          <SpeedInsights />
         </ThemeProvider>
       </body>
     </html>
