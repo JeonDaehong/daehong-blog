@@ -22,6 +22,8 @@ const content = `
   <img src="/images/blog/2025-memoir.png" alt="썸네일" style="border: 2px solid skyblue; border-radius: 4px;" width="100%" />
 </div>
 
+<br>
+
 # 📘 서론
 
 2025년을 요약해보면, **느리지만 나만의 방식으로, 한 걸음씩 꾸준히 나아간 한 해** 라고 할 수 있을 거 같습니다.
