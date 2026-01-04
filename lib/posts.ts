@@ -6,6 +6,7 @@ import { meta as meta2, default as content2 } from "@/content/posts/iceberg-flin
 import { meta as meta3, default as content3 } from "@/content/posts/iceberg-flink-backporting-minicluster-removal"
 import { meta as meta4, default as content4 } from "@/content/posts/apache-gravitino-stability-improvements"
 import { meta as meta6, default as content6 } from "@/content/posts/apache-iceberg-basic"
+import { meta as meta7, default as content7 } from "@/content/posts/2025-memoir"
 
 const postModules = [
   { id: "spring-kafka-retrytopic-bean-name-fix", meta: meta1, content: content1 },
@@ -13,6 +14,7 @@ const postModules = [
   { id: "iceberg-flink-backporting-minicluster-removal", meta: meta3, content: content3 },
   { id: "apache-gravitino-stability-improvements", meta: meta4, content: content4 },
   { id: "apache-iceberg-basic", meta: meta6, content: content6 },
+  { id: "2025-memoir", meta: meta7, content: content7 },
 ]
 
 export const posts: Post[] = postModules
