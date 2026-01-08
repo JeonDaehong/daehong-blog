@@ -15,21 +15,27 @@ export async function loadPrism() {
     try {
       const Prism = (await import("prismjs")).default
 
-      // 존재하는 언어 컴포넌트만 로드
+      // Basic languages first
+      await import("prismjs/components/prism-javascript")
+      await import("prismjs/components/prism-typescript")
+      await import("prismjs/components/prism-markup") // HTML (needed for JSX/TSX)
+      await import("prismjs/components/prism-css")
+
+      // JSX requires markup and javascript
+      await import("prismjs/components/prism-jsx")
+
+      // TSX requires typescript and jsx
+      await import("prismjs/components/prism-tsx")
+
+      // Load remaining languages
       await Promise.all([
-        import("prismjs/components/prism-javascript"),
-        import("prismjs/components/prism-typescript"),
         import("prismjs/components/prism-java"),
         import("prismjs/components/prism-python"),
         import("prismjs/components/prism-bash"),
         import("prismjs/components/prism-sql"),
         import("prismjs/components/prism-json"),
-        import("prismjs/components/prism-css"),
-        import("prismjs/components/prism-jsx"),
-        import("prismjs/components/prism-tsx"),
         import("prismjs/components/prism-scala"),
         import("prismjs/components/prism-yaml"),
-        import("prismjs/components/prism-markup"), // HTML
       ])
 
       prismLoaded = true
