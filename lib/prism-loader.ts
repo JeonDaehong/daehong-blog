@@ -27,16 +27,14 @@ export async function loadPrism() {
       // TSX requires typescript and jsx
       await import("prismjs/components/prism-tsx")
 
-      // Load remaining languages
-      await Promise.all([
-        import("prismjs/components/prism-java"),
-        import("prismjs/components/prism-python"),
-        import("prismjs/components/prism-bash"),
-        import("prismjs/components/prism-sql"),
-        import("prismjs/components/prism-json"),
-        import("prismjs/components/prism-scala"),
-        import("prismjs/components/prism-yaml"),
-      ])
+      // Load remaining languages sequentially to avoid dependency issues
+      await import("prismjs/components/prism-java")
+      await import("prismjs/components/prism-python")
+      await import("prismjs/components/prism-bash")
+      await import("prismjs/components/prism-sql")
+      await import("prismjs/components/prism-json")
+      await import("prismjs/components/prism-scala")
+      await import("prismjs/components/prism-yaml")
 
       prismLoaded = true
       return Prism
