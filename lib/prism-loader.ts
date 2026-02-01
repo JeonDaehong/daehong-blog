@@ -5,7 +5,7 @@ let prismLoadPromise: Promise<any> | null = null
 export async function loadPrism() {
   if (prismLoaded) {
     return (window as any).Prism
-  }
+  } 
 
   if (prismLoadPromise) {
     return prismLoadPromise
